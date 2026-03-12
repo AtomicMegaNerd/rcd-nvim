@@ -1,6 +1,3 @@
--- If CLI_THEME environment variable is set to "catppuccin" then
--- we want to load this plug-in.
-
 return {
   "catppuccin/nvim",
   name = "catppuccin",
