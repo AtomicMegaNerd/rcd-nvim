@@ -2,3 +2,4 @@
 lazy-lock.json
 lua/amn/user/spell/
 .direnv
+.pre-commit-config.yaml
