@@ -22,13 +22,18 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "haskell",
     "lua",
-    "typescript",
-    "javascript",
     "terraform",
     "nix",
     "markdown",
     "yaml",
+    "html",
+    "css",
     "json",
+    "scss",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
   },
 })
 
