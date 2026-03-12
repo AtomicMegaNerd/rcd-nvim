@@ -11,6 +11,8 @@ return {
       ["mini.surround"] = {},
       ["mini.comment"] = {},
       ["mini.statusline"] = {},
+      ["mini.ai"] = {},
+      ["mini.diff"] = {},
     }
 
     -- Iterate over each mini plugin and run setup() on it
