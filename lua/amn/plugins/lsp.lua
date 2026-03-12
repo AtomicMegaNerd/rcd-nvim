@@ -54,6 +54,12 @@ return {
       },
     })
 
+    vim.lsp.config("html", {
+      on_attach = function(client)
+        client.server_capabilities.completionProvider = nil
+      end,
+    })
+
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
