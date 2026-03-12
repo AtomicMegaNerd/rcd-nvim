@@ -9,6 +9,7 @@ return {
     local mini_plugins = {
       ["mini.icons"] = function(m)
         m.setup()
+        m.mock_nvim_web_devicons()
       end,
       ["mini.surround"] = function(m)
         m.setup()
