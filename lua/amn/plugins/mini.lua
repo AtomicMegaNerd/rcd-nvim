@@ -1,6 +1,6 @@
 return {
   "nvim-mini/mini.nvim",
-  version = "*",
+  version = false,
 
   config = function()
     local utils = require("amn.utils")
