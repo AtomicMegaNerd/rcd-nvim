@@ -25,18 +25,14 @@ return {
       "css",
     }
 
-    require("nvim-treesitter").install(langs):wait(300000)
-
-    -- Enable highlighting for all specified languages
-    local trs_grp = vim.api.nvim_create_augroup("Treesitter", { clear = true })
-    for _, lang in ipairs(langs) do
-      vim.api.nvim_create_autocmd("FileType", {
-        group = trs_grp,
-        pattern = lang,
-        callback = function()
-          vim.treesitter.start()
-        end,
-      })
-    end
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = langs,
+      auto_install = true,
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+      indent = { enable = true },
+    })
   end,
 }

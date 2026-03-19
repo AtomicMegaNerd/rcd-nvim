@@ -24,7 +24,6 @@ information on this version.
 │       │   ├── keymap.lua
 │       │   ├── options.lua
 │       │   └── plugins.lua # Sets up lazy.nvim3
-│       └── utils.lua
 ├── README.md
 ├── scripts
 │   └── zellij.sh # A script to use my custom Zellij layout for this repo
