@@ -4,14 +4,7 @@ return {
   priority = 1000,
 
   config = function()
-    local utils = require("amn.utils")
-    local catppuccin = utils.do_import("catppuccin")
-
-    if not catppuccin then
-      return
-    end
-
-    catppuccin.setup({
+    require("catppuccin").setup({
       auto_integrations = true,
       flavour = "macchiato",
       no_italic = true,

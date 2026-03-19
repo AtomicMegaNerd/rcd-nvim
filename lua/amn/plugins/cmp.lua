@@ -1,6 +1,7 @@
 return {
   "saghen/blink.cmp",
   version = "1.*",
+  event = { "InsertEnter", "CmdlineEnter" },
   dependencies = { "fang2hou/blink-copilot" },
   opts = {
     -- Do not enable for some filetypes as it is annoying

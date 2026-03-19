@@ -1,12 +1,8 @@
 return {
   "mfussenegger/nvim-lint",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local utils = require("amn.utils")
-    local lint = utils.do_import("lint")
-    if not lint then
-      return
-    end
-    lint.linters_by_ft = {
+    require("lint").linters_by_ft = {
       go = { "golangcilint" },
       yaml = { "yamllint" },
       md = { "markdownlint-cli2" },

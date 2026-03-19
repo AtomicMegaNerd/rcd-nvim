@@ -6,8 +6,6 @@
 --                                              /____/
 --
 --
-local utils = require("amn.utils")
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -21,12 +19,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local lazy = utils.do_import("lazy")
-if not lazy then
-  return
-end
-
-lazy.setup("amn.plugins", {
+require("lazy").setup("amn.plugins", {
   -- Because of nix systems which make the nvim config directory read-only
   -- we need to set the lock file for lazy to a writable directory
   rocks = { enabled = false },

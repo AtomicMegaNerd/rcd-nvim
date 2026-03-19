@@ -1,5 +1,29 @@
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
+  keys = {
+    { "<leader>rn", vim.lsp.buf.rename, desc = "[R]e[n]ame" },
+    { "<leader>ca", vim.lsp.buf.code_action, desc = "[C]ode [A]ction" },
+    { "K", vim.lsp.buf.hover, desc = "Hover Documentation" },
+    { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature Documentation" },
+    { "gd", vim.lsp.buf.definition, desc = "[G]oto [D]efinition" },
+    { "gl", vim.lsp.buf.declaration, desc = "[G]oto Dec[l]aration" },
+    { "gi", vim.lsp.buf.implementation, desc = "[G]oto [I]mplementation" },
+    { "gt", vim.lsp.buf.type_definition, desc = "[G]oto [T]ype Definition" },
+    { "gr", vim.lsp.buf.references, desc = "[G]oto [R]eferences" },
+    { "<leader>ci", vim.lsp.buf.incoming_calls, desc = "[C]all Hierarchy [I]ncoming" },
+    { "<leader>co", vim.lsp.buf.outgoing_calls, desc = "[C]all Hierarchy [O]utgoing" },
+    { "td", vim.diagnostic.open_float, desc = "[T]oggle [D]iagnostic" },
+    { "tn", vim.diagnostic.goto_next, desc = "[T]o [N]ext Diagnostic" },
+    { "tp", vim.diagnostic.goto_prev, desc = "[T]o [P]rev Diagnostic" },
+    {
+      "<leader>ti",
+      function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+      end,
+      desc = "[T]oggle [I]nlay Hint",
+    },
+  },
   config = function()
     local servers = {
       "ruff",
@@ -82,25 +106,5 @@ return {
         },
       },
     })
-
-    local utils = require("amn.utils")
-
-    utils.nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame", "LSP")
-    utils.nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", "LSP")
-    utils.nmap("K", vim.lsp.buf.hover, "Hover Documentation", "LSP")
-    utils.nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation", "LSP")
-    utils.nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition", "LSP")
-    utils.nmap("gl", vim.lsp.buf.declaration, "[G]oto Dec[l]aration", "LSP")
-    utils.nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation", "LSP")
-    utils.nmap("gt", vim.lsp.buf.type_definition, "[G]oto [T]ype Definition", "LSP")
-    utils.nmap("gr", vim.lsp.buf.references, "[G]oto [R]eferences", "LSP")
-    utils.nmap("<leader>ci", vim.lsp.buf.incoming_calls, "[C]all Hierarchy [I]ncoming", "LSP")
-    utils.nmap("<leader>co", vim.lsp.buf.outgoing_calls, "[C]all Hierarchy [O]utgoing", "LSP")
-    utils.nmap("td", vim.diagnostic.open_float, "[T]oggle [D]iagnostic", "LSP")
-    utils.nmap("tn", vim.diagnostic.goto_next, "[T]o [N]ext Diagnostic", "LSP")
-    utils.nmap("tp", vim.diagnostic.goto_prev, "[T]o [P]rev Diagnostic", "LSP")
-    utils.nmap("<leader>ti", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-    end, "[T]oggle [I]nlay Hint", "LSP")
   end,
 }

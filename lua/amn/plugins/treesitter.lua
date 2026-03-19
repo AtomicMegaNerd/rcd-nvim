@@ -5,13 +5,6 @@ return {
   build = ":TSUpdate",
 
   config = function()
-    local utils = require("amn.utils")
-    local ts = utils.do_import("nvim-treesitter")
-
-    if not ts then
-      return
-    end
-
     local langs = {
       "bash",
       "dockerfile",
@@ -29,10 +22,10 @@ return {
       "gomod",
       "fish",
       "html",
-      "css"
+      "css",
     }
 
-    ts.install(langs):wait(300000)
+    require("nvim-treesitter").install(langs):wait(300000)
 
     -- Enable highlighting for all specified languages
     local trs_grp = vim.api.nvim_create_augroup("Treesitter", { clear = true })

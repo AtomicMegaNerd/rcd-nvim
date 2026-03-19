@@ -3,8 +3,6 @@ return {
   version = false,
 
   config = function()
-    local utils = require("amn.utils")
-
     -- The plugin and their config functions live here...
     local mini_plugins = {
       ["mini.icons"] = function(m)
@@ -70,10 +68,7 @@ return {
 
     -- Iterate over each mini plugin and run setup() on it
     for plugin_str, plugin_fn in pairs(mini_plugins) do
-      local plugin = utils.do_import(plugin_str)
-      if not plugin then
-        return
-      end
+      local plugin = require(plugin_str)
       plugin_fn(plugin)
     end
   end,

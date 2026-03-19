@@ -7,27 +7,25 @@
 --
 -- Custom Neovim keybindings
 
-local utils = require("amn.utils")
-
 -- Arrow keys
 ----------------------------------------------------------------
 -- Disable arrow keys for editing
-utils.nmap("<up>", "<nop>")
-utils.nmap("<down>", "<nop>")
-utils.imap("<up>", "<nop>")
-utils.imap("<down>", "<nop>")
-utils.imap("<left>", "<nop>")
-utils.imap("<right>", "<nop>")
+vim.keymap.set("n", "<up>", "<nop>")
+vim.keymap.set("n", "<down>", "<nop>")
+vim.keymap.set("i", "<up>", "<nop>")
+vim.keymap.set("i", "<down>", "<nop>")
+vim.keymap.set("i", "<left>", "<nop>")
+vim.keymap.set("i", "<right>", "<nop>")
 
 -- Remap ; to : for normal mode
-utils.nmap(";", ":")
+vim.keymap.set("n", ";", ":")
 
 -- Left and right can switch buffers
-utils.nmap("<left>", "<cmd>bp<cr>")
-utils.nmap("<right>", "<cmd>bn<cr>")
+vim.keymap.set("n", "<left>", "<cmd>bp<cr>")
+vim.keymap.set("n", "<right>", "<cmd>bn<cr>")
 
 -- Delete without overwriting the clipboard
-utils.nmap("x", '"_x')
+vim.keymap.set("n", "x", '"_x')
 
 -- Make selection an unordered list item in Markdown
-utils.vmap("<leader>-", ":normal! I- <CR>", "Markdown: make list")
+vim.keymap.set("v", "<leader>-", ":normal! I- <CR>", { desc = "Markdown: make list" })

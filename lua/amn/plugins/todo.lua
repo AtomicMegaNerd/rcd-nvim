@@ -1,15 +1,11 @@
 return {
-	"folke/todo-comments.nvim",
-	dependencies = "nvim-lua/plenary.nvim",
-	config = function()
-		local utils = require("amn.utils")
-		local todo = utils.do_import("todo-comments")
-
-		if not todo then
-			return
-		end
-
-		todo.setup()
-		utils.nmap("<leader>fT", "<cmd>TodoFzfLua<CR>", "[F]ind [T]odos")
-	end,
+  "folke/todo-comments.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  keys = {
+    { "<leader>fT", "<cmd>TodoFzfLua<CR>", desc = "[F]ind [T]odos" },
+  },
+  dependencies = "nvim-lua/plenary.nvim",
+  config = function()
+    require("todo-comments").setup()
+  end,
 }

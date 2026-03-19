@@ -1,14 +1,11 @@
 return {
   "stevearc/oil.nvim",
+  cmd = "Oil",
+  keys = {
+    { "<leader>o", "<Cmd>Oil<CR>", desc = "Open current directory in Oil" },
+  },
   config = function()
-    local utils = require("amn.utils")
-    local oil = utils.do_import("oil")
-
-    if not oil then
-      return
-    end
-
-    oil.setup({
+    require("oil").setup({
       columns = {
         "icon",
         "size",
@@ -18,6 +15,5 @@ return {
         show_hidden = true,
       },
     })
-    utils.nmap("<leader>o", "<Cmd>Oil<CR>", "Open current directory in Oil")
   end,
 }

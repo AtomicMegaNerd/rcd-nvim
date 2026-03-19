@@ -1,18 +1,22 @@
 return {
   "NeogitOrg/neogit",
+  cmd = "Neogit",
+  keys = {
+    {
+      "<leader>ng",
+      function()
+        require("neogit").open()
+      end,
+      desc = "Open [N]eo[G]it",
+    },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
     "ibhagwan/fzf-lua",
   },
   config = function()
-    local utils = require("amn.utils")
-    local neogit = utils.do_import("neogit")
-    if not neogit then
-      return
-    end
-
-    neogit.setup({
+    require("neogit").setup({
       -- Never use tabs
       kind = "replace",
       integrations = {
@@ -20,6 +24,5 @@ return {
         fzf_lua = true,
       },
     })
-    utils.nmap("<leader>ng", neogit.open, "Open [N]eo[G]it")
   end,
 }

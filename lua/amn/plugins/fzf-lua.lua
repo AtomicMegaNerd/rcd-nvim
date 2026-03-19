@@ -1,17 +1,127 @@
 return {
   "ibhagwan/fzf-lua",
+  cmd = "FzfLua",
+  keys = {
+    {
+      "<leader>ff",
+      function()
+        require("fzf-lua").files()
+      end,
+      desc = "[F]ind [F]iles",
+    },
+    {
+      "<leader>fb",
+      function()
+        require("fzf-lua").buffers()
+      end,
+      desc = "[F]ind [B]uffers",
+    },
+    {
+      "<leader>fd",
+      function()
+        require("fzf-lua").diagnostics_document()
+      end,
+      desc = "[F]ind Document [d]iagnostics",
+    },
+    {
+      "<leader>fD",
+      function()
+        require("fzf-lua").diagnostics_workspace()
+      end,
+      desc = "[F]ind Workspace [D]iagnostics",
+    },
+    {
+      "<leader>fl",
+      function()
+        require("fzf-lua").live_grep()
+      end,
+      desc = "[F]ind [L]ive grep",
+    },
+    {
+      "<leader>fq",
+      function()
+        require("fzf-lua").quickfix()
+      end,
+      desc = "[F]ind [Q]uickfix",
+    },
+    -- Git
+    {
+      "<leader>fgf",
+      function()
+        require("fzf-lua").git_files()
+      end,
+      desc = "[F]ind [G]it files",
+    },
+    {
+      "<leader>fgs",
+      function()
+        require("fzf-lua").git_status()
+      end,
+      desc = "[F]ind [G]it [S]tatus",
+    },
+    {
+      "<leader>fgc",
+      function()
+        require("fzf-lua").git_commits()
+      end,
+      desc = "[F]ind [G]it [C]ommits",
+    },
+    {
+      "<leader>fgb",
+      function()
+        require("fzf-lua").git_branches()
+      end,
+      desc = "[F]ind [G]it [B]ranches",
+    },
+    -- General
+    {
+      "<leader>fh",
+      function()
+        require("fzf-lua").help_tags()
+      end,
+      desc = "[F]ind [H]elp tags",
+    },
+    {
+      "<leader>fc",
+      function()
+        require("fzf-lua").commands()
+      end,
+      desc = "[F]ind [C]ommands",
+    },
+    {
+      "<leader>fk",
+      function()
+        require("fzf-lua").keymaps()
+      end,
+      desc = "[F]ind [K]eymaps",
+    },
+    -- LSP
+    {
+      "<leader>fs",
+      function()
+        require("fzf-lua").lsp_document_symbols()
+      end,
+      desc = "[F]ind [S]ymbols",
+    },
+    {
+      "<leader>fw",
+      function()
+        require("fzf-lua").lsp_workspace_symbols()
+      end,
+      desc = "[F]ind [W]orkspace symbols",
+    },
+    {
+      "<leader>fr",
+      function()
+        require("fzf-lua").lsp_references()
+      end,
+      desc = "[F]ind [R]eferences",
+    },
+  },
   config = function()
-    local utils = require("amn.utils")
-    local fzf_lua = utils.do_import("fzf-lua")
-
-    if not fzf_lua then
-      return
-    end
-
     -- Use fzf-lua as the default UI selector
-    fzf_lua.register_ui_select()
-
-    fzf_lua.setup({
+    require("fzf-lua").register_ui_select()
+    require("fzf-lua").setup({
       file_ignore_patterns = {
         "node_modules/",
         "**/__pycache__",
@@ -20,28 +130,5 @@ return {
         ".venv",
       },
     })
-
-    utils.nmap("<leader>ff", fzf_lua.files, "[F]ind [F]iles")
-    utils.nmap("<leader>fb", fzf_lua.buffers, "[F]ind [B]uffers")
-    utils.nmap("<leader>fd", fzf_lua.diagnostics_document, "[F]ind Document [d]iagnostics")
-    utils.nmap("<leader>fD", fzf_lua.diagnostics_workspace, "[F]ind Workspace [D]iagnostics")
-    utils.nmap("<leader>fl", fzf_lua.live_grep, "[F]ind [L]ive grep")
-    utils.nmap("<leader>fq", fzf_lua.quickfix, "[F]ind [Q]uickfix")
-
-    -- Keybindings for git commands
-    utils.nmap("<leader>fgf", fzf_lua.git_files, "[F]ind [G]it files")
-    utils.nmap("<leader>fgs", fzf_lua.git_status, "[F]ind [G]it [S]tatus")
-    utils.nmap("<leader>fgc", fzf_lua.git_commits, "[F]ind [G]it [C]ommits")
-    utils.nmap("<leader>fgb", fzf_lua.git_branches, "[F]ind [G]it [B]ranches")
-
-    -- Keybindings for general Neovim
-    utils.nmap("<leader>fh", fzf_lua.help_tags, "[F]ind [H]elp tags")
-    utils.nmap("<leader>fc", fzf_lua.commands, "[F]ind [C]ommands")
-    utils.nmap("<leader>fk", fzf_lua.keymaps, "[F]ind [K]eymaps")
-
-    -- Keybindings for LSP
-    utils.nmap("<leader>fs", fzf_lua.lsp_document_symbols, "[F]ind [S]ymbols")
-    utils.nmap("<leader>fw", fzf_lua.lsp_workspace_symbols, "[F]ind [W]orkspace symbols")
-    utils.nmap("<leader>fr", fzf_lua.lsp_references, "[F]ind [R]eferences")
   end,
 }
