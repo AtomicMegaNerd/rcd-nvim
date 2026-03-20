@@ -28,7 +28,7 @@ return {
       ghost_text = { enabled = true },
     },
     sources = {
-      default = { "lsp", "copilot", "path", "buffer" },
+      default = { "lazydev", "lsp", "copilot", "path", "buffer" },
       per_filetype = {
         -- Don't have copilot ruining our emmet experience
         html = {
@@ -71,6 +71,7 @@ return {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
+          score_offset = 100,
           fallbacks = { "lsp" },
         },
       },

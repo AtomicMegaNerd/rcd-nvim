@@ -33,7 +33,7 @@
     in
     {
       homeManagerModules.default =
-        { pkgs, ... }:
+        { pkgs, lib, ... }:
         {
           programs.neovim = {
             enable = true;
@@ -45,7 +45,13 @@
               nodejs-slim_24
             ];
           };
-          xdg.configFile."nvim".source = self;
+          xdg.configFile."nvim".source = lib.fileset.toSource {
+            root = self;
+            fileset = lib.fileset.unions [
+              ./init.lua
+              ./lua
+            ];
+          };
         };
 
       checks = forAllSystems (system: {
@@ -60,8 +66,8 @@
         {
           default = pkgs.mkShell {
             inherit (self.checks.${system}.pre-commit-check) shellHook;
-            buildInputs = [
-              pkgs.nodejs # Needed for claude to use MCP
+            buildInputs = with pkgs; [
+              nodejs # Needed for claude to use MCP
             ];
           };
         }
