@@ -60,6 +60,9 @@
         {
           default = pkgs.mkShell {
             inherit (self.checks.${system}.pre-commit-check) shellHook;
+            buildInputs = [
+              pkgs.nodejs-slim_24 # Needed for claude to use MCP
+            ];
           };
         }
       );
