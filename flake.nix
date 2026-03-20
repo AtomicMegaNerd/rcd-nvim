@@ -33,7 +33,7 @@
     in
     {
       homeManagerModules.default =
-        { pkgs, lib, ... }:
+        { pkgs, ... }:
         {
           programs.neovim = {
             enable = true;
@@ -45,13 +45,7 @@
               nodejs-slim_24
             ];
           };
-          xdg.configFile."nvim".source = lib.fileset.toSource {
-            root = self;
-            fileset = lib.fileset.unions [
-              ./init.lua
-              ./lua
-            ];
-          };
+          xdg.configFile."nvim".source = self;
         };
 
       checks = forAllSystems (system: {
