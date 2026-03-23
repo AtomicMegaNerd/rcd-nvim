@@ -19,9 +19,14 @@ return {
     require("neogit").setup({
       -- Never use tabs
       kind = "replace",
+      graph_style = "unicode",
       integrations = {
         diffview = true,
         fzf_lua = true,
+      },
+      commit_editor = {
+        kind = "replace",
+        staged_diff_split_kind = "auto",
       },
     })
   end,
