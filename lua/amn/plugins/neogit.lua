@@ -18,14 +18,14 @@ return {
   config = function()
     require("neogit").setup({
       -- Never use tabs
-      kind = "replace",
+      kind = "floating",
       graph_style = "unicode",
       integrations = {
         diffview = true,
         fzf_lua = true,
       },
       commit_editor = {
-        kind = "replace",
+        kind = "floating",
       },
     })
   end,
