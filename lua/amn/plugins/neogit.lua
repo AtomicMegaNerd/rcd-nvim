@@ -26,7 +26,6 @@ return {
       },
       commit_editor = {
         kind = "replace",
-        staged_diff_split_kind = "auto",
       },
     })
   end,
