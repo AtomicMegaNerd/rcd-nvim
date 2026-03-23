@@ -3,7 +3,7 @@ return {
   cmd = "Neogit",
   keys = {
     {
-      "<leader>ng",
+      "<leader>gg",
       function()
         require("neogit").open()
       end,
