@@ -11,7 +11,8 @@ return {
     appearance = {
       nerd_font_variant = "normal",
     },
-    keymap = { preset = "enter" },
+    -- Super tab should not intefere with our regular editing.
+    keymap = { preset = "super-tab" },
     completion = {
       documentation = {
         auto_show = true,
@@ -24,16 +25,31 @@ return {
       },
       trigger = {
         show_on_blocked_trigger_characters = { " ", "\n", "\t" },
+        show_in_snippet = false,
       },
       ghost_text = { enabled = true },
     },
     sources = {
       default = { "lazydev", "lsp", "copilot", "path", "buffer" },
       per_filetype = {
-        -- Don't have copilot ruining our emmet experience
-        html = {
+        -- Don't have copilot ruining our emmet experience, also let's not have emmet ruin our
+        -- html comments experience.
+        html = function()
+          local ok, node = pcall(vim.treesitter.get_node)
+          if
+            ok
+            and node
+            and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
+          then
+            return {}
+          end
+          return { "lsp", "path" }
+        end,
+        css = {
           "lsp",
-          "path",
+        },
+        scss = {
+          "lsp",
         },
       },
       providers = {
@@ -46,8 +62,6 @@ return {
               local trigger_characters = self:get_trigger_characters()
               local web_filetypes = {
                 "html",
-                "css",
-                "scss",
                 "javascript",
                 "javascriptreact",
                 "typescript",
