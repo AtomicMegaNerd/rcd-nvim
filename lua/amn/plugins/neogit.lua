@@ -3,7 +3,7 @@ return {
   cmd = "Neogit",
   keys = {
     {
-      "<leader>gg",
+      "<leader>ng",
       function()
         require("neogit").open()
       end,
@@ -17,15 +17,14 @@ return {
   },
   config = function()
     require("neogit").setup({
-      -- Never use tabs
-      kind = "floating",
+      kind = "replace",
       graph_style = "unicode",
       integrations = {
         diffview = true,
         fzf_lua = true,
       },
       commit_editor = {
-        kind = "floating",
+        kind = "replace",
       },
     })
   end,

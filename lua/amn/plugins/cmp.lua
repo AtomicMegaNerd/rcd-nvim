@@ -4,76 +4,33 @@ return {
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = { "fang2hou/blink-copilot" },
   opts = {
-    -- Do not enable for some filetypes as it is annoying
-    enabled = function()
-      return not vim.tbl_contains({ "gitcommit", "markdown" }, vim.bo.filetype)
-    end,
     appearance = {
       nerd_font_variant = "normal",
     },
-    -- Super tab should not intefere with our regular editing.
-    keymap = { preset = "super-tab" },
+    keymap = { preset = "super-tab", ["<CR>"] = { "hide", "fallback" } },
     completion = {
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 500,
-      },
       menu = {
         draw = {
           columns = { { "label" }, { "kind_icon", "kind" }, { "source_name" } },
         },
       },
-      trigger = {
-        show_on_blocked_trigger_characters = { " ", "\n", "\t" },
-        show_in_snippet = false,
-      },
-      ghost_text = { enabled = true },
     },
     sources = {
-      default = { "lazydev", "lsp", "copilot", "path", "buffer" },
+      default = { "lsp", "copilot", "path", "buffer", "lazydev" },
       per_filetype = {
-        -- Don't have copilot ruining our emmet experience, also let's not have emmet ruin our
-        -- html comments experience.
-        html = function()
-          local ok, node = pcall(vim.treesitter.get_node)
-          if
-            ok
-            and node
-            and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type())
-          then
-            return {}
-          end
-          return { "lsp", "path" }
-        end,
-        css = {
-          "lsp",
-        },
-        scss = {
-          "lsp",
-        },
+        gitcommit = { "path", "buffer" },
+        markdown = { "path", "buffer" },
       },
       providers = {
         lsp = {
-          -- This override is needed to add "!" as a trigger character for web filetypes, as it is
-          -- commonly used in HTML and CSS for things like doctype declarations and important
-          -- flags.
+          -- This override is needed to add "!" as a trigger character for html
           override = {
             get_trigger_characters = function(self)
-              local trigger_characters = self:get_trigger_characters()
-              local web_filetypes = {
-                "html",
-                "javascript",
-                "javascriptreact",
-                "typescript",
-                "typescriptreact",
-              }
-              if
-                vim.tbl_contains(web_filetypes, vim.bo.filetype)
-                and not vim.tbl_contains(trigger_characters, "!")
-              then
-                table.insert(trigger_characters, "!")
+              local chars = self:get_trigger_characters()
+              if vim.bo.filetype == "html" and not vim.tbl_contains(chars, "!") then
+                table.insert(chars, "!")
               end
-              return trigger_characters
+              return chars
             end,
           },
         },
