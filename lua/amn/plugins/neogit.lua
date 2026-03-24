@@ -23,9 +23,6 @@ return {
         diffview = true,
         fzf_lua = true,
       },
-      commit_editor = {
-        kind = "replace",
-      },
     })
   end,
 }
