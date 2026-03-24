@@ -1,6 +1,6 @@
 return {
   "NeogitOrg/neogit",
-  cmd = "Neogit",
+  version = false,
   keys = {
     {
       "<leader>ng",
