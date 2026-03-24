@@ -59,3 +59,4 @@ information on this version.
 - However, claude code doesn't use nix so for the devShell we install the full `nodejs` when doing
   development on this config.
 - We only need to support `x86_64-linux` and `aarch64-darwin`.
+- Use `bat`, `ripgrep`, and `fd` as I gave you permissions to use those.
