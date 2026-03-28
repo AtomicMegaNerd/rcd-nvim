@@ -2,7 +2,6 @@ return {
   "saghen/blink.cmp",
   version = "1.*",
   event = { "InsertEnter", "CmdlineEnter" },
-  dependencies = { "fang2hou/blink-copilot" },
   opts = {
     appearance = {
       nerd_font_variant = "normal",
@@ -16,7 +15,7 @@ return {
       },
     },
     sources = {
-      default = { "lsp", "copilot", "path", "buffer", "lazydev" },
+      default = { "lsp", "path", "buffer", "lazydev" },
       per_filetype = {
         gitcommit = { "path", "buffer" },
         markdown = { "path", "buffer" },
@@ -35,12 +34,6 @@ return {
               return chars
             end,
           },
-        },
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          async = true,
-          max_items = 3,
         },
         path = { max_items = 3 },
         buffer = { max_items = 3 },

@@ -7,7 +7,6 @@ return {
   config = function()
     local langs = {
       "bash",
-      "dockerfile",
       "go",
       "json",
       "lua",
@@ -28,10 +27,7 @@ return {
     require("nvim-treesitter").setup({
       ensure_installed = langs,
       auto_install = true,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
+      highlight = { enable = true },
       indent = { enable = true },
     })
   end,
