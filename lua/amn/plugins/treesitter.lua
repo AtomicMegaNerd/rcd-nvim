@@ -4,8 +4,8 @@ return {
   lazy = false,
   build = ":TSUpdate",
 
-  config = function()
-    local langs = {
+  require("nvim-treesitter")
+    .install({
       "bash",
       "go",
       "json",
@@ -22,11 +22,6 @@ return {
       "fish",
       "html",
       "css",
-    }
-
-    require("nvim-treesitter").setup({
-      ensure_installed = langs,
-      auto_install = true,
     })
-  end,
+    :wait(300000),
 }
