@@ -7,7 +7,6 @@ return {
   config = function()
     local langs = {
       "bash",
-      "dockerfile",
       "go",
       "json",
       "lua",
