@@ -3,25 +3,26 @@ return {
   branch = "main",
   lazy = false,
   build = ":TSUpdate",
-
-  require("nvim-treesitter")
-    .install({
-      "bash",
-      "go",
-      "json",
-      "lua",
-      "markdown",
-      "python",
-      "sql",
-      "vim",
-      "yaml",
-      "toml",
-      "nix",
-      "diff",
-      "gomod",
-      "fish",
-      "html",
-      "css",
-    })
-    :wait(300000),
+  config = function()
+    require("nvim-treesitter")
+      .install({
+        "bash",
+        "go",
+        "json",
+        "lua",
+        "markdown",
+        "python",
+        "sql",
+        "vim",
+        "yaml",
+        "toml",
+        "nix",
+        "diff",
+        "gomod",
+        "fish",
+        "html",
+        "css",
+      })
+      :wait(300000)
+  end,
 }
