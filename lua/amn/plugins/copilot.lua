@@ -9,6 +9,7 @@ return {
       keymap = {
         accept = "<C-y>",
         next = "<C-y>",
+        prev = false,
         dismiss = "<Esc>",
       },
     },
