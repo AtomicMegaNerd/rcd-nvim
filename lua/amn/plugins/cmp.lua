@@ -6,7 +6,7 @@ return {
     appearance = {
       nerd_font_variant = "normal",
     },
-    keymap = { preset = "super-tab", ["<CR>"] = { "hide", "fallback" } },
+    keymap = { preset = "super-tab", ["<CR>"] = { "hide", "fallback" }, ["<C-y>"] = {} },
     completion = {
       menu = {
         draw = {

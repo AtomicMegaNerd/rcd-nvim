@@ -7,9 +7,9 @@ return {
       enabled = true,
       auto_trigger = false,
       keymap = {
-        accept = "<M-l>",
-        next = "<M-]>",
-        dismiss = "<M-[>",
+        accept = "<C-y>",
+        next = "<C-y>",
+        dismiss = "<Esc>",
       },
     },
     panel = { enabled = false },
