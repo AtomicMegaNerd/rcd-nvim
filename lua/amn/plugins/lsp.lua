@@ -26,23 +26,59 @@ return {
   },
   config = function()
     local servers = {
-      "ruff",
-      "pyright",
-      "lua_ls",
-      "gopls",
-      "docker_language_server",
-      "yamlls",
       "bashls",
+      "copilot",
       "cssls",
-      "jsonls",
+      "docker_language_server",
       "emmet_ls",
+      "gopls",
       "html",
+      "jsonls",
+      "lua_ls",
       "marksman",
+      "pyright",
+      "ruff",
+      "yamlls",
     }
 
     for _, lsp in ipairs(servers) do
       vim.lsp.enable(lsp)
     end
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if
+          client
+          and client:supports_method(
+            vim.lsp.protocol.Methods.textDocument_inlineCompletion,
+            args.buf
+          )
+        then
+          vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
+          vim.keymap.set(
+            "i",
+            "<C-y>",
+            vim.lsp.inline_completion.get,
+            { desc = "Copilot: accept", buffer = args.buf }
+          )
+          vim.keymap.set(
+            "i",
+            "<C-n>",
+            vim.lsp.inline_completion.select,
+            { desc = "Copilot: cycle", buffer = args.buf }
+          )
+        end
+      end,
+    })
+
+    vim.lsp.config("copilot", {
+      settings = {
+        telemetry = {
+          telemetryLevel = "off",
+        },
+      },
+    })
 
     vim.lsp.config("yamlls", {
       filetypes = { "yaml" },

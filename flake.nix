@@ -55,9 +55,10 @@
             defaultEditor = true;
             vimAlias = true;
             extraPackages = with pkgs; [
+              copilot-language-server
               gcc
-              tree-sitter
               nodejs-slim_24
+              tree-sitter
             ];
           };
           xdg.configFile."nvim".source = self;
