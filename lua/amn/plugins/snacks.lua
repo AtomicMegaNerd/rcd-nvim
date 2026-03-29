@@ -31,8 +31,9 @@ return {
     -- fuzzy picker for files, grep, LSP, git, and more
     picker = {
       enabled = true,
-      toggles = {
-        hidden = { icon = "h", value = true },
+      sources = {
+        files = { hidden = true },
+        grep = { hidden = true },
       },
       win = {
         input = {
