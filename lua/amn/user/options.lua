@@ -27,8 +27,8 @@ vim.o.mouse = ""
 vim.o.guicursor = "a:blinkon100"
 
 vim.o.expandtab = true -- Use spaces instead of tabs
-vim.o.tabstop = 4      -- Number of spaces tabs count for
-vim.o.shiftwidth = 4   -- Number of spaces to (auto)indent
+vim.o.tabstop = 4 -- Number of spaces tabs count for
+vim.o.shiftwidth = 4 -- Number of spaces to (auto)indent
 
 -- Indentation
 vim.o.autoindent = true
@@ -38,7 +38,7 @@ vim.o.breakindent = true
 vim.o.laststatus = 3
 
 -- Save undo history
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -51,16 +51,16 @@ vim.o.completeopt = "menuone,noselect,popup,noinsert"
 vim.g.have_nerd_font = true
 
 -- Do not show the mode because it is already in the status line
-vim.opt.showmode = false
+vim.o.showmode = false
 
 -- Highlight the current line
-vim.opt.cursorline = true
+vim.o.cursorline = true
 
 -- Clipboard
-vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
+vim.o.clipboard:append({ "unnamed", "unnamedplus" })
 
 -- Disable spelling
-vim.opt.spell = false
+vim.o.spell = false
 
 -- Disable swap files
-vim.opt.swapfile = false
+vim.o.swapfile = false
