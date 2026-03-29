@@ -5,29 +5,23 @@ return {
   config = function()
     -- The plugin and their config functions live here...
     local mini_plugins = {
-      ["mini.icons"] = function(m)
-        m.setup()
-        m.mock_nvim_web_devicons()
-      end,
-      ["mini.surround"] = function(m)
-        m.setup()
-      end,
-      ["mini.comment"] = function(m)
-        m.setup()
-      end,
-      ["mini.statusline"] = function(m)
-        m.setup()
-      end,
-      ["mini.diff"] = function(m)
-        m.setup()
-      end,
-      ["mini.hipatterns"] = function(m)
+
+      -- extended text objects: af/if (function), ac/ic (class) via treesitter
+      ["mini.ai"] = function(m)
         m.setup({
-          highlighters = {
-            hex_color = m.gen_highlighter.hex_color(),
+          custom_textobjects = {
+            f = m.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
+            c = m.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
           },
         })
       end,
+
+      -- navigate jumps with [ and ] (buffers, diagnostics, hunks, etc.)
+      ["mini.bracketed"] = function(m)
+        m.setup()
+      end,
+
+      -- keymap hints popup (which-key alternative)
       ["mini.clue"] = function(m)
         m.setup({
           triggers = {
@@ -56,13 +50,55 @@ return {
           },
         })
       end,
-      ["mini.ai"] = function(m)
+
+      -- gc to toggle comments (line and block)
+      ["mini.comment"] = function(m)
+        m.setup()
+      end,
+
+      -- git diff signs in the gutter with hunk navigation
+      ["mini.diff"] = function(m)
+        m.setup()
+      end,
+
+      -- inline hex color previews (like nvim-colorizer)
+      ["mini.hipatterns"] = function(m)
         m.setup({
-          custom_textobjects = {
-            f = m.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
-            c = m.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
+          highlighters = {
+            hex_color = m.gen_highlighter.hex_color(),
           },
         })
+      end,
+
+      -- icons with nvim-web-devicons compatibility shim
+      ["mini.icons"] = function(m)
+        m.setup()
+        m.mock_nvim_web_devicons()
+      end,
+
+      -- move lines and selections with Alt+hjkl
+      ["mini.move"] = function(m)
+        m.setup()
+      end,
+
+      -- extra operators: gs (sort), gm (duplicate), gx (exchange)
+      ["mini.operators"] = function(m)
+        m.setup()
+      end,
+
+      -- auto-close brackets and quotes
+      ["mini.pairs"] = function(m)
+        m.setup()
+      end,
+
+      -- sa/sd/sr to add, delete, replace surrounding characters
+      ["mini.surround"] = function(m)
+        m.setup()
+      end,
+
+      -- minimal status line
+      ["mini.statusline"] = function(m)
+        m.setup()
       end,
     }
 
