@@ -4,7 +4,6 @@ return {
   lazy = false,
   opts = {
     input = { enabled = true },
-    notifier = { enabled = true },
     quickfile = { enabled = true },
     dashboard = {
       enabled = true,

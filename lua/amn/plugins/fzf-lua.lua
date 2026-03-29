@@ -99,9 +99,9 @@ return {
     {
       "<leader>fn",
       function()
-        local history = require("snacks").notifier.get_history({ reverse = true })
+        local history = require("mini.notify").get_all()
         local items = vim.tbl_map(function(n)
-          return string.format("[%s] %s", n.level, n.msg)
+          return string.format("[%s] %s %s", n.level, os.date("%H:%M:%S", n.ts_add), n.msg)
         end, history)
         require("fzf-lua").fzf_exec(items, {
           prompt = "Notifications> ",

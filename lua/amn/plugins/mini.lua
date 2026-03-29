@@ -106,6 +106,24 @@ return {
         m.setup()
       end,
 
+      -- file explorer with editable buffers (oil alternative)
+      ["mini.files"] = function(m)
+        m.setup({
+          options = {
+            use_as_default_explorer = true,
+          },
+        })
+        vim.keymap.set("n", "<leader>o", function()
+          m.open(vim.api.nvim_buf_get_name(0))
+        end, { desc = "Open current directory in mini.files" })
+      end,
+
+      -- notifications with history and LSP progress
+      ["mini.notify"] = function(m)
+        m.setup()
+        vim.lsp.handlers["$/progress"] = m.lsp_progress_handler()
+      end,
+
       -- minimal status line
       ["mini.statusline"] = function(m)
         m.setup()
