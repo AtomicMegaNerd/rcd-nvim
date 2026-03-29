@@ -66,6 +66,18 @@ return {
         m.setup()
       end,
 
+      -- file explorer with editable buffers (oil alternative)
+      ["mini.files"] = function(m)
+        m.setup({
+          options = {
+            use_as_default_explorer = true,
+          },
+        })
+        vim.keymap.set("n", "<leader>o", function()
+          m.open(vim.api.nvim_buf_get_name(0))
+        end, { desc = "Open current directory in mini.files" })
+      end,
+
       -- inline hex color previews (like nvim-colorizer)
       ["mini.hipatterns"] = function(m)
         m.setup({
@@ -91,6 +103,11 @@ return {
         m.setup()
       end,
 
+      -- notifications with history and LSP progress
+      ["mini.notify"] = function(m)
+        m.setup()
+      end,
+
       -- extra operators: gs (sort), gm (duplicate), gx (exchange)
       ["mini.operators"] = function(m)
         m.setup()
@@ -103,23 +120,6 @@ return {
 
       -- sa/sd/sr to add, delete, replace surrounding characters
       ["mini.surround"] = function(m)
-        m.setup()
-      end,
-
-      -- file explorer with editable buffers (oil alternative)
-      ["mini.files"] = function(m)
-        m.setup({
-          options = {
-            use_as_default_explorer = true,
-          },
-        })
-        vim.keymap.set("n", "<leader>o", function()
-          m.open(vim.api.nvim_buf_get_name(0))
-        end, { desc = "Open current directory in mini.files" })
-      end,
-
-      -- notifications with history and LSP progress
-      ["mini.notify"] = function(m)
         m.setup()
       end,
 
