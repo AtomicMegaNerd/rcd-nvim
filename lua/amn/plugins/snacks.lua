@@ -16,6 +16,7 @@ return {
       },
     },
     quickfile = { enabled = true },
+    rename = { enabled = true },
     dashboard = {
       enabled = true,
       sections = {
