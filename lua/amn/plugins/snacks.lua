@@ -3,20 +3,9 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    input = { enabled = true },
-    notifier = { enabled = true },
-    picker = {
-      enabled = true,
-      win = {
-        input = {
-          keys = {
-            ["<C-y>"] = { "yank", mode = { "i", "n" } },
-          },
-        },
-      },
-    },
-    quickfile = { enabled = true },
-    rename = { enabled = true },
+    -- Keep these in alphabetical order please
+
+    -- pretty start screen with recent files and keymaps
     dashboard = {
       enabled = true,
       sections = {
@@ -32,6 +21,30 @@ return {
         { section = "startup" },
       },
     },
+
+    -- better vim.ui.input (used by LSP rename, etc.)
+    input = { enabled = true },
+
+    -- notification history and LSP progress messages
+    notifier = { enabled = true },
+
+    -- fuzzy picker for files, grep, LSP, git, and more
+    picker = {
+      enabled = true,
+      win = {
+        input = {
+          keys = {
+            ["<C-y>"] = { "yank", mode = { "i", "n" } },
+          },
+        },
+      },
+    },
+
+    -- fast buffer loading for large files by skipping expensive plugins
+    quickfile = { enabled = true },
+
+    -- file rename on disk with LSP import updates (integrates with mini.files)
+    rename = { enabled = true },
   },
   config = function(_, opts)
     local snacks = require("snacks")
