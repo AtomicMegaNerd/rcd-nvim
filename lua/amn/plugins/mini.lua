@@ -6,6 +6,8 @@ return {
     -- The plugin and their config functions live here...
     local mini_plugins = {
 
+      -- Please keep these plugins in alphabetic order
+
       -- extended text objects: af/if (function), ac/ic (class) via treesitter
       ["mini.ai"] = function(m)
         m.setup({
@@ -66,6 +68,11 @@ return {
         m.setup()
       end,
 
+      -- extra pickers for mini.pick (diagnostics, lsp, git, etc.)
+      ["mini.extra"] = function(m)
+        m.setup()
+      end,
+
       -- file explorer with editable buffers (oil alternative)
       ["mini.files"] = function(m)
         m.setup({
@@ -116,6 +123,89 @@ return {
       -- auto-close brackets and quotes
       ["mini.pairs"] = function(m)
         m.setup()
+      end,
+
+      -- fuzzy picker (files, grep, buffers, help, etc.)
+      ["mini.pick"] = function(m)
+        m.setup({
+          mappings = {
+            yank_item = {
+              char = "<C-y>",
+              func = function()
+                local item = m.get_picker_matches().current
+                if item then
+                  local text = type(item) == "string" and item or (item.text or vim.inspect(item))
+                  vim.fn.setreg("+", text)
+                  vim.notify("Yanked: " .. text)
+                end
+              end,
+            },
+          },
+        })
+        vim.ui.select = m.ui_select
+
+        local extra = require("mini.extra").pickers
+        local pick = m.builtin
+        local map = vim.keymap.set
+
+        -- Files
+        map("n", "<leader>ff", pick.files, { desc = "[F]ind [F]iles" })
+        map("n", "<leader>fb", pick.buffers, { desc = "[F]ind [B]uffers" })
+        map("n", "<leader>fl", pick.grep_live, { desc = "[F]ind [L]ive grep" })
+        map("n", "<leader>fh", pick.help, { desc = "[F]ind [H]elp tags" })
+
+        -- LSP
+        map("n", "<leader>fs", function()
+          extra.lsp({ scope = "document_symbol" })
+        end, { desc = "[F]ind [S]ymbols" })
+        map("n", "<leader>fw", function()
+          extra.lsp({ scope = "workspace_symbol" })
+        end, { desc = "[F]ind [W]orkspace symbols" })
+        map("n", "<leader>fr", function()
+          extra.lsp({ scope = "references" })
+        end, { desc = "[F]ind [R]eferences" })
+
+        -- Diagnostics
+        map("n", "<leader>fd", function()
+          extra.diagnostic({ scope = "current" })
+        end, { desc = "[F]ind Document [d]iagnostics" })
+        map("n", "<leader>fD", function()
+          extra.diagnostic({ scope = "all" })
+        end, { desc = "[F]ind Workspace [D]iagnostics" })
+
+        -- Quickfix / keymaps
+        map("n", "<leader>fq", function()
+          extra.list({ list_type = "quickfix" })
+        end, { desc = "[F]ind [Q]uickfix" })
+        map("n", "<leader>fk", function()
+          extra.keymaps()
+        end, { desc = "[F]ind [K]eymaps" })
+
+        -- Git
+        map("n", "<leader>fgf", function()
+          extra.git_files()
+        end, { desc = "[F]ind [G]it files" })
+        map("n", "<leader>fgc", function()
+          extra.git_commits()
+        end, { desc = "[F]ind [G]it [C]ommits" })
+        map("n", "<leader>fgb", function()
+          extra.git_branches()
+        end, { desc = "[F]ind [G]it [B]ranches" })
+
+        -- Notifications
+        map("n", "<leader>fn", function()
+          local history = require("mini.notify").get_all()
+          local items = vim.tbl_map(function(n)
+            return string.format("[%s] %s %s", n.level, os.date("%H:%M:%S", n.ts_add), n.msg)
+          end, history)
+          m.start({
+            source = {
+              items = items,
+              name = "Notifications",
+              choose = function() end,
+            },
+          })
+        end, { desc = "[F]ind past [N]otifications" })
       end,
 
       -- sa/sd/sr to add, delete, replace surrounding characters
