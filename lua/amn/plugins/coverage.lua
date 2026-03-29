@@ -60,6 +60,7 @@ return {
       desc = "Co[V]erage [S]ummary",
     },
   },
+
   config = function()
     local coverage = require("coverage")
 
@@ -76,13 +77,17 @@ return {
     })
 
     local coverage_group = vim.api.nvim_create_augroup("amn-coverage", { clear = true })
-
+    local coverage_files = { go = "cover.out", python = ".coverage" }
     vim.api.nvim_create_autocmd("FileType", {
       group = coverage_group,
       pattern = { "go", "python" },
-      callback = function()
-        coverage.load()
-        coverage.show()
+      callback = function(ev)
+        local ft = vim.bo[ev.buf].filetype
+        local cov_file = coverage_files[ft]
+        if vim.fn.filereadable(vim.fn.getcwd() .. "/" .. cov_file) == 1 then
+          coverage.load()
+          coverage.show()
+        end
       end,
       desc = "Load and show coverage for Go and Python buffers",
     })

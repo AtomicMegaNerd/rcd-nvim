@@ -22,7 +22,6 @@ return {
       },
       providers = {
         lsp = {
-          score_offset = 3,
           max_items = 3,
           -- This override is needed to add "!" as a trigger character for html
           override = {
@@ -40,7 +39,7 @@ return {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
-          score_offset = 100,
+          score_offset = 100, -- Make this highest in priority
           max_items = 3,
           fallbacks = { "lsp" },
         },

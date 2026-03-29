@@ -12,9 +12,8 @@ vim.o.hlsearch = false
 -- Make line numbers default, then make them relative, also set column
 vim.o.relativenumber = true
 vim.o.colorcolumn = "100"
-vim.wo.number = true
--- Set the sign column to always be visible
-vim.wo.signcolumn = "yes"
+vim.o.number = true
+vim.o.signcolumn = "yes"
 
 -- Scroll offset means the cursor will be x lines away from the top/bottom of the screen after
 -- scrolling
@@ -57,7 +56,7 @@ vim.o.showmode = false
 vim.o.cursorline = true
 
 -- Clipboard
-vim.o.clipboard:append({ "unnamed", "unnamedplus" })
+vim.o.clipboard = "unnamed,unnamedplus"
 
 -- Disable spelling
 vim.o.spell = false
