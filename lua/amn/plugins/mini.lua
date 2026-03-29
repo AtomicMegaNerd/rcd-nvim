@@ -16,6 +16,11 @@ return {
         })
       end,
 
+      -- animations for cursor, scroll, resize, and window open/close
+      ["mini.animate"] = function(m)
+        m.setup()
+      end,
+
       -- navigate jumps with [ and ] (buffers, diagnostics, hunks, etc.)
       ["mini.bracketed"] = function(m)
         m.setup()
@@ -74,6 +79,11 @@ return {
       ["mini.icons"] = function(m)
         m.setup()
         m.mock_nvim_web_devicons()
+      end,
+
+      -- animated indent scope line for the current block
+      ["mini.indentscope"] = function(m)
+        m.setup()
       end,
 
       -- move lines and selections with Alt+hjkl

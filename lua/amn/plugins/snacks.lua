@@ -3,11 +3,9 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
-    scroll = { enabled = true },
     dashboard = {
       enabled = true,
       sections = {
@@ -22,6 +20,15 @@ return {
         },
         { section = "startup" },
       },
+    },
+  },
+  keys = {
+    {
+      "<leader>n",
+      function()
+        require("snacks").notifier.show_history()
+      end,
+      desc = "[N]otification history",
     },
   },
   config = function(_, opts)
