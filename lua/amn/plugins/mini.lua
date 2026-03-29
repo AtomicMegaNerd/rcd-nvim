@@ -121,7 +121,6 @@ return {
       -- notifications with history and LSP progress
       ["mini.notify"] = function(m)
         m.setup()
-        vim.lsp.handlers["$/progress"] = m.lsp_progress_handler()
       end,
 
       -- minimal status line
