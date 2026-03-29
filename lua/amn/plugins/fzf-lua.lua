@@ -95,6 +95,21 @@ return {
       end,
       desc = "[F]ind [K]eymaps",
     },
+    -- Notifications
+    {
+      "<leader>fn",
+      function()
+        local history = require("snacks").notifier.get_history({ reverse = true })
+        local items = vim.tbl_map(function(n)
+          return string.format("[%s] %s", n.level, n.msg)
+        end, history)
+        require("fzf-lua").fzf_exec(items, {
+          prompt = "Notifications> ",
+          previewer = false,
+        })
+      end,
+      desc = "[F]ind past [N]otifications",
+    },
     -- LSP
     {
       "<leader>fs",

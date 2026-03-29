@@ -22,15 +22,6 @@ return {
       },
     },
   },
-  keys = {
-    {
-      "<leader>n",
-      function()
-        require("snacks").notifier.show_history()
-      end,
-      desc = "[N]otification history",
-    },
-  },
   config = function(_, opts)
     local snacks = require("snacks")
     snacks.setup(opts)
