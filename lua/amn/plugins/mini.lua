@@ -68,25 +68,6 @@ return {
         m.setup()
       end,
 
-      -- file explorer with editable buffers (oil alternative)
-      ["mini.files"] = function(m)
-        m.setup({
-          options = {
-            use_as_default_explorer = true,
-          },
-        })
-        vim.keymap.set("n", "<leader>o", function()
-          m.open(vim.api.nvim_buf_get_name(0))
-        end, { desc = "Open current directory in mini.files" })
-
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "MiniFilesActionRename",
-          callback = function(event)
-            Snacks.rename.on_rename_file(event.data.from, event.data.to)
-          end,
-        })
-      end,
-
       -- inline hex color previews (like nvim-colorizer)
       ["mini.hipatterns"] = function(m)
         m.setup({
