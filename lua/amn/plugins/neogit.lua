@@ -21,7 +21,7 @@ return {
       graph_style = "unicode",
       integrations = {
         diffview = true,
-        fzf_lua = true,
+        snacks = true,
       },
     })
   end,
