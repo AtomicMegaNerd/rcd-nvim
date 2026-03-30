@@ -25,6 +25,9 @@ return {
     }
 
     require("nvim-treesitter").install(langs):wait(300000)
+    require("nvim-treesitter").setup({
+      additional_vim_regex_highlighting = false,
+    })
 
     local trs_grp = vim.api.nvim_create_augroup("Treesitter", { clear = true })
     for _, lang in ipairs(langs) do

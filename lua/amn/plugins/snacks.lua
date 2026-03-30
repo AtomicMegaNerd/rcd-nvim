@@ -31,6 +31,7 @@ return {
     -- fuzzy picker for files, grep, LSP, git, and more
     picker = {
       enabled = true,
+      layout = { preset = "telescope" },
       sources = {
         files = { hidden = true },
         grep = { hidden = true },

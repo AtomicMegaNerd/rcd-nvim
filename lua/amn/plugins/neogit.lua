@@ -13,11 +13,10 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
-    "ibhagwan/fzf-lua",
   },
   config = function()
     require("neogit").setup({
-      kind = "replace",
+      kind = "floating",
       graph_style = "unicode",
       integrations = {
         diffview = true,

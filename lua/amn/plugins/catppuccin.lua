@@ -5,10 +5,26 @@ return {
 
   config = function()
     require("catppuccin").setup({
-      auto_integrations = true,
       flavour = "macchiato",
+      background = {
+        light = "latte",
+        dark = "macchiato",
+      },
       no_italic = true,
-      transparent_background = true,
+      integrations = {
+        snacks = {
+          enabled = true,
+        },
+        mini = {
+          enabled = true,
+        },
+        diffview = {
+          enable = true,
+        },
+        blink_cmp = {
+          enabled = true,
+        },
+      },
     })
 
     vim.cmd.colorscheme("catppuccin")
