@@ -1,6 +1,18 @@
 return {
   "NeogitOrg/neogit",
   version = false,
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "sindrets/diffview.nvim",
+  },
+  opts = {
+    kind = "replace",
+    graph_style = "unicode",
+    integrations = {
+      diffview = true,
+      snacks = true,
+    },
+  },
   keys = {
     {
       "<leader>ng",
@@ -10,18 +22,4 @@ return {
       desc = "Open [N]eo[G]it",
     },
   },
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "sindrets/diffview.nvim",
-  },
-  config = function()
-    require("neogit").setup({
-      kind = "replace",
-      graph_style = "unicode",
-      integrations = {
-        diffview = true,
-        snacks = true,
-      },
-    })
-  end,
 }

@@ -3,6 +3,9 @@ return {
   branch = "main",
   lazy = false,
   build = ":TSUpdate",
+  opts = {
+    additional_vim_regex_highlighting = false,
+  },
 
   config = function()
     local langs = {
@@ -24,11 +27,7 @@ return {
       "css",
     }
 
-    require("nvim-treesitter").install(langs):wait(300000)
-    require("nvim-treesitter").setup({
-      additional_vim_regex_highlighting = false,
-    })
-
+    require("nvim-treesitter").install(langs)
     local trs_grp = vim.api.nvim_create_augroup("Treesitter", { clear = true })
     for _, lang in ipairs(langs) do
       vim.api.nvim_create_autocmd("FileType", {

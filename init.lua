@@ -11,3 +11,6 @@ require("amn.user.plugins")
 require("amn.user.options")
 require("amn.user.autocmds")
 require("amn.user.keymap")
+
+-- Set the colorscheme
+vim.cmd.colorscheme("catppuccin")
