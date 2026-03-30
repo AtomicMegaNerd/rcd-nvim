@@ -45,10 +45,7 @@ return {
       },
     },
 
-    -- fast buffer loading for large files by skipping expensive plugins
-    quickfile = { enabled = true },
-
-    -- file rename on disk with LSP import updates (integrates with mini.files)
+    -- file rename on disk with LSP import updates
     rename = { enabled = true },
   },
   config = function(_, opts)
