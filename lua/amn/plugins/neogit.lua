@@ -16,7 +16,7 @@ return {
   },
   config = function()
     require("neogit").setup({
-      kind = "floating",
+      kind = "replace",
       graph_style = "unicode",
       integrations = {
         diffview = true,
