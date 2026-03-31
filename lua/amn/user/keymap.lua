@@ -29,3 +29,6 @@ vim.keymap.set("n", "x", '"_x')
 
 -- Make selection an unordered list item in Markdown
 vim.keymap.set("v", "<leader>-", ":normal! I- <CR>", { desc = "Markdown: make list" })
+
+-- Diagnostics
+vim.keymap.set("n", "td", vim.diagnostic.open_float, { desc = "[T]oggle [D]iagnostic" })
