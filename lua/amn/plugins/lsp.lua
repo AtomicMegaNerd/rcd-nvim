@@ -127,6 +127,18 @@ return {
           -- General LSP keymaps
           vim.keymap.set(
             "n",
+            "<leader>rn",
+            vim.lsp.buf.rename,
+            { buffer = buf, desc = "[R]e[n]ame" }
+          )
+          vim.keymap.set(
+            "n",
+            "<leader>ca",
+            vim.lsp.buf.code_action,
+            { buffer = buf, desc = "[C]ode [A]ction" }
+          )
+          vim.keymap.set(
+            "n",
             "<C-k>",
             vim.lsp.buf.signature_help,
             { buffer = buf, desc = "Signature Documentation" }
