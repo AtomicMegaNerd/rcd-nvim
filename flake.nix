@@ -10,7 +10,11 @@
   };
 
   outputs =
-    { self, nixpkgs, git-hooks }:
+    {
+      self,
+      nixpkgs,
+      git-hooks,
+    }:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in
@@ -19,17 +23,19 @@
         { pkgs, ... }:
         let
           # Temporary override to install neovim 0.12 which just shipped
-          pkgs' = pkgs.extend (_final: prev: {
-            neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (_: {
-              version = "0.12.0";
-              src = prev.fetchFromGitHub {
-                owner = "neovim";
-                repo = "neovim";
-                tag = "v0.12.0";
-                hash = "sha256-uWhrGAwQ2nnAkyJ46qGkYxJ5K1jtyUIQOAVu3yTlquk=";
-              };
-            });
-          });
+          pkgs' = pkgs.extend (
+            _final: prev: {
+              neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (_: {
+                version = "0.12.0";
+                src = prev.fetchFromGitHub {
+                  owner = "neovim";
+                  repo = "neovim";
+                  tag = "v0.12.0";
+                  hash = "sha256-uWhrGAwQ2nnAkyJ46qGkYxJ5K1jtyUIQOAVu3yTlquk=";
+                };
+              });
+            }
+          );
         in
         {
           programs.neovim = {
@@ -40,7 +46,7 @@
             extraPackages = with pkgs; [
               copilot-language-server
               gcc
-              nodejs-slim
+              nodejs-slim # Smaller nodejs for lsp's which don't need npm or npx
               tree-sitter
             ];
           };
