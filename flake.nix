@@ -12,24 +12,7 @@
   outputs =
     { self, nixpkgs, git-hooks }:
     let
-      systems = [
-        "x86_64-linux"
-        "aarch64-darwin"
-      ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-
-      buildPreCommitCheck =
-        system:
-        git-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            trim-trailing-whitespace.enable = true;
-            mixed-line-endings.enable = true;
-            end-of-file-fixer.enable = true;
-            check-toml.enable = true;
-            stylua.enable = true;
-          };
-        };
+      forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
     in
     {
       homeManagerModules.default =
@@ -57,7 +40,7 @@
             extraPackages = with pkgs; [
               copilot-language-server
               gcc
-              nodejs-slim_24
+              nodejs-slim
               tree-sitter
             ];
           };
@@ -65,7 +48,16 @@
         };
 
       checks = forAllSystems (system: {
-        pre-commit-check = buildPreCommitCheck system;
+        pre-commit-check = git-hooks.lib.${system}.run {
+          src = ./.;
+          hooks = {
+            trim-trailing-whitespace.enable = true;
+            mixed-line-endings.enable = true;
+            end-of-file-fixer.enable = true;
+            check-toml.enable = true;
+            stylua.enable = true;
+          };
+        };
       });
 
       devShells = forAllSystems (

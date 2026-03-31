@@ -21,7 +21,7 @@ direnv allow
 
 ## Current Neovim Version
 
-We are running Neovim 0.11.x. Please consult online sources and neovim help pages for up-to-date
+We are running Neovim 0.12.x. Please consult online sources and neovim help pages for up-to-date
 information on this version.
 
 ## Structure
@@ -32,12 +32,13 @@ information on this version.
 ├── init.lua # The init file
 ├── lua
 │   └── amn
+│       ├── lsp # One file per lsp
 │       ├── plugins # One file per plug-in all loaded with lazy.nvim
 │       ├── user
 │       │   ├── autocmds.lua
 │       │   ├── keymap.lua
 │       │   ├── options.lua
-│       │   └── plugins.lua # Sets up lazy.nvim3
+│       │   └── plugins.lua # Sets up lazy.nvim
 ├── README.md
 ├── scripts
 │   └── zellij.sh # A script to use my custom Zellij layout for this repo
@@ -54,9 +55,9 @@ information on this version.
 - We use `lua-language-server` and `stylua` in this project.
 - The flake sets up pre-commit with nix.
 - We also install node in this environment so that MCP works with Claude Code.
-- We install `nodejs-slim_24` for neovim as it doesn't need the npm tooling as we setup LSP's with
+- We install `nodejs-slim_*` for neovim as it doesn't need the npm tooling as we setup LSP's with
   nix.
 - However, claude code doesn't use nix so for the devShell we install the full `nodejs` when doing
   development on this config.
-- We only need to support `x86_64-linux` and `aarch64-darwin`.
-- Use `bat`, `ripgrep`, and `fd` as I gave you permissions to use those.
+- When adding or removing plugins in this config please update `./.luarc.json` to keep the 
+  workspace list up-to-date.

@@ -46,3 +46,8 @@ A Zellij layout and helper script are included for working on this config:
 ```sh
 bash scripts/zellij.sh
 ```
+
+## More Information
+
+See [AGENTS.md](AGENTS.md) for more information on the structure of this repo and how to work with 
+it.
