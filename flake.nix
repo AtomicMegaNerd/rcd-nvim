@@ -37,7 +37,7 @@
         {
           programs.neovim = {
             enable = true;
-            package = pkgs'.neovim-unwrapped;
+            package = pkgs.neovim;
             defaultEditor = true;
             vimAlias = true;
             extraPackages = with pkgs; [
