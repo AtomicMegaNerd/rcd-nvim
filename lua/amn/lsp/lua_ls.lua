@@ -5,6 +5,7 @@ return {
   -- NOTE: These will be merged with the configuration file.
   settings = {
     Lua = {
+      completion = { callSnippet = "Replace" },
       -- Using stylua for formatting.
       format = { enable = false },
       hint = {
@@ -18,6 +19,7 @@ return {
         checkThirdParty = false,
         library = {
           vim.env.VIMRUNTIME,
+          "${3rd}/luv/library",
         },
       },
     },

@@ -15,7 +15,7 @@ return {
       },
     },
     sources = {
-      default = { "lsp", "path", "buffer", "lazydev" },
+      default = { "lsp", "path", "buffer" },
       per_filetype = {
         gitcommit = { "path", "buffer" },
         markdown = { "path", "buffer" },
@@ -36,13 +36,6 @@ return {
         },
         path = { max_items = 3 },
         buffer = { max_items = 3 },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          score_offset = 100, -- Make this highest in priority
-          max_items = 3,
-          fallbacks = { "lsp" },
-        },
       },
     },
     signature = { enabled = true },
