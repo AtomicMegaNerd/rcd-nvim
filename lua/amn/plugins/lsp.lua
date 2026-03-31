@@ -10,105 +10,22 @@ return {
     })
 
     --
-    -- Per-server configuration
+    -- Per-server configuration — one file per server in lua/amn/lsp/
+    -- Each file returns the config table; adding a server = adding a file.
     --------------------------------------------------------------------------------
-    vim.lsp.config("copilot", {
-      settings = {
-        telemetry = {
-          telemetryLevel = "off",
-        },
-        filetypes = {
-          markdown = false,
-          gitconfig = false,
-        },
-      },
-    })
+    local servers = vim
+      .iter(vim.api.nvim_get_runtime_file("/lua/amn/lsp/*.lua", true))
+      :map(function(file)
+        return vim.fn.fnamemodify(file, ":t:r")
+      end)
+      :totable()
 
-    vim.lsp.config("yamlls", {
-      filetypes = { "yaml" },
-      settings = {
-        yaml = {
-          keyOrdering = false,
-        },
-      },
-    })
-
-    vim.lsp.config("pyright", {
-      settings = {
-        pyright = {
-          disableOrganizeImports = true,
-        },
-        python = {
-          analysis = {
-            ignore = { "*" },
-          },
-        },
-      },
-    })
-
-    vim.lsp.config("emmet_ls", {
-      filetypes = {
-        "html",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-      },
-    })
-
-    vim.lsp.config("lua_ls", {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { "vim", "Snacks" },
-          },
-        },
-      },
-    })
-
-    vim.lsp.config("gopls", {
-      root_markers = { "go.mod" },
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      settings = {
-        gopls = {
-          analyses = {
-            unusedparams = true,
-            shadow = true,
-          },
-          staticcheck = false,
-          gofumpt = true,
-          hints = {
-            assignVariableTypes = true,
-            compositeLiteralFields = true,
-            compositeLiteralTypes = true,
-            constantValues = true,
-            functionTypeParameters = true,
-            parameterNames = true,
-            rangeVariableTypes = true,
-          },
-        },
-      },
-    })
-
-    -- Enable all servers
-    local servers = {
-      "bashls",
-      "copilot",
-      "cssls",
-      "docker_language_server",
-      "emmet_ls",
-      "gopls",
-      "html",
-      "jsonls",
-      "lua_ls",
-      "marksman",
-      "pyright",
-      "ruff",
-      "yamlls",
-    }
-    for _, lsp in ipairs(servers) do
-      vim.lsp.enable(lsp)
+    -- If no servers are configured, warn and skip LSP setup
+    if #servers == 0 then
+      vim.notify("No LSP servers configured", vim.log.levels.WARN)
+      return
     end
+    vim.lsp.enable(servers)
 
     --
     -- Buffer-local LSP configuration on attach
