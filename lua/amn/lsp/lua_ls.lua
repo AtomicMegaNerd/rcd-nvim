@@ -1,5 +1,9 @@
 return {
-  cmd = { "lua-language-server" },
+  cmd = {
+    "lua-language-server",
+    "--cachepath",
+    vim.fn.stdpath("cache") .. "/lua-language-server",
+  },
   filetypes = { "lua" },
   root_markers = { ".luarc.json", ".luarc.jsonc" },
   -- NOTE: These will be merged with the configuration file.
