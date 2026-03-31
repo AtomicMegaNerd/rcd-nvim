@@ -34,10 +34,24 @@
     {
       homeManagerModules.default =
         { pkgs, ... }:
+        let
+          # Temporary override to install neovim 0.12 which just shipped
+          pkgs' = pkgs.extend (_final: prev: {
+            neovim-unwrapped = prev.neovim-unwrapped.overrideAttrs (_: {
+              version = "0.12.0";
+              src = prev.fetchFromGitHub {
+                owner = "neovim";
+                repo = "neovim";
+                tag = "v0.12.0";
+                hash = "sha256-uWhrGAwQ2nnAkyJ46qGkYxJ5K1jtyUIQOAVu3yTlquk=";
+              };
+            });
+          });
+        in
         {
           programs.neovim = {
             enable = true;
-            package = pkgs.neovim;
+            package = pkgs'.neovim-unwrapped;
             defaultEditor = true;
             vimAlias = true;
             extraPackages = with pkgs; [
