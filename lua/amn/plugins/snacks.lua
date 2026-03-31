@@ -150,6 +150,15 @@ return {
       desc = "[F]ind [G]it [B]ranches",
     },
 
+    -- Todos
+    {
+      "<leader>ft",
+      function()
+        Snacks.picker.pick("todo_comments")
+      end,
+      desc = "[F]ind [T]odos",
+    },
+
     -- Notifications
     {
       "<leader>fn",

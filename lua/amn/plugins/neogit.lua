@@ -9,7 +9,7 @@ return {
     kind = "replace",
     graph_style = "unicode",
     integrations = {
-      diffview = true,
+      codediff = true,
       snacks = true,
     },
   },

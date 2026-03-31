@@ -6,11 +6,10 @@ return {
   },
   filetypes = { "lua" },
   root_markers = { ".luarc.json", ".luarc.jsonc" },
-  -- NOTE: These will be merged with the configuration file.
   settings = {
     Lua = {
       completion = { callSnippet = "Replace" },
-      -- Using stylua for formatting.
+      -- NOTE: Use stylua for formatting
       format = { enable = false },
       hint = {
         enable = true,
