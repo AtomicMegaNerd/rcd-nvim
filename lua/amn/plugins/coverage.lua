@@ -61,17 +61,14 @@ return {
     },
   },
 
-  opts = {
-    auto_reload = true,
-    lang = {
-      go = {
-        coverage_file = "cover.out",
-      },
-    },
-  },
-
   config = function()
     local coverage = require("coverage")
+    coverage.setup({
+      auto_reload = true,
+      lang = {
+        go = { coverage_file = "cover.out" },
+      },
+    })
     local coverage_files = { go = "cover.out", python = ".coverage" }
     local coverage_group = vim.api.nvim_create_augroup("amn-coverage", { clear = true })
     vim.api.nvim_create_autocmd("FileType", {
