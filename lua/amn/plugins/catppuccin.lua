@@ -7,5 +7,8 @@ return {
     auto_integrations = true,
     no_italic = true,
     flavour = "macchiato",
+    integrations = {
+      diffview = true,
+    },
   },
 }
