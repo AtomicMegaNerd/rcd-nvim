@@ -45,6 +45,7 @@ return {
             { mode = "i", keys = "<C-r>" },
             { mode = "c", keys = "<C-r>" },
             { mode = "n", keys = "<C-w>" },
+            { mode = "n", keys = "t" },
             { mode = "n", keys = "z" },
             { mode = "x", keys = "z" },
           },

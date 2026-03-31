@@ -2,20 +2,8 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   keys = {
-    { "<leader>rn", vim.lsp.buf.rename, desc = "[R]e[n]ame" },
-    { "<leader>ca", vim.lsp.buf.code_action, desc = "[C]ode [A]ction" },
-    { "K", vim.lsp.buf.hover, desc = "Hover Documentation" },
     { "<C-k>", vim.lsp.buf.signature_help, desc = "Signature Documentation" },
-    { "gd", vim.lsp.buf.definition, desc = "[G]oto [D]efinition" },
-    { "gl", vim.lsp.buf.declaration, desc = "[G]oto Dec[l]aration" },
-    { "gi", vim.lsp.buf.implementation, desc = "[G]oto [I]mplementation" },
-    { "gt", vim.lsp.buf.type_definition, desc = "[G]oto [T]ype Definition" },
-    { "gr", vim.lsp.buf.references, desc = "[G]oto [R]eferences" },
-    { "<leader>ci", vim.lsp.buf.incoming_calls, desc = "[C]all Hierarchy [I]ncoming" },
-    { "<leader>co", vim.lsp.buf.outgoing_calls, desc = "[C]all Hierarchy [O]utgoing" },
     { "td", vim.diagnostic.open_float, desc = "[T]oggle [D]iagnostic" },
-    { "tn", vim.diagnostic.goto_next, desc = "[T]o [N]ext Diagnostic" },
-    { "tp", vim.diagnostic.goto_prev, desc = "[T]o [P]rev Diagnostic" },
     {
       "<leader>ti",
       function()
@@ -45,28 +33,67 @@ return {
       vim.lsp.enable(lsp)
     end
 
+    vim.lsp.config("*", {
+      root_markers = { ".git" },
+    })
+
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local buf = args.buf
+
+        -- Picker-backed LSP navigation (overrides gr* defaults)
+        vim.keymap.set("n", "gd", function()
+          Snacks.picker.lsp_definitions()
+        end, { buffer = buf, desc = "[G]oto [D]efinition" })
+        vim.keymap.set("n", "gl", function()
+          Snacks.picker.lsp_declarations()
+        end, { buffer = buf, desc = "[G]oto Dec[l]aration" })
+        vim.keymap.set("n", "grr", function()
+          Snacks.picker.lsp_references()
+        end, { buffer = buf, desc = "[G]oto [R]eferences" })
+        vim.keymap.set("n", "gri", function()
+          Snacks.picker.lsp_implementations()
+        end, { buffer = buf, desc = "[G]oto [I]mplementation" })
+        vim.keymap.set("n", "grt", function()
+          Snacks.picker.lsp_type_definitions()
+        end, { buffer = buf, desc = "[G]oto [T]ype Definition" })
+
+        -- Call hierarchy
+        vim.keymap.set(
+          "n",
+          "<leader>ci",
+          vim.lsp.buf.incoming_calls,
+          { buffer = buf, desc = "[C]all Hierarchy [I]ncoming" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>co",
+          vim.lsp.buf.outgoing_calls,
+          { buffer = buf, desc = "[C]all Hierarchy [O]utgoing" }
+        )
+
+        -- Disable HTML completion to avoid conflicts with emmet
+        if client and client.name == "html" then
+          client.server_capabilities.completionProvider = nil
+        end
+
         if
           client
-          and client:supports_method(
-            vim.lsp.protocol.Methods.textDocument_inlineCompletion,
-            args.buf
-          )
+          and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, buf)
         then
-          vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
+          vim.lsp.inline_completion.enable(true, { bufnr = buf })
           vim.keymap.set(
             "i",
             "<C-y>",
             vim.lsp.inline_completion.get,
-            { desc = "Copilot: accept", buffer = args.buf }
+            { desc = "Copilot: accept", buffer = buf }
           )
           vim.keymap.set(
             "i",
             "<C-n>",
             vim.lsp.inline_completion.select,
-            { desc = "Copilot: cycle", buffer = args.buf }
+            { desc = "Copilot: cycle", buffer = buf }
           )
         end
       end,
@@ -116,23 +143,19 @@ return {
       },
     })
 
-    vim.lsp.config("html", {
-      on_attach = function(client)
-        client.server_capabilities.completionProvider = nil
-      end,
-    })
-
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
           diagnostics = {
-            globals = { "vim" },
+            globals = { "vim", "Snacks" },
           },
         },
       },
     })
 
     vim.lsp.config("gopls", {
+      root_markers = { "go.mod" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
       settings = {
         gopls = {
           analyses = {
@@ -141,6 +164,15 @@ return {
           },
           staticcheck = false,
           gofumpt = true,
+          hints = {
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            constantValues = true,
+            functionTypeParameters = true,
+            parameterNames = true,
+            rangeVariableTypes = true,
+          },
         },
       },
     })

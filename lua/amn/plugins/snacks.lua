@@ -94,14 +94,6 @@ return {
       end,
       desc = "[F]ind [W]orkspace symbols",
     },
-    {
-      "<leader>fr",
-      function()
-        Snacks.picker.lsp_references()
-      end,
-      desc = "[F]ind [R]eferences",
-    },
-
     -- Diagnostics
     {
       "<leader>fd",
