@@ -63,9 +63,6 @@ return {
 
   opts = {
     auto_reload = true,
-    load_coverage_cb = function(ftype)
-      vim.notify("Loaded " .. ftype .. " coverage")
-    end,
     lang = {
       go = {
         coverage_file = "cover.out",
@@ -75,8 +72,8 @@ return {
 
   config = function()
     local coverage = require("coverage")
-    local coverage_group = vim.api.nvim_create_augroup("amn-coverage", { clear = true })
     local coverage_files = { go = "cover.out", python = ".coverage" }
+    local coverage_group = vim.api.nvim_create_augroup("amn-coverage", { clear = true })
     vim.api.nvim_create_autocmd("FileType", {
       group = coverage_group,
       pattern = { "go", "python" },
