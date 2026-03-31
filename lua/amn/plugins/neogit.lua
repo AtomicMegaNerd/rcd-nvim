@@ -3,7 +3,7 @@ return {
   version = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "sindrets/diffview.nvim",
+    "esmuellert/codediff.nvim",
   },
   opts = {
     kind = "replace",
