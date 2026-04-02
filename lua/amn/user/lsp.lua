@@ -9,19 +9,26 @@ vim.lsp.config("*", {
 -- Per-server configuration — one file per server in lua/amn/lsp/
 -- Each file returns the config table; adding a server = adding a file.
 --------------------------------------------------------------------------------
-local servers = vim
-  .iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
-  :map(function(file)
-    return vim.fn.fnamemodify(file, ":t:r")
-  end)
-  :totable()
+---
+---
+vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+  once = true,
+  callback = function()
+    local servers = vim
+      .iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
+      :map(function(file)
+        return vim.fn.fnamemodify(file, ":t:r")
+      end)
+      :totable()
 
--- If no servers are configured, warn and skip LSP setup
-if #servers == 0 then
-  vim.notify("No LSP servers configured", vim.log.levels.WARN)
-  return
-end
-vim.lsp.enable(servers)
+    -- If no servers are configured, warn and skip LSP setup
+    if #servers == 0 then
+      vim.notify("No LSP servers configured", vim.log.levels.WARN)
+      return
+    end
+    vim.lsp.enable(servers)
+  end,
+})
 
 --
 -- Buffer-local LSP configuration on attach
