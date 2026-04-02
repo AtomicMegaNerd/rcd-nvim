@@ -1,4 +1,5 @@
 return {
+  cmd = { "nil" },
   root_markers = { "flake.nix", "default.nix", ".git" },
   filetypes = { "nix" },
   settings = {

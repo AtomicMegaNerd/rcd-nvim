@@ -1,9 +1,3 @@
---
--- Per-server configuration — one file per server in lua/amn/lsp/
--- Each file returns the config table; adding a server = adding a file.
---------------------------------------------------------------------------------
----
----
 vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
   once = true,
   callback = function()
@@ -27,9 +21,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
   end,
 })
 
---
--- Buffer-local LSP configuration on attach
---------------------------------------------------------------------------------
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
