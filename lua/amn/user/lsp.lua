@@ -12,11 +12,6 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
       end)
       :totable()
 
-    -- If no servers are configured, warn and skip LSP setup
-    if #servers == 0 then
-      vim.notify("No LSP servers configured", vim.log.levels.WARN)
-      return
-    end
     vim.lsp.enable(servers)
   end,
 })
