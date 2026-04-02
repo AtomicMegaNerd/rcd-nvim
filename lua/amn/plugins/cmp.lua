@@ -16,14 +16,11 @@ return {
     },
     sources = {
       default = { "lsp", "path", "buffer" },
-      per_filetype = {
-        gitcommit = { "path", "buffer" },
-        markdown = { "path", "buffer" },
-      },
       providers = {
         lsp = {
           max_items = 3,
-          -- This override is needed to add "!" as a trigger character for html
+          -- This override is needed to add "!" as a trigger character for html to generate
+          -- headers
           override = {
             get_trigger_characters = function(self)
               local chars = self:get_trigger_characters()

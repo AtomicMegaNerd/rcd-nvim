@@ -102,3 +102,17 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     lint.try_lint()
   end,
 })
+
+-- Avoid conflicts between blink.cmp and copilot
+vim.api.nvim_create_autocmd("User", {
+  pattern = "BlinkCmpMenuOpen",
+  callback = function()
+    vim.b.copilot_suggestion_hidden = true
+  end,
+})
+vim.api.nvim_create_autocmd("User", {
+  pattern = "BlinkCmpMenuClose",
+  callback = function()
+    vim.b.copilot_suggestion_hidden = false
+  end,
+})

@@ -69,23 +69,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
       vim.lsp.document_color.enable(true, { bufnr = buf })
     end
-
-    -- Enable inline completion if supported by the server
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion, buf) then
-      vim.lsp.inline_completion.enable(true, { bufnr = buf })
-      vim.keymap.set(
-        "i",
-        "<C-y>",
-        vim.lsp.inline_completion.get,
-        { desc = "Inline Completion: accept", buffer = buf }
-      )
-      vim.keymap.set(
-        "i",
-        "<C-n>",
-        vim.lsp.inline_completion.select,
-        { desc = "Inline Completion: cycle", buffer = buf }
-      )
-    end
   end,
 })
 
