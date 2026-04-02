@@ -1,11 +1,4 @@
 --
--- Global defaults for all servers
---------------------------------------------------------------------------------
-vim.lsp.config("*", {
-  root_markers = { ".git" },
-})
-
---
 -- Per-server configuration — one file per server in lua/amn/lsp/
 -- Each file returns the config table; adding a server = adding a file.
 --------------------------------------------------------------------------------
@@ -14,6 +7,10 @@ vim.lsp.config("*", {
 vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
   once = true,
   callback = function()
+    vim.lsp.config("*", {
+      root_markers = { ".git" },
+    })
+
     local servers = vim
       .iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
       :map(function(file)
