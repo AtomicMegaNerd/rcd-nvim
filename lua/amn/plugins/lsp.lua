@@ -14,7 +14,7 @@ return {
     -- Each file returns the config table; adding a server = adding a file.
     --------------------------------------------------------------------------------
     local servers = vim
-      .iter(vim.api.nvim_get_runtime_file("/lua/amn/lsp/*.lua", true))
+      .iter(vim.api.nvim_get_runtime_file("/lsp/*.lua", true))
       :map(function(file)
         return vim.fn.fnamemodify(file, ":t:r")
       end)
