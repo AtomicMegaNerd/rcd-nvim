@@ -109,16 +109,20 @@ return {
 
   config = function()
     local yank = {
-      function(selected)
+      fn = function(selected)
         vim.fn.setreg("+", selected[1])
       end,
-      noclose = true,
+      exec_silent = true,
     }
 
     local fzf_lua = require("fzf-lua")
     fzf_lua.setup("telescope", {
-      files = { hidden = true, actions = { ["ctrl-y"] = yank } },
-      grep = { hidden = true, actions = { ["ctrl-y"] = yank } },
+      -- Apply yank globally to all pickers via the files action table
+      actions = {
+        files = { ["ctrl-y"] = yank },
+      },
+      files = { hidden = true },
+      grep = { hidden = true },
     })
     fzf_lua.register_ui_select()
   end,
