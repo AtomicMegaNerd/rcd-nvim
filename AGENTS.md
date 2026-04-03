@@ -47,6 +47,7 @@ information on this version.
 
 ## Notes for the LLM
 
+- **CRITITAL**: It is __FAR__ better to say I don't know than waste my time with made up code.
 - The LLM is not allowed to edit this `AGENTS.md` file.
 - No vimscript plug-ins if there is a lua alternative.
 - We use modern Neovim API's and features as much as possible.
@@ -59,5 +60,5 @@ information on this version.
   nix.
 - However, claude code doesn't use nix so for the devShell we install the full `nodejs` when doing
   development on this config.
-- When adding or removing plugins in this config please update `./.luarc.json` to keep the 
+- When adding or removing plugins in this config please update `./.luarc.json` to keep the
   workspace list up-to-date.
