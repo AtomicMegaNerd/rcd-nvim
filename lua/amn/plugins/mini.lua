@@ -28,6 +28,11 @@ return {
         m.setup()
       end,
 
+      -- make the nvim cmdline better
+      ["mini.cmdline"] = function(m)
+        m.setup()
+      end,
+
       -- keymap hints popup (which-key alternative)
       ["mini.clue"] = function(m)
         m.setup({
