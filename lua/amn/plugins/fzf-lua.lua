@@ -108,12 +108,18 @@ return {
   },
 
   config = function()
-    local yank = function(selected)
-      vim.fn.setreg("+", selected[1])
-    end
-    require("fzf-lua").setup({
+    local yank = {
+      fn = function(selected)
+        vim.fn.setreg("+", selected[1])
+      end,
+      noclose = true,
+    }
+
+    local fzf_lua = require("fzf-lua")
+    fzf_lua.setup("telescope", {
       files = { hidden = true, actions = { ["ctrl-y"] = yank } },
       grep = { hidden = true, actions = { ["ctrl-y"] = yank } },
     })
+    fzf_lua.register_ui_select()
   end,
 }
