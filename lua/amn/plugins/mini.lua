@@ -104,11 +104,6 @@ return {
         m.setup()
       end,
 
-      -- auto-close brackets and quotes
-      ["mini.pairs"] = function(m)
-        m.setup()
-      end,
-
       -- sa/sd/sr to add, delete, replace surrounding characters
       ["mini.surround"] = function(m)
         m.setup()
