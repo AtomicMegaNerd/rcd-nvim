@@ -109,7 +109,7 @@ return {
 
   config = function()
     local yank = {
-      fn = function(selected)
+      function(selected)
         vim.fn.setreg("+", selected[1])
       end,
       noclose = true,
