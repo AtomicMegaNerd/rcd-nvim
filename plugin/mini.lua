@@ -133,7 +133,7 @@ local mini_plugins = {
       evaluate_single = true,
       header = banner,
       items = {
-        m.sections.recent_files(7, false),
+        m.sections.recent_files(7, true),
         {
           {
             name = "Find files",
