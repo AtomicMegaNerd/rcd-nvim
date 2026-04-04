@@ -5,6 +5,9 @@ fzf.setup({
   defaults = {
     icon_provider = "mini",
   },
+  winopts = {
+    backdrop = 100,
+  },
 })
 
 local map = vim.keymap.set
