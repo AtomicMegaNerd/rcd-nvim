@@ -17,6 +17,7 @@ local mini_plugins = {
     m.setup()
   end,
 
+  -- basic options and keybindings
   ["mini.basics"] = function(m)
     m.setup()
   end,
@@ -67,6 +68,7 @@ local mini_plugins = {
     m.setup()
   end,
 
+  -- auto-completion engine
   ["mini.completion"] = function(m)
     m.setup({
       lsp_completion = {
@@ -105,6 +107,7 @@ local mini_plugins = {
     m.setup()
   end,
 
+  -- fancy notifier
   ["mini.notify"] = function(m)
     m.setup()
   end,
@@ -114,11 +117,11 @@ local mini_plugins = {
     m.setup()
   end,
 
-  -- sa/sd/sr to add, delete, replace surrounding characters
-  ["mini.surround"] = function(m)
+  ["mini.splitjoin"] = function(m)
     m.setup()
   end,
 
+  -- nvim start screen
   ["mini.starter"] = function(m)
     local banner = table.concat({
       "    ___   __                  _      __  ___                 _   __              __",
@@ -172,6 +175,11 @@ local mini_plugins = {
 
   -- minimal status line
   ["mini.statusline"] = function(m)
+    m.setup()
+  end,
+
+  -- sa/sd/sr to add, delete, replace surrounding characters
+  ["mini.surround"] = function(m)
     m.setup()
   end,
 
