@@ -35,11 +35,6 @@ local mini_plugins = {
     })
   end,
 
-  -- basic options and keybindings
-  ["mini.basics"] = function(m)
-    m.setup()
-  end,
-
   -- navigate jumps with [ and ] (buffers, diagnostics, hunks, etc.)
   ["mini.bracketed"] = function(m)
     m.setup()
