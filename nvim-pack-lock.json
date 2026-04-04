@@ -17,7 +17,7 @@
       "src": "https://github.com/andythigpen/nvim-coverage"
     },
     "fzf-lua": {
-      "rev": "5cbe58ca48c4c4a2fbe5e324b854596d8242711e",
+      "rev": "abacb0693d7a37de9e85e6fcb2d22d848cb75cef",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
