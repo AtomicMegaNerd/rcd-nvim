@@ -13,26 +13,6 @@
 
 AtomicMegaNerd's Neovim configuration.
 
-## Usage
-
-### With Nix (home-manager)
-
-Add as a flake input:
-
-```nix
-rcd-nvim.url = "github:AtomicMegaNerd/rcd-nvim";
-```
-
-Then import the module in your home-manager configuration:
-
-```nix
-imports = [ inputs.rcd-nvim.homeManagerModules.default ];
-```
-
-This sets up `programs.neovim` and links the config to `~/.config/nvim`.
-
-### Without Nix
-
 Clone directly to `~/.config/nvim`:
 
 ```sh
@@ -49,5 +29,5 @@ bash scripts/zellij.sh
 
 ## More Information
 
-See [AGENTS.md](AGENTS.md) for more information on the structure of this repo and how to work with 
+See [AGENTS.md](AGENTS.md) for more information on the structure of this repo and how to work with
 it.

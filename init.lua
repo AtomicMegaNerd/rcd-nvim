@@ -7,11 +7,8 @@
 --
 -- Neovim Configuration File
 
-require("amn.user.plugins")
-require("amn.user.options")
-require("amn.user.autocmds")
-require("amn.user.keymap")
-require("amn.user.lsp")
-
--- Set the colorscheme
-vim.cmd.colorscheme("catppuccin")
+require("options")
+require("pack")
+require("autocmds")
+require("keymap")
+require("lsp")

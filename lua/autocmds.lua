@@ -1,16 +1,3 @@
--- Text yank
-----------------------------------------------------------------
--- Automatically highlight text when we yank it
-local yank_grp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.hl.on_yank()
-  end,
-  group = yank_grp,
-  pattern = "*",
-})
-
 -- Options for specific file types
 ----------------------------------------------------------------
 local fto_grp = vim.api.nvim_create_augroup("FileTypeOptions", { clear = true })
@@ -94,25 +81,11 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "yaml", "json", "toml", "xml" },
 })
 
-vim.api.nvim_create_augroup("Linting", { clear = true })
+local linting = vim.api.nvim_create_augroup("Linting", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-  group = "Linting",
+  group = linting,
   callback = function()
     local lint = require("lint")
     lint.try_lint()
-  end,
-})
-
--- Avoid conflicts between blink.cmp and copilot
-vim.api.nvim_create_autocmd("User", {
-  pattern = "BlinkCmpMenuOpen",
-  callback = function()
-    vim.b.copilot_suggestion_hidden = true
-  end,
-})
-vim.api.nvim_create_autocmd("User", {
-  pattern = "BlinkCmpMenuClose",
-  callback = function()
-    vim.b.copilot_suggestion_hidden = false
   end,
 })
