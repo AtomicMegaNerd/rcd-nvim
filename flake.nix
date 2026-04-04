@@ -26,21 +26,40 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      checks = forAllSystems (system: {
-        pre-commit-check = git-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            stylua.enable = true;
-            lua-ls.enable = true;
-            markdownlint.enable = true;
-            trim-trailing-whitespace.enable = true;
-            mixed-line-endings.enable = true;
-            end-of-file-fixer.enable = true;
-            nixfmt.enable = true;
-            flake-checker.enable = true;
+      checks = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          pre-commit-check = git-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              stylua.enable = true;
+              # We need to tell lua-ls where the neovim runtime libraries are on
+              # Nix systems
+              lua-ls = {
+                enable = true;
+                settings.configuration = {
+                  runtime.version = "LuaJIT";
+                  workspace = {
+                    checkThirdParty = false;
+                    library = [
+                      "${pkgs.neovim-unwrapped}/share/nvim/runtime/lua"
+                    ];
+                  };
+                };
+              };
+              markdownlint.enable = true;
+              trim-trailing-whitespace.enable = true;
+              mixed-line-endings.enable = true;
+              end-of-file-fixer.enable = true;
+              nixfmt.enable = true;
+              flake-checker.enable = true;
+            };
           };
-        };
-      });
+        }
+      );
 
       devShells = forAllSystems (system: {
         default =

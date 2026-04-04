@@ -27,8 +27,8 @@ vim.keymap.set("n", "<right>", "<cmd>bn<cr>")
 -- Delete without overwriting the clipboard
 vim.keymap.set("n", "x", '"_x')
 
--- Make selection an unordered list item in Markdown
-vim.keymap.set("v", "<leader>-", ":normal! I- <CR>", { desc = "Markdown: make list" })
-
 -- Diagnostics
 vim.keymap.set("n", "td", vim.diagnostic.open_float, { desc = "[T]oggle [D]iagnostic" })
+
+-- Vim Pack
+vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Vim [P]ack [U]pdate" })
