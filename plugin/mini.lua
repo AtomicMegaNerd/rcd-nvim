@@ -68,7 +68,7 @@ local mini_plugins = {
         { mode = "n", keys = "<Leader>fg", desc = "Fzf git picker" },
         { mode = "n", keys = "<Leader>k", desc = "Health checks" },
         { mode = "n", keys = "<Leader>p", desc = "Package manager" },
-        { mode = "n", keys = "<Leader>n", desc = "Neogit" },
+        { mode = "n", keys = "<Leader>g", desc = "Neogit" },
         { mode = "n", keys = "<Leader>v", desc = "Coverage" },
       },
       window = {
