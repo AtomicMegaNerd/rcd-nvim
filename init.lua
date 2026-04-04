@@ -8,6 +8,7 @@
 -- Neovim Configuration File
 
 require("options")
+require("pack")
 require("autocmds")
 require("keymap")
 require("lsp")

@@ -1,8 +1,3 @@
-vim.pack.add({
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/andythigpen/nvim-coverage",
-})
-
 local coverage = require("coverage")
 coverage.setup({
   auto_reload = true,

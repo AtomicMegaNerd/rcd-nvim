@@ -1,5 +1,3 @@
-vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
-
 -- The plugin and their config functions live here...
 local mini_plugins = {
   -- Please keep these plugins in alphabetic order

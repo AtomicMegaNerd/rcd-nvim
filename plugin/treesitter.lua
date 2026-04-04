@@ -1,4 +1,3 @@
-vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
 require("nvim-treesitter").setup({
   additional_vim_regex_highlighting = false,
 })
