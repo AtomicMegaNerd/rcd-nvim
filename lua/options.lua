@@ -26,7 +26,7 @@ vim.o.scrolloff = 10
 vim.o.mouse = ""
 
 -- Blinking block cursor!
-vim.o.guicursor = "a:blinkon100"
+vim.o.guicursor = "a:blinkon100-blinkoff100-blinkwait700"
 
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- Number of spaces tabs count for
