@@ -28,17 +28,24 @@ vim.o.mouse = ""
 -- Blinking block cursor!
 vim.o.guicursor = "a:blinkon100-blinkoff100-blinkwait700"
 
+-- Pretty windows
+vim.o.winborder = "rounded"
+vim.o.pumborder = "rounded"
+vim.o.pumheight = 4
+vim.o.pummaxwidth = 100
+
+-- Indentation
+vim.o.breakindent = true
+vim.o.smartindent = true
+vim.o.autoindent = true
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftwidth = 4 -- Number of spaces to (auto)indent
 
--- Pretty windows
-vim.o.winborder = "rounded"
-vim.o.pumborder = "rounded"
-vim.o.pumheight = 3
+-- Limit shada for startup
+vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"
 
--- Indentation
-vim.o.breakindent = true
+vim.o.list = true -- Show helpful text indicators
 
 -- Status line always visible and global
 vim.o.laststatus = 3
@@ -51,7 +58,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Better completion experience
-vim.o.completeopt = "menuone,noselect,noinsert"
+vim.o.completeopt = "menuone,noselect,fuzzy,nosort"
 
 -- Nerd font
 vim.g.have_nerd_font = true
