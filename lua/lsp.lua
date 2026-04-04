@@ -73,38 +73,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- LSP progress → Ghostty OSC 9;4 progress bar (Neovim 0.12+)
--- Bridges LspProgress events to nvim_echo progress messages, which cause
--- the TUI to emit OSC 9;4 sequences that Ghostty renders as a native progress bar.
-----------------------------------------------------------------
-local lsp_progress_grp = vim.api.nvim_create_augroup("LspProgressBar", { clear = true })
 vim.api.nvim_create_autocmd("LspProgress", {
-  group = lsp_progress_grp,
   callback = function(ev)
-    local params = ev.data.params
-    local value = params.value
-    if type(value) ~= "table" then
-      return
-    end
-
+    local value = ev.data.params.value
+    if type(value) ~= "table" or value.kind ~= "end" then return end
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     local client_name = client and client.name or "LSP"
-    local id = client_name .. "." .. tostring(params.token)
-
-    local is_done = value.kind == "end"
-    vim.api.nvim_echo({}, false, {
-      id = id,
-      kind = "progress",
-      title = value.title or client_name,
-      source = client_name,
-      percent = value.percentage,
-      status = is_done and "success" or "running",
-    })
-
-    if is_done then
-      vim.defer_fn(function()
-        vim.cmd("echon ''")
-      end, 0)
-    end
+    vim.notify(client_name .. ": " .. (value.title or "done"))
   end,
 })
