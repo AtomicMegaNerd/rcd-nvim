@@ -1,5 +1,5 @@
-vim.pack.add({ "https://github.com/catppuccin/nvim" })
-require("catppuccin-vim").setup({
+vim.pack.add({ src = "https://github.com/catppuccin/nvim", name = "catppuccin" })
+require("catppuccin").setup({
   no_italic = true,
   flavour = "macchiato",
 
@@ -20,4 +20,4 @@ require("catppuccin-vim").setup({
 })
 
 -- Set the colorscheme
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("catppuccin-nvim")

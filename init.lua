@@ -6,3 +6,8 @@
 --                                              /____/
 --
 -- Neovim Configuration File
+
+require("options")
+require("autocmds")
+require("keymap")
+require("lsp")

@@ -70,6 +70,11 @@ local mini_plugins = {
     m.setup()
   end,
 
+  -- extra pickers for mini.pick (LSP, git, files, etc.)
+  ["mini.extra"] = function(m)
+    m.setup()
+  end,
+
   -- inline hex color previews (like nvim-colorizer)
   ["mini.hipatterns"] = function(m)
     m.setup({
