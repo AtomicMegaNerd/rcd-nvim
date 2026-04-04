@@ -69,6 +69,13 @@ I always use Nix to configure pre-commit using [https://github.com/cachix/git-ho
 This just makes it easy to keep pre-commit up-to-date and not letting pre-commit install packages
 alongside my nix stuff.
 
+To enable this flake to load automatically whenever you enter the directory run this command once
+after cloning the repo:
+
+```bash
+direnv allow
+```
+
 If you are not on Nix you can 100% ignore the flake.
 
 ### Why is this not 100% Nix?
