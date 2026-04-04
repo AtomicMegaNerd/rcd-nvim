@@ -32,3 +32,23 @@ vim.keymap.set("n", "td", vim.diagnostic.open_float, { desc = "[T]oggle [D]iagno
 
 -- Vim Pack
 vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Vim [P]ack [U]pdate" })
+
+-- Health Checks
+vim.keymap.set(
+  "n",
+  "<leader>kl",
+  "<cmd>:checkhealth vim.lsp<cr>",
+  { desc = "Chec[K] Health [L]sp" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>kp",
+  "<cmd>:checkhealth vim.pack<cr>",
+  { desc = "Chec[K] Health [P]ack" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>kt",
+  "<cmd>:checkhealth nvim-treesitter<cr>",
+  { desc = "Chec[K] Health [T]ree-sitter" }
+)
