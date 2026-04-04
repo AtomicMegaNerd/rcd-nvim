@@ -14,9 +14,9 @@ vim.g.mapleader = "\\"
 
 -- Make line numbers default, then make them relative, also set column
 vim.o.relativenumber = true
-vim.o.colorcolumn = "100"
 vim.o.number = true
 vim.o.signcolumn = "yes"
+vim.o.colorcolumn = "100"
 
 -- Scroll offset means the cursor will be x lines away from the top/bottom of the screen after
 -- scrolling
@@ -33,7 +33,6 @@ vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftwidth = 4 -- Number of spaces to (auto)indent
 
 -- Indentation
-vim.o.autoindent = true
 vim.o.breakindent = true
 
 -- Status line always visible and global
@@ -47,7 +46,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Better completion experience
-vim.o.completeopt = "menuone,noselect,popup,noinsert"
+vim.o.completeopt = "menuone,noselect,noinsert"
 
 -- Nerd font
 vim.g.have_nerd_font = true
@@ -61,8 +60,18 @@ vim.o.cursorline = true
 -- Clipboard
 vim.o.clipboard = "unnamed,unnamedplus"
 
--- Disable spelling
-vim.o.spell = false
-
 -- Disable swap files
 vim.o.swapfile = false
+
+-- Disable provider health checks
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
+
+-- Make it snappy
+
+-- Update times and timeouts.
+vim.o.updatetime = 300
+vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 10
