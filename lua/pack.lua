@@ -1,15 +1,15 @@
 vim.pack.add({
   -- Please keep these in alphabetic order by plugin name
-  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
-  "https://github.com/stevearc/conform.nvim",
-  "https://github.com/andythigpen/nvim-coverage",
+  { src = "https://github.com/catppuccin/nvim",             name = "catppuccin" },
+  { src = "https://github.com/stevearc/conform.nvim",       name = "conform" },
+  { src = "https://github.com/andythigpen/nvim-coverage",   name = "coverage" },
+  { src = "https://github.com/esmuellert/codediff.nvim",    name = "codediff" },
   "https://github.com/ibhagwan/fzf-lua",
-  "https://github.com/mfussenegger/nvim-lint",
+  { src = "https://github.com/mfussenegger/nvim-lint",      name = "lint" },
   "https://github.com/nvim-mini/mini.nvim",
   "https://github.com/NeogitOrg/neogit",
-  "https://github.com/stevearc/oil.nvim",
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/folke/todo-comments.nvim",
+  { src = "https://github.com/stevearc/oil.nvim",           name = "oil" },
+  { src = "https://github.com/nvim-lua/plenary.nvim",       name = "plenary" },
+  { src = "https://github.com/folke/todo-comments.nvim",    name = "todo-comments" },
   "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/esmuellert/codediff.nvim",
 })
