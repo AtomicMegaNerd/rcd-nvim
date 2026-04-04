@@ -13,18 +13,18 @@
 
 AtomicMegaNerd's Neovim configuration.
 
+## Deployment on Nix Systems
+
+See [https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix](https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix).
+
+You just want home-manager to clone this repo to ~/.config/nvim in a way that keeps it mutable.
+
+## Deployment on Non-nix Systems
+
 Clone directly to `~/.config/nvim`:
 
 ```sh
 git clone git@github.com:AtomicMegaNerd/rcd-nvim ~/.config/nvim
-```
-
-## Zellij
-
-A Zellij layout and helper script are included for working on this config:
-
-```sh
-bash scripts/zellij.sh
 ```
 
 ## Plugin Management
@@ -59,3 +59,21 @@ reinstallation on next startup.
 
 See [AGENTS.md](AGENTS.md) for more information on the structure of this repo and how to work with
 it.
+
+## Q&A
+
+### Why is This a Flake?
+
+I always use Nix to configure pre-commit using [https://github.com/cachix/git-hooks.nix](https://github.com/cachix/git-hooks.nix).
+
+This just makes it easy to keep pre-commit up-to-date and not letting pre-commit install packages
+alongside my nix stuff.
+
+If you are not on Nix you can 100% ignore the flake.
+
+### Why is this not 100% Nix?
+
+I use the same config at work which does not allow me to use Nix. Also I just want to use
+the standard Neovim Lua plug-in ecosystem without relying on Nix as a middle-man. I change my
+editor config a lot. This approach also means I don't have to run `nh home switch .` each
+time I update my config.

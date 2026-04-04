@@ -15,17 +15,18 @@ information on this version.
 ├── lsp # LSP configurations
 ├── lua # Core Lua configurations
 ├── plugin # Plugin conigurations
-├── AGENTS.md
-├── README.md
+├── AGENTS.md # Instructions for LLM's
+├── README.md # Instructions for humans
 └── stylua.toml
-└── ./nvim-pack-lock.json # Lock file for nvim pack
+└── flake.nix
+└── nvim-pack-lock.json # Lock file for nvim pack
 ```
 
 ## Notes for the LLM
 
-- **CRITITAL**: It is *far* better to say I don't know than waste my time with made up code.
 - The LLM is not allowed to edit this `AGENTS.md` file.
 - No vimscript plug-ins if there is a lua alternative.
 - We use modern Neovim API's and features as much as possible.
 - We use the built-in `vim.pack` package manager.
 - Catppuccin is our theme, we may change the flavour from time to time.
+- Use github and context7 MCP servers when doing queries where it makes sense.
