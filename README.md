@@ -29,6 +29,8 @@ bash scripts/zellij.sh
 
 ## Plugin Management
 
+See [https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
+
 Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in 
 `lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
 
