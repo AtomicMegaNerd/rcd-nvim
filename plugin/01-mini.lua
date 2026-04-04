@@ -24,11 +24,6 @@ local mini_plugins = {
     m.setup()
   end,
 
-  -- make the nvim cmdline better
-  ["mini.cmdline"] = function(m)
-    m.setup()
-  end,
-
   -- keymap hints popup (which-key alternative)
   ["mini.clue"] = function(m)
     m.setup({
@@ -60,9 +55,22 @@ local mini_plugins = {
     })
   end,
 
+  -- make the nvim cmdline better
+  ["mini.cmdline"] = function(m)
+    m.setup()
+  end,
+
   -- gc to toggle comments (line and block)
   ["mini.comment"] = function(m)
     m.setup()
+  end,
+
+  ["mini.completion"] = function(m)
+    m.setup({
+      lsp_completion = {
+        snippet_insert = nil,
+      },
+    })
   end,
 
   -- git diff signs in the gutter with hunk navigation
@@ -100,17 +108,25 @@ local mini_plugins = {
     m.setup()
   end,
 
+  ["mini.notify"] = function(m)
+    m.setup()
+  end,
+
   -- extra operators: gs (sort), gm (duplicate), gx (exchange)
   ["mini.operators"] = function(m)
     m.setup()
   end,
 
   ["mini.pick"] = function(m)
-    m.setup()
+    m.setup({})
   end,
 
   -- sa/sd/sr to add, delete, replace surrounding characters
   ["mini.surround"] = function(m)
+    m.setup()
+  end,
+
+  ["mini.starter"] = function(m)
     m.setup()
   end,
 
@@ -125,3 +141,57 @@ for plugin_str, plugin_fn in pairs(mini_plugins) do
   local plugin = require(plugin_str)
   plugin_fn(plugin)
 end
+
+local pick = require("mini.pick")
+local extra = require("mini.extra")
+
+local map = vim.keymap.set
+
+-- Files
+map("n", "<leader>ff", function()
+  pick.registry.files()
+end, { desc = "[F]ind [F]iles" })
+map("n", "<leader>fb", function()
+  pick.builtin.buffers()
+end, { desc = "[F]ind [B]uffers" })
+map("n", "<leader>fl", function()
+  pick.registry.grep_live()
+end, { desc = "[F]ind [L]ive grep" })
+map("n", "<leader>fh", function()
+  pick.builtin.help()
+end, { desc = "[F]ind [H]elp tags" })
+
+-- LSP
+map("n", "<leader>fs", function()
+  extra.pickers.lsp({ scope = "document_symbol" })
+end, { desc = "[F]ind [S]ymbols" })
+map("n", "<leader>fw", function()
+  extra.pickers.lsp({ scope = "workspace_symbol" })
+end, { desc = "[F]ind [W]orkspace symbols" })
+
+-- Diagnostics
+map("n", "<leader>fd", function()
+  extra.pickers.diagnostic({ scope = "current" })
+end, { desc = "[F]ind Document [d]iagnostics" })
+map("n", "<leader>fD", function()
+  extra.pickers.diagnostic({ scope = "all" })
+end, { desc = "[F]ind Workspace [D]iagnostics" })
+
+-- Lists / other
+map("n", "<leader>fq", function()
+  extra.pickers.list({ scope = "quickfix" })
+end, { desc = "[F]ind [Q]uickfix" })
+map("n", "<leader>fk", function()
+  extra.pickers.keymaps()
+end, { desc = "[F]ind [K]eymaps" })
+
+-- Git
+map("n", "<leader>fgf", function()
+  extra.pickers.git_files()
+end, { desc = "[F]ind [G]it [F]iles" })
+map("n", "<leader>fgc", function()
+  extra.pickers.git_commits()
+end, { desc = "[F]ind [G]it [C]ommits" })
+map("n", "<leader>fgb", function()
+  extra.pickers.git_branches()
+end, { desc = "[F]ind [G]it [B]ranches" })
