@@ -33,12 +33,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.buf.code_action,
       { buffer = buf, desc = "[C]ode [A]ction" }
     )
-    vim.keymap.set(
-      "n",
-      "<C-k>",
-      vim.lsp.buf.signature_help,
-      { buffer = buf, desc = "Signature Documentation" }
-    )
     vim.keymap.set("n", "<leader>ti", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
     end, { buffer = buf, desc = "[T]oggle [I]nlay Hint" })
@@ -76,7 +70,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("LspProgress", {
   callback = function(ev)
     local value = ev.data.params.value
-    if type(value) ~= "table" or value.kind ~= "end" then return end
+    if type(value) ~= "table" or value.kind ~= "end" then
+      return
+    end
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     local client_name = client and client.name or "LSP"
     vim.notify(client_name .. ": " .. (value.title or "done"))
