@@ -3,6 +3,7 @@ require("nvim-treesitter").setup({})
 local langs = {
   "bash",
   "go",
+  "gomod",
   "json",
   "lua",
   "markdown",
@@ -16,6 +17,7 @@ local langs = {
   "gomod",
   "fish",
   "html",
+  "rust",
   "css",
 }
 
