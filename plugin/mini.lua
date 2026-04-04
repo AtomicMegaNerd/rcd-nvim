@@ -63,12 +63,12 @@ local mini_plugins = {
         m.gen_clues.z(),
         -- Leader group descriptions
         { mode = "n", keys = "<Leader>c", desc = "Code actions" },
-        { mode = "n", keys = "<Leader>f", desc = "Find / search" },
-        { mode = "n", keys = "<Leader>fg", desc = "Find in Git" },
+        { mode = "n", keys = "<Leader>ct", desc = "Code toggles" },
+        { mode = "n", keys = "<Leader>f", desc = "Fzf picker" },
+        { mode = "n", keys = "<Leader>fg", desc = "Fzf git picker" },
         { mode = "n", keys = "<Leader>k", desc = "Health checks" },
         { mode = "n", keys = "<Leader>p", desc = "Package manager" },
-        { mode = "n", keys = "<Leader>r", desc = "Rename" },
-        { mode = "n", keys = "<Leader>t", desc = "Toggle" },
+        { mode = "n", keys = "<Leader>n", desc = "Neogit" },
         { mode = "n", keys = "<Leader>v", desc = "Coverage" },
       },
       window = {

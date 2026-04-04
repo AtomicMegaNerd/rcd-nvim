@@ -26,16 +26,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local buf = args.buf
 
     -- General LSP keymaps
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = buf, desc = "[R]e[n]ame" })
+    vim.keymap.set(
+      "n",
+      "<leader>cr",
+      vim.lsp.buf.rename,
+      { buffer = buf, desc = "[C]ode [R]ename" }
+    )
     vim.keymap.set(
       "n",
       "<leader>ca",
       vim.lsp.buf.code_action,
       { buffer = buf, desc = "[C]ode [A]ction" }
     )
-    vim.keymap.set("n", "<leader>ti", function()
+    vim.keymap.set("n", "<leader>cti", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-    end, { buffer = buf, desc = "[T]oggle [I]nlay Hint" })
+    end, { buffer = buf, desc = "[C]ode [T]oggle [I]nlay Hint" })
 
     -- Picker-backed LSP navigation (overrides gr* defaults)
     local fzf = require("fzf-lua")
