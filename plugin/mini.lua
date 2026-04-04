@@ -16,19 +16,21 @@ local mini_plugins = {
   ["mini.animate"] = function(m)
     m.setup({
       cursor = {
-        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+        timing = m.gen_timing.linear({ duration = 120, unit = "total" }),
       },
       scroll = {
-        timing = function(_, n) return math.min(80 / n, 4) end,
+        timing = function(_, n)
+          return math.min(20 / n, 4)
+        end,
       },
       resize = {
-        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+        timing = m.gen_timing.linear({ duration = 20, unit = "total" }),
       },
       open = {
-        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+        timing = m.gen_timing.linear({ duration = 20, unit = "total" }),
       },
       close = {
-        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+        timing = m.gen_timing.linear({ duration = 20, unit = "total" }),
       },
     })
   end,
