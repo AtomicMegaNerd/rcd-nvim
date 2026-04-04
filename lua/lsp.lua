@@ -44,21 +44,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, { buffer = buf, desc = "[T]oggle [I]nlay Hint" })
 
     -- Picker-backed LSP navigation (overrides gr* defaults)
-    vim.keymap.set("n", "gd", function()
-      require("mini.extra").pickers.lsp({ scope = "definition" })
-    end, { buffer = buf, desc = "[G]oto [D]efinition" })
-    vim.keymap.set("n", "gl", function()
-      require("mini.extra").pickers.lsp({ scope = "declaration" })
-    end, { buffer = buf, desc = "[G]oto Dec[l]aration" })
-    vim.keymap.set("n", "grr", function()
-      require("mini.extra").pickers.lsp({ scope = "references" })
-    end, { buffer = buf, desc = "[G]oto [R]eferences" })
-    vim.keymap.set("n", "gri", function()
-      require("mini.extra").pickers.lsp({ scope = "implementation" })
-    end, { buffer = buf, desc = "[G]oto [I]mplementation" })
-    vim.keymap.set("n", "grt", function()
-      require("mini.extra").pickers.lsp({ scope = "type_definition" })
-    end, { buffer = buf, desc = "[G]oto [T]ype Definition" })
+    local fzf = require("fzf-lua")
+    vim.keymap.set("n", "gd", fzf.lsp_definitions, { buffer = buf, desc = "[G]oto [D]efinition" })
+    vim.keymap.set("n", "gl", fzf.lsp_declarations, { buffer = buf, desc = "[G]oto Dec[l]aration" })
+    vim.keymap.set("n", "grr", fzf.lsp_references, { buffer = buf, desc = "[G]oto [R]eferences" })
+    vim.keymap.set(
+      "n",
+      "gri",
+      fzf.lsp_implementations,
+      { buffer = buf, desc = "[G]oto [I]mplementation" }
+    )
+    vim.keymap.set(
+      "n",
+      "grt",
+      fzf.lsp_typedefs,
+      { buffer = buf, desc = "[G]oto [T]ype Definition" }
+    )
 
     -- Disable completion for HTML since Emmet provides it
     if client.name == "html" then
