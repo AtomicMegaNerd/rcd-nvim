@@ -78,3 +78,6 @@ vim.g.loaded_node_provider = 0
 vim.o.updatetime = 300
 vim.o.timeoutlen = 500
 vim.o.ttimeoutlen = 10
+
+-- Enable experimental ui2
+require("vim._core.ui2").enable({})
