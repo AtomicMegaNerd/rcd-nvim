@@ -19,6 +19,10 @@ local mini_plugins = {
     m.setup()
   end,
 
+  ["mini.basics"] = function(m)
+    m.setup()
+  end,
+
   -- navigate jumps with [ and ] (buffers, diagnostics, hunks, etc.)
   ["mini.bracketed"] = function(m)
     m.setup()
@@ -127,7 +131,33 @@ local mini_plugins = {
   end,
 
   ["mini.starter"] = function(m)
-    m.setup()
+    local banner = table.concat({
+      "    ___   __                  _      __  ___                 _   __              __",
+      "   /   | / /_____  ____ ___  (_)____/  |/  /__  ____ _____ _/ | / /__  _________/ /",
+      "  / /| |/ __/ __ \\/ __ `__ \\/ / ___/ /|_/ / _ \\/ __ `/ __ `/  |/ / _ \\/ ___/ __  /",
+      " / ___ / /_/ /_/ / / / / / / / /__/ /  / /  __/ /_/ / /_/ / /|  /  __/ /  / /_/ /",
+      "/_/  |_\\__/\\____/_/ /_/ /_/_/\\___/_/  /_/\\___/\\__, /\\__,_/_/ |_/\\___/_/   \\__,_/",
+      "                                             /____/",
+    }, "\n")
+
+    m.setup({
+      evaluate_single = true,
+      header = banner,
+      items = {
+        m.sections.recent_files(7, false),
+        m.sections.pick(),
+        m.sections.builtin_actions(),
+      },
+      content_hooks = {
+        m.gen_hook.adding_bullet("  "),
+        m.gen_hook.indexing("all", { "Builtin actions" }),
+        m.gen_hook.aligning("center", "center"),
+      },
+      footer = function()
+        local v = vim.version()
+        return "Neovim v" .. v.major .. "." .. v.minor .. "." .. v.patch
+      end,
+    })
   end,
 
   -- minimal status line

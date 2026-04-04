@@ -9,7 +9,7 @@ require("neogit").setup({
   graph_style = "unicode",
   integrations = {
     codediff = true,
-    snacks = true,
+    mini_pick = true,
   },
 })
 

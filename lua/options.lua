@@ -9,6 +9,9 @@
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Leader
+vim.g.mapleader = "\\"
+
 -- Make line numbers default, then make them relative, also set column
 vim.o.relativenumber = true
 vim.o.colorcolumn = "100"
