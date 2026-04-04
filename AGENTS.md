@@ -15,10 +15,10 @@ information on this version.
 ├── lsp # LSP configurations
 ├── lua # Core Lua configurations
 ├── plugin # Plugin conigurations
+├── AGENTS.md
 ├── README.md
-├── scripts
-│   └── zellij.sh # A script to use my custom Zellij layout for this repo
 └── stylua.toml
+└── ./nvim-pack-lock.json # Lock file for nvim pack
 ```
 
 ## Notes for the LLM
