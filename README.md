@@ -11,7 +11,7 @@
 
 ![AtomicMegaNerd](https://github.com/AtomicMegaNerd/AtomicMegaNerd/blob/main/img/RCD-AtomicMegaNerd-Beard-400.png)
 
-AtomicMegaNerd's Neovim configuration.
+AtomicMegaNerd's [Neovim](https://neovim.io) configuration.
 
 ## Deployment on Nix Systems
 
