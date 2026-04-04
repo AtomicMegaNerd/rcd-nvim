@@ -80,12 +80,3 @@ vim.api.nvim_create_autocmd("FileType", {
   group = fto_grp,
   pattern = { "yaml", "json", "toml", "xml" },
 })
-
-local linting = vim.api.nvim_create_augroup("Linting", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = linting,
-  callback = function()
-    local lint = require("lint")
-    lint.try_lint()
-  end,
-})
