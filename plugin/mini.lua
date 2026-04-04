@@ -14,7 +14,23 @@ local mini_plugins = {
 
   -- animations for cursor, scroll, resize, and window open/close
   ["mini.animate"] = function(m)
-    m.setup()
+    m.setup({
+      cursor = {
+        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+      },
+      scroll = {
+        timing = function(_, n) return math.min(80 / n, 4) end,
+      },
+      resize = {
+        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+      },
+      open = {
+        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+      },
+      close = {
+        timing = m.gen_timing.linear({ duration = 80, unit = "total" }),
+      },
+    })
   end,
 
   -- basic options and keybindings
