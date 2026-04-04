@@ -32,6 +32,11 @@ vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftwidth = 4 -- Number of spaces to (auto)indent
 
+-- Pretty windows
+vim.o.winborder = "rounded"
+vim.o.pumborder = "rounded"
+vim.o.pumheight = 3
+
 -- Indentation
 vim.o.breakindent = true
 
@@ -68,8 +73,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
-
--- Make it snappy
 
 -- Update times and timeouts.
 vim.o.updatetime = 300
