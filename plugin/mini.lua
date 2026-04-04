@@ -174,6 +174,17 @@ local mini_plugins = {
   ["mini.statusline"] = function(m)
     m.setup()
   end,
+
+  ["mini.trailspace"] = function(m)
+    m.setup()
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      callback = function()
+        if vim.bo.filetype == "markdown" then
+          m.trim()
+        end
+      end,
+    })
+  end,
 }
 
 -- Iterate over each mini plugin and run setup() on it

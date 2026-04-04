@@ -31,7 +31,7 @@ bash scripts/zellij.sh
 
 See [https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
 
-Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in 
+Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in
 `lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
 
 ### Updating plugins
@@ -40,7 +40,7 @@ Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _importe
 :lua vim.pack.update()
 ```
 
-This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close 
+This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close
 it to cancel.
 
 ### Removing a plugin
@@ -52,7 +52,7 @@ it to cancel.
 :lua vim.pack.del({ 'plugin-name' })
 ```
 
-Do not delete plugin directories manually — this leaves the lockfile out of sync and causes 
+Do not delete plugin directories manually — this leaves the lockfile out of sync and causes
 reinstallation on next startup.
 
 ## More Information
