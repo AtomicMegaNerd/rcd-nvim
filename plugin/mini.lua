@@ -229,9 +229,7 @@ local mini_plugins = {
     m.setup()
     vim.api.nvim_create_autocmd("BufWritePre", {
       callback = function()
-        if vim.bo.filetype == "markdown" then
-          m.trim()
-        end
+        m.trim()
       end,
     })
   end,
