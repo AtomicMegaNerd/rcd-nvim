@@ -71,15 +71,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
-
-vim.api.nvim_create_autocmd("LspProgress", {
-  callback = function(ev)
-    local value = ev.data.params.value
-    if type(value) ~= "table" or value.kind ~= "end" then
-      return
-    end
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    local client_name = client and client.name or "LSP"
-    vim.notify(client_name .. ": " .. (value.title or "done"))
-  end,
-})

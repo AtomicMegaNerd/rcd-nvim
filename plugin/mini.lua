@@ -151,7 +151,13 @@ local mini_plugins = {
 
   -- fancy notifier
   ["mini.notify"] = function(m)
-    m.setup()
+    m.setup({
+      lsp_progress = {
+        enable = true,
+        duration_last = 1000, -- ms to show the final "done" message
+      },
+    })
+    vim.notify = m.make_notify()
   end,
 
   -- extra operators: gs (sort), gm (duplicate), gx (exchange)
