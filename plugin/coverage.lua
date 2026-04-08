@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
   group = coverage_group,
   pattern = { "go", "python" },
   callback = function(ev)
+    if vim.fn.expand("%:p") == "" then return end
     local ft = vim.bo[ev.buf].filetype
     local cov_file = coverage_files[ft]
     if vim.fn.filereadable(vim.fn.getcwd() .. "/" .. cov_file) == 1 then
