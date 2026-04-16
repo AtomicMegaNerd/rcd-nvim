@@ -4,7 +4,7 @@ local fto_grp = vim.api.nvim_create_augroup("FileTypeOptions", { clear = true })
 
 -- Set tabstop and shiftwidth to 2 for these file types
 vim.api.nvim_create_autocmd("FileType", {
-  command = "set tabstop=2 shiftwidth=2",
+  command = "setlocal tabstop=2 shiftwidth=2",
   group = fto_grp,
   pattern = {
     "haskell",
@@ -26,20 +26,20 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Do not convert tabs to spaces in these file types
 vim.api.nvim_create_autocmd("FileType", {
-  command = "set noexpandtab",
+  command = "setlocal noexpandtab",
   group = fto_grp,
   pattern = { "bash", "sh", "go" },
 })
 
 -- The black Python formatter uses 88 characters as the line length
 vim.api.nvim_create_autocmd("FileType", {
-  command = "set colorcolumn=88",
+  command = "setlocal colorcolumn=88",
   group = fto_grp,
   pattern = { "python" },
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  command = "set colorcolumn=100",
+  command = "setlocal colorcolumn=100",
   group = fto_grp,
   pattern = {
     "markdown",
@@ -76,7 +76,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- Disable spelling for these file types
 vim.api.nvim_create_autocmd("FileType", {
-  command = "set nospell",
+  command = "setlocal nospell",
   group = fto_grp,
   pattern = { "yaml", "json", "toml", "xml" },
 })
