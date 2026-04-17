@@ -33,7 +33,7 @@
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
-      "rev": "e06745228600a585b88726fc9fba44a373c15a47",
+      "rev": "e906fce7e44ae562f06345be99a7db02f8315236",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-treesitter": {
