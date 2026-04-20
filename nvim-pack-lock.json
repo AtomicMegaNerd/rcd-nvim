@@ -5,7 +5,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "codediff": {
-      "rev": "832f1ecc5f8b15a44cf7537e31d3266d657775b1",
+      "rev": "8afc229d38dc13ce71b2ffbb860084b2c726e061",
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "conform": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/andythigpen/nvim-coverage"
     },
     "fzf-lua": {
-      "rev": "834246377489f9a1e6d4df570a7874a48c644b56",
+      "rev": "3da04a92518453a1898d6bce213532eec73dcc27",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "mini": {
-      "rev": "418ef4930ddabe80f449c6f1323f8b6abb172d1c",
+      "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
