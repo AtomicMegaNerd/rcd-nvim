@@ -11,5 +11,4 @@ vim.pack.add({
   { src = "https://github.com/NeogitOrg/neogit", name = "neogit" },
   { src = "https://github.com/stevearc/oil.nvim", name = "oil" },
   { src = "https://github.com/folke/todo-comments.nvim", name = "todo-comments" },
-  { src = "https://github.com/zbirenbaum/copilot.lua", name = "copilot" },
 })

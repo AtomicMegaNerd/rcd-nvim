@@ -12,16 +12,12 @@
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
-    "copilot": {
-      "rev": "aeca454727486d488a6ecbcde30db72e741e3524",
-      "src": "https://github.com/zbirenbaum/copilot.lua"
-    },
     "coverage": {
       "rev": "a939e425e363319d952a6c35fb3f38b34041ded2",
       "src": "https://github.com/andythigpen/nvim-coverage"
     },
     "fzf-lua": {
-      "rev": "3da04a92518453a1898d6bce213532eec73dcc27",
+      "rev": "fcabe3cb7cfa6bd5148ffac0188997196401937d",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
