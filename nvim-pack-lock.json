@@ -17,7 +17,7 @@
       "src": "https://github.com/andythigpen/nvim-coverage"
     },
     "fzf-lua": {
-      "rev": "fcabe3cb7cfa6bd5148ffac0188997196401937d",
+      "rev": "beaa4e83e6be4174af291a464e4f49548c943963",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "mini": {
-      "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
+      "rev": "5849ef04c32a6a8e55957b946c0a275801d87530",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "neogit": {
