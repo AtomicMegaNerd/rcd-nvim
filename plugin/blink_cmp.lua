@@ -1,8 +1,4 @@
-require("blink").setup({
-  -- Do not enable for some filetypes as it is annoying
-  enabled = function()
-    return not vim.tbl_contains({ "gitcommit", "markdown" }, vim.bo.filetype)
-  end,
+require("blink.cmp").setup({
   appearance = {
     nerd_font_variant = "normal",
   },
@@ -23,14 +19,7 @@ require("blink").setup({
     ghost_text = { enabled = true },
   },
   sources = {
-    default = { "lsp", "copilot", "path", "buffer" },
-    per_filetype = {
-      -- Don't have copilot ruining our emmet experience
-      html = {
-        "lsp",
-        "path",
-      },
-    },
+    default = { "lsp", "path", "buffer" },
     providers = {
       lsp = {
         -- This override is needed to add "!" as a trigger character for web filetypes, as it is
@@ -57,16 +46,6 @@ require("blink").setup({
             return trigger_characters
           end,
         },
-      },
-      copilot = {
-        name = "copilot",
-        module = "blink-copilot",
-        async = true,
-      },
-      lazydev = {
-        name = "LazyDev",
-        module = "lazydev.integrations.blink",
-        fallbacks = { "lsp" },
       },
     },
   },
