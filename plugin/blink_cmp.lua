@@ -13,6 +13,9 @@ require("blink.cmp").setup({
         columns = { { "label" }, { "kind_icon", "kind" }, { "source_name" } },
       },
     },
+    list = {
+      max_items = 5,
+    },
     trigger = {
       show_on_blocked_trigger_characters = { " ", "\n", "\t" },
     },
