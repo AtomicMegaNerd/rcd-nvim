@@ -90,9 +90,6 @@ local mini_plugins = {
   -- auto-completion engine
   ["mini.completion"] = function(m)
     m.setup({
-      lsp_completion = {
-        snippet_insert = nil,
-      },
       fallback_action = "<C-x><C-f>",
     })
 
@@ -165,6 +162,9 @@ local mini_plugins = {
     m.setup()
   end,
 
+  ["mini.snippets"] = function(m)
+    m.setup()
+  end,
   ["mini.splitjoin"] = function(m)
     m.setup()
   end,
