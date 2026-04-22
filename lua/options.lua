@@ -81,10 +81,5 @@ vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
 
--- Update times and timeouts.
-vim.o.updatetime = 300
-vim.o.timeoutlen = 500
-vim.o.ttimeoutlen = 10
-
 -- Enable experimental ui2
 require("vim._core.ui2").enable({})
