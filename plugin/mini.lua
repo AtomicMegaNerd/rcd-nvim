@@ -87,38 +87,6 @@ local mini_plugins = {
     m.setup()
   end,
 
-  -- auto-completion engine
-  ["mini.completion"] = function(m)
-    m.setup({
-      lsp_completion = {
-        snippet_insert = nil,
-      },
-      fallback_action = "<C-x><C-f>",
-    })
-
-    -- fuzzy matching with stable ordering
-    vim.opt.completeopt:append({ "fuzzy", "nosort" })
-
-    -- tab/s-tab to navigate popup
-    local imap_expr = function(lhs, rhs)
-      vim.keymap.set("i", lhs, rhs, { expr = true })
-    end
-    imap_expr("<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]])
-    imap_expr("<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]])
-
-    -- CR accepts selected item, otherwise passthrough
-    _G.cr_action = function()
-      if vim.fn.complete_info()["selected"] ~= -1 then
-        return "\25"
-      end
-      return "\r"
-    end
-    vim.keymap.set("i", "<CR>", "v:lua.cr_action()", { expr = true })
-
-    -- advertise mini.completion capabilities to LSP servers (e.g. auto-import)
-    vim.lsp.config("*", { capabilities = m.get_lsp_capabilities() })
-  end,
-
   -- git diff signs in the gutter with hunk navigation
   ["mini.diff"] = function(m)
     m.setup()
