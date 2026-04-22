@@ -153,29 +153,6 @@ local mini_plugins = {
       header = banner,
       items = {
         m.sections.recent_files(7, true),
-        {
-          {
-            name = "Find files",
-            action = "lua require('fzf-lua').files()",
-            section = "Picker",
-          },
-          {
-            name = "Live grep",
-            action = "lua require('fzf-lua').live_grep()",
-            section = "Picker",
-          },
-          {
-            name = "Buffers",
-            action = "lua require('fzf-lua').buffers()",
-            section = "Picker",
-          },
-          {
-            name = "Git files",
-            action = "lua require('fzf-lua').git_files()",
-            section = "Picker",
-          },
-        },
-        m.sections.builtin_actions(),
       },
       content_hooks = {
         m.gen_hook.adding_bullet("  "),
