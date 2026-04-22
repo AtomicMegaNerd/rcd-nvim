@@ -13,7 +13,7 @@ neogit.setup({
     kind = "floating",
   },
   commit_view = {
-    kind = "vsplit",
+    kind = "floating",
   },
   log_view = {
     kind = "floating",
@@ -25,7 +25,7 @@ neogit.setup({
     kind = "floating",
   },
   merge_editor = {
-    kind = "auto",
+    kind = "foating",
   },
   preview_buffer = {
     kind = "floating_console",
