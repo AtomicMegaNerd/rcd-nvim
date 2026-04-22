@@ -7,22 +7,22 @@ neogit.setup({
   graph_style = "unicode",
   process_spinner = true,
   commit_editor = {
-    kind = "replace",
+    kind = "floating",
   },
   commit_select_view = {
-    kind = "replace",
+    kind = "floating",
   },
   commit_view = {
     kind = "vsplit",
   },
   log_view = {
-    kind = "replace",
+    kind = "floating",
   },
   rebase_editor = {
     kind = "auto",
   },
   reflog_view = {
-    kind = "replace",
+    kind = "floating",
   },
   merge_editor = {
     kind = "auto",
@@ -34,13 +34,13 @@ neogit.setup({
     kind = "split",
   },
   stash = {
-    kind = "replace",
+    kind = "floating",
   },
   refs_view = {
-    kind = "replace",
+    kind = "floating",
   },
 })
 
 vim.keymap.set("n", "<leader>gg", function()
-  neogit.open({ kind = "replace" })
+  neogit.open({ kind = "floating" })
 end, { desc = "Neo[G]it [G]it" })
