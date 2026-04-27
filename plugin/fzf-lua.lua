@@ -28,6 +28,13 @@ map("n", "<leader>fD", fzf.diagnostics_workspace, { desc = "[F]ind Workspace [D]
 
 -- Lists / other
 map("n", "<leader>fq", fzf.quickfix, { desc = "[F]ind [Q]uickfix" })
+map("n", "<leader>fm", function()
+  local lines = vim.split(vim.fn.execute("messages"), "\n", { plain = true })
+  lines = vim.tbl_filter(function(l)
+    return l ~= ""
+  end, lines)
+  fzf.fzf_exec(lines, { prompt = "Messages> " })
+end, { desc = "[F]ind [M]essages" })
 map("n", "<leader>fk", fzf.keymaps, { desc = "[F]ind [K]eymaps" })
 
 -- Todo comments
