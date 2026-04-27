@@ -149,7 +149,6 @@ local mini_plugins = {
     }, "\n")
 
     m.setup({
-      evaluate_single = true,
       header = banner,
       items = {
         m.sections.recent_files(7, true),
