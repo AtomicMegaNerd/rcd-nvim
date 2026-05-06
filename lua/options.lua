@@ -42,16 +42,11 @@ vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftwidth = 4 -- Number of spaces to (auto)indent
 
--- Limit shada for startup
-vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"
-
-vim.o.list = true -- Show helpful text indicators
+-- Show helpful text indicators
+vim.o.list = true
 
 -- Status line always visible and global
 vim.o.laststatus = 3
-
--- Save undo history
-vim.o.undofile = true
 
 -- Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
@@ -75,8 +70,14 @@ vim.o.showtabline = 0
 -- Clipboard
 vim.o.clipboard = "unnamed,unnamedplus"
 
+-- Limit shada for startup
+vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"
+
 -- Disable swap files
 vim.o.swapfile = false
+
+-- Save undo history
+vim.o.undofile = true
 
 -- Disable provider health checks
 vim.g.loaded_python3_provider = 0
