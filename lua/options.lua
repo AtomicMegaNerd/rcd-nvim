@@ -69,6 +69,9 @@ vim.o.showmode = false
 -- Highlight the current line
 vim.o.cursorline = true
 
+-- Disable tabline
+vim.o.showtabline = 0
+
 -- Clipboard
 vim.o.clipboard = "unnamed,unnamedplus"
 
