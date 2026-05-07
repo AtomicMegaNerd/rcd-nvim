@@ -68,7 +68,7 @@ vim.o.cursorline = true
 vim.o.showtabline = 0
 
 -- Lose the ~ on empty lines
-vim.o.fillchars = { eob = " " }
+vim.opt.fillchars = { eob = " " }
 
 -- Clipboard
 vim.o.clipboard = "unnamed,unnamedplus"
