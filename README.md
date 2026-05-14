@@ -15,14 +15,15 @@ AtomicMegaNerd's [Neovim](https://neovim.io) configuration.
 
 ## Deployment on Nix Systems
 
-See [https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix](https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix).
+See
+[https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix](https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix).
 
 You just want home-manager to clone this repo to ~/.config/nvim in a way that keeps it mutable.
 
 ## Deployment on Non-nix Systems
 
-For non-nix system we use [mise-en-place](https://mise.jdx.dev/). Please install it before
-cloning this repo.
+For non-nix system we use [mise-en-place](https://mise.jdx.dev/). Please install it before cloning
+this repo.
 
 Clone directly to `~/.config/nvim`:
 
@@ -39,10 +40,11 @@ mise install
 
 ## Plugin Management
 
-See [https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
+See
+[https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
 
-Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in
-`lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
+Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in `lua/pack.lua`
+and are _configured_ in the `plugin` directory (1 file per plugin).
 
 ### Updating plugins
 
@@ -50,8 +52,8 @@ Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _importe
 :lua vim.pack.update()
 ```
 
-This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close
-it to cancel.
+This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close it
+to cancel.
 
 ### Removing a plugin
 
@@ -74,7 +76,8 @@ it.
 
 ### Why is This a Flake?
 
-I always use Nix to configure pre-commit using [https://github.com/cachix/git-hooks.nix](https://github.com/cachix/git-hooks.nix).
+I always use Nix to configure pre-commit using
+[https://github.com/cachix/git-hooks.nix](https://github.com/cachix/git-hooks.nix).
 
 This just makes it easy to keep pre-commit up-to-date and not letting pre-commit install packages
 alongside my nix stuff.
@@ -90,7 +93,7 @@ If you are not on Nix you can 100% ignore the flake.
 
 ### Why is this not 100% Nix?
 
-I use the same config at work which does not allow me to use Nix. Also I just want to use
-the standard Neovim Lua plug-in ecosystem without relying on Nix as a middle-man. I change my
-editor config a lot. This approach also means I don't have to run `nh home switch .` each
-time I update my config.
+I use the same config at work which does not allow me to use Nix. Also I just want to use the
+standard Neovim Lua plug-in ecosystem without relying on Nix as a middle-man. I change my editor
+config a lot. This approach also means I don't have to run `nh home switch .` each time I update my
+config.
