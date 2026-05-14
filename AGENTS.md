@@ -1,7 +1,7 @@
 # Neovim config
 
-This is a neovim config that can both be cloned onto a non-nix machine (work) and used as a flake
-on my nix managed machines at home.
+This is a neovim config that can both be cloned onto a non-nix machine (work) and used as a flake on
+my nix managed machines at home.
 
 ## Current Neovim Version
 
@@ -32,9 +32,9 @@ which are out of date.
 
 ### Load Order
 
-  1. `init.lua` — entry point, explicitly loads its imports in order from `lua/`.
-  2. `plugin/` — auto-loaded by Neovim after init (runtime scan).
-  3. `lsp/` — auto-loaded lazily by Neovim's built-in LSP system when clients start.
+1. `init.lua` — entry point, explicitly loads its imports in order from `lua/`.
+2. `plugin/` — auto-loaded by Neovim after init (runtime scan).
+3. `lsp/` — auto-loaded lazily by Neovim's built-in LSP system when clients start.
 
 ## Notes for LLM
 
@@ -47,6 +47,6 @@ which are out of date.
 - Use github and context7 MCP servers when doing queries where it makes sense.
 - Run `pre-commit run` to run the linters against the repo after making changes.
 - Running `direnv allow` allows the flake to auto-load when entering the directory.
-- We put all plug-in registrations in `lua/pack.lua` to ensure that the plug-ins are added
-  in the right order and so we never need duplicates.
+- We put all plug-in registrations in `lua/pack.lua` to ensure that the plug-ins are added in the
+  right order and so we never need duplicates.
 - Plug-in configuration happens separately in the `plugin/` directory.
