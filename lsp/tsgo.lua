@@ -17,8 +17,15 @@ return {
     "typescriptreact",
   },
   root_dir = function(bufnr, on_dir)
-    local root_markers =
-      { "package-lock.json", "yarn.lock", "pnpm-lock.yaml", "bun.lockb", "bun.lock" }
+    local root_markers = {
+      "package-lock.json",
+      "yarn.lock",
+      "pnpm-lock.yaml",
+      "bun.lockb",
+      "bun.lock",
+      "jsconfig.json",
+      "tsconfig.json",
+    }
     root_markers = { root_markers, { ".git" } }
 
     local deno_root = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
