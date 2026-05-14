@@ -36,7 +36,10 @@ Then enable mise:
 ```sh
 mise trust .
 mise install
+mise setup
 ```
+
+The last command will setup pre-commit on the non-nix system.
 
 ## Plugin Management
 
