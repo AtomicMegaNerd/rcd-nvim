@@ -24,6 +24,8 @@ return {
     "pnpm-lock.yaml",
     "bun.lockb",
     "bun.lock",
+    "jsconfig.json",
+    "tsconfig.json",
   },
   workspace_required = true,
 }
