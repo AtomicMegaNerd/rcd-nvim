@@ -35,6 +35,12 @@
           pre-commit-check = git-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
+              oxfmt = {
+                enable = true;
+                name = "oxfmt";
+                entry = "oxfmt .";
+                pass_filenames = false;
+              };
               stylua.enable = true;
               # We need to tell lua-ls where the neovim runtime libraries are on
               # Nix systems
@@ -68,6 +74,14 @@
           in
           pkgs.mkShell {
             inherit (self.checks.${system}.pre-commit-check) shellHook;
+            packages = [
+              pkgs.stylua
+              pkgs.lua-language-server
+              pkgs.markdownlint-cli2
+              pkgs.nixfmt
+              pkgs.nil
+              pkgs.oxfmt
+            ];
           };
       });
     };
