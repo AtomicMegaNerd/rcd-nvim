@@ -1,5 +1,6 @@
 return {
   cmd = { "ruff", "server" },
   filetypes = { "python" },
-  root_markers = { "pyproject.toml", ".git" },
+  root_markers = { "pyproject.toml" },
+  workspace_required = true,
 }

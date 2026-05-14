@@ -5,7 +5,8 @@ return {
     vim.fn.stdpath("cache") .. "/lua-language-server",
   },
   filetypes = { "lua" },
-  root_markers = { ".luarc.json", ".luarc.jsonc", ".git" },
+  root_markers = { ".luarc.json", ".luarc.jsonc", "stylua.toml" },
+  workspace_required = true,
   settings = {
     Lua = {
       completion = { callSnippet = "Replace" },

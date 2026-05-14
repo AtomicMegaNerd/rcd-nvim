@@ -1,6 +1,7 @@
 return {
   cmd = { "nil" },
-  root_markers = { "flake.nix", "default.nix", ".git" },
+  root_markers = { "flake.nix" },
+  workspace_required = true,
   filetypes = { "nix" },
   settings = {
     ["nil"] = {
