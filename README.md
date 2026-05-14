@@ -21,10 +21,20 @@ You just want home-manager to clone this repo to ~/.config/nvim in a way that ke
 
 ## Deployment on Non-nix Systems
 
+For non-nix system we use [mise-en-place](https://mise.jdx.dev/). Please install it before
+cloning this repo.
+
 Clone directly to `~/.config/nvim`:
 
 ```sh
 git clone git@github.com:AtomicMegaNerd/rcd-nvim ~/.config/nvim
+```
+
+Then enable mise:
+
+```sh
+mise trust .
+mise install
 ```
 
 ## Plugin Management
