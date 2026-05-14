@@ -81,6 +81,8 @@
               pkgs.nixfmt
               pkgs.nil
               pkgs.oxfmt
+              pkgs.yaml-language-server
+              pkgs.bash-language-server
             ];
           };
       });
