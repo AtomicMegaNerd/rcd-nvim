@@ -14,7 +14,7 @@
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "conform": {
-      "rev": "1c4a1537db60ba05e61360db8b674158c9cf4169",
+      "rev": "9fd3b3a91b0981d60d2bc688c8cd1680320ee5de",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
