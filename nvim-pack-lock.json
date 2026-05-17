@@ -10,7 +10,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "codediff": {
-      "rev": "ccf8ec0ae952c7d8d0db06a23dff6973cbbd8a4a",
+      "rev": "76ff1b13f0bcba655dca85cea1ef0df877a53c0f",
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "conform": {
@@ -18,7 +18,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "311a630292310ea3bfe46dd616e17f283e975801",
+      "rev": "ca139b8fec043057038c69ce2b34cf4b8b83746e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
