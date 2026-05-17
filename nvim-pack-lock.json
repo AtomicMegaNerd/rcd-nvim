@@ -10,7 +10,7 @@
       "src": "https://github.com/catppuccin/nvim"
     },
     "codediff": {
-      "rev": "e500fb5e7e2fbce701c888b81a9449e1052413ec",
+      "rev": "ccf8ec0ae952c7d8d0db06a23dff6973cbbd8a4a",
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "conform": {
