@@ -14,7 +14,7 @@ require("blink.cmp").setup({
       },
     },
     list = {
-      max_items = 5,
+      max_items = 10,
     },
     trigger = {
       show_on_blocked_trigger_characters = { " ", "\n", "\t" },
