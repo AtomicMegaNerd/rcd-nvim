@@ -15,6 +15,14 @@ vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<left>", "<cmd>bp<cr>")
 vim.keymap.set("n", "<right>", "<cmd>bn<cr>")
 
+-- Undo/Redo re-mappings (always use the leader key)
+vim.keymap.set("n", "<leader>u", "u", { desc = "Undo" })
+vim.keymap.set("n", "<leader>U", "U", { desc = "Undo Line" })
+vim.keymap.set("n", "<leader>r", "<C-r>", { desc = "Redo" })
+vim.keymap.set("n", "u", "<nop>")
+vim.keymap.set("n", "U", "<nop>")
+vim.keymap.set("n", "<C-r>", "<nop>")
+
 -- Delete without overwriting the clipboard
 vim.keymap.set("n", "x", '"_x')
 
