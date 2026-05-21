@@ -1,11 +1,16 @@
--- Options for specific file types
-----------------------------------------------------------------
-local fto_grp = vim.api.nvim_create_augroup("FileTypeOptions", { clear = true })
+local amn_grp = vim.api.nvim_create_augroup("AtomicMegaNerdGroup", { clear = true })
 
--- Set tabstop and shiftwidth to 2 for these file types
+-- Use tabs in these file types
 vim.api.nvim_create_autocmd("FileType", {
-  command = "setlocal tabstop=2 shiftwidth=2",
-  group = fto_grp,
+  command = "setlocal noexpandtab",
+  group = amn_grp,
+  pattern = { "go", "make" },
+})
+
+-- Use 2-space indentation with spaces
+vim.api.nvim_create_autocmd("FileType", {
+  command = "setlocal tabstop=2 shiftwidth=2 expandtab",
+  group = amn_grp,
   pattern = {
     "haskell",
     "lua",
@@ -24,23 +29,31 @@ vim.api.nvim_create_autocmd("FileType", {
   },
 })
 
--- Do not convert tabs to spaces in these file types
+-- Use spaces (default tabstop) in these file types
 vim.api.nvim_create_autocmd("FileType", {
-  command = "setlocal noexpandtab",
-  group = fto_grp,
-  pattern = { "bash", "sh", "go" },
+  command = "setlocal expandtab",
+  group = amn_grp,
+  pattern = {
+    "python",
+    "dockerfile",
+    "toml",
+    "xml",
+    "bash",
+    "sh",
+    "shell",
+  },
 })
 
 -- The black Python formatter uses 88 characters as the line length
 vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal colorcolumn=88",
-  group = fto_grp,
+  group = amn_grp,
   pattern = { "python" },
 })
 
 vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal colorcolumn=100",
-  group = fto_grp,
+  group = amn_grp,
   pattern = {
     "markdown",
     "lua",
@@ -57,26 +70,16 @@ vim.api.nvim_create_autocmd("FileType", {
   },
 })
 
--- Enable soft wrapping and line breaking in markdown files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  group = fto_grp,
-  callback = function()
-    vim.opt_local.wrap = true -- Enable soft wrapping
-    vim.opt_local.linebreak = true -- Break lines at word boundaries
-  end,
-})
-
 -- Treat these files as shell scripts
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "setf sh",
-  group = fto_grp,
+  group = amn_grp,
   pattern = { "env.list", ".envrc", "*.env" },
 })
 
 -- Disable spelling for these file types
 vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal nospell",
-  group = fto_grp,
+  group = amn_grp,
   pattern = { "yaml", "json", "toml", "xml" },
 })
