@@ -37,7 +37,9 @@ local mini_plugins = {
 
   -- navigate jumps with [ and ] (buffers, diagnostics, hunks, etc.)
   ["mini.bracketed"] = function(m)
-    m.setup()
+    m.setup({
+      undo = { suffix = "" },
+    })
   end,
 
   -- keymap hints popup (which-key alternative)
