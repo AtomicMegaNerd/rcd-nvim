@@ -14,11 +14,11 @@
       "src": "https://github.com/esmuellert/codediff.nvim"
     },
     "conform": {
-      "rev": "18aeab3d63d350dcf44d64c462cc489a3412af40",
+      "rev": "24c70347f6b2128679f47d2eb765156ef34bf9e0",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "71b45a044c4ef6ecb1910880ef642d5a0e1c02e9",
+      "rev": "c8aaa74c97157b2c62bdcfc1e57b15c052dc63ca",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
@@ -38,7 +38,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil": {
-      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "rev": "21c669e7bfeb1546ae988b52813138e4d674bbf5",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "todo-comments": {
