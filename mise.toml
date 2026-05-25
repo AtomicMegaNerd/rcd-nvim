@@ -6,7 +6,7 @@ markdownlint-cli2 = "latest"
 pre-commit = "latest"
 
 # For JSON
-"npm:vscode-langservers-extracted" = "4.10.0"
+"npm:vscode-langservers-extracted" = "latest"
 
 [tasks.setup]
 description = "Generate .pre-commit-config.yaml and install git hooks"
