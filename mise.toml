@@ -1,4 +1,5 @@
 [tools]
+node = "latest"
 lua-language-server = "latest"
 stylua = "latest"
 oxfmt = "latest"
