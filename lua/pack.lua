@@ -6,7 +6,6 @@ vim.pack.add({
   { src = "https://github.com/ibhagwan/fzf-lua", name = "fzf-lua" },
   { src = "https://github.com/stevearc/conform.nvim", name = "conform" },
   { src = "https://github.com/mfussenegger/nvim-lint", name = "lint" },
-  { src = "https://github.com/NeogitOrg/neogit", name = "neogit" },
   { src = "https://github.com/stevearc/oil.nvim", name = "oil" },
   { src = "https://github.com/folke/todo-comments.nvim", name = "todo-comments" },
   { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
