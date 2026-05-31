@@ -18,7 +18,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "fea9eedc6894c44d44cbb772a5cd11c93b82d7a1",
+      "rev": "e3a71496027f2e3c4a60340170c04d66053d5c4c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "lint": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "mini": {
-      "rev": "9d0b9b7188d5c24b5a87f0d8b383ec8bda7a0de4",
+      "rev": "8b63dc6caf94f6580e371f9b339548848f72e489",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-treesitter": {
