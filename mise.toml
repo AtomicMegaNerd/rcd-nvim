@@ -6,6 +6,10 @@ oxfmt = "latest"
 markdownlint-cli2 = "latest"
 pre-commit = "latest"
 
+[tools.rust]
+version = "stable"
+components = ["clippy", "rustfmt"]
+
 [tasks.setup]
 description = "Generate .pre-commit-config.yaml and install git hooks"
 run = """

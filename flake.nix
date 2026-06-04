@@ -67,6 +67,7 @@
         }
       );
 
+      # TODO: Add Rust tooling to this devShell so we can build the blink.cmp native code
       devShells = forAllSystems (system: {
         default =
           let
