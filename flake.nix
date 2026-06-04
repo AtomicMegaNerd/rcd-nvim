@@ -7,6 +7,7 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    fenix.url = "github:nix-community/fenix";
   };
 
   outputs =
@@ -14,6 +15,7 @@
       self,
       nixpkgs,
       git-hooks,
+      fenix,
     }:
     let
       systems = [
@@ -67,11 +69,12 @@
         }
       );
 
-      # TODO: Add Rust tooling to this devShell so we can build the blink.cmp native code
       devShells = forAllSystems (system: {
         default =
           let
             pkgs = nixpkgs.legacyPackages.${system};
+            toolchain = fenix.packages.${system}.stable.toolchain;
+            rust-analyzer = fenix.packages.${system}.stable.rust-analyzer;
           in
           pkgs.mkShell {
             inherit (self.checks.${system}.pre-commit-check) shellHook;
@@ -82,7 +85,12 @@
               pkgs.nixfmt
               pkgs.nil
               pkgs.oxfmt
+              pkgs.libiconv
+              # Added Rust to build blink.cmp native fuzzy library
+              toolchain
+              rust-analyzer
             ];
+            RUST_SRC_PATH = "${toolchain}/lib/rustlib/src/rust/library";
           };
       });
     };
