@@ -4,14 +4,8 @@ require("catppuccin").setup({
 
   integrations = {
     diffview = true,
-    neogit = true,
-    notify = true,
-    mini = {
-      enabled = true,
-    },
-    blink_cmp = {
-      style = "bordered",
-    },
+    mini = { enabled = true },
+    blink_cmp = { style = "bordered" },
     fzf = true,
   },
 })

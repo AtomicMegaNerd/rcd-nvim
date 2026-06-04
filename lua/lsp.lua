@@ -1,9 +1,7 @@
 vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
   once = true,
   callback = function()
-    vim.lsp.config("*", {
-      root_markers = { ".git" },
-    })
+    vim.lsp.config("*", { root_markers = { ".git" } })
 
     local servers = vim
       .iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
@@ -22,7 +20,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if not client then
       return
     end
-
     local buf = args.buf
 
     -- General LSP keymaps
