@@ -9,8 +9,16 @@ return {
         unusedparams = true,
         shadow = true,
       },
+      completeUnimported = true,
+      usePlaceholders = true,
+      deepCompletion = true,
+      matcher = "fuzzy",
+      semanticTokens = true,
       staticcheck = false,
-      gofumpt = true,
+      codelenses = {
+        generate = true,
+        gc_details = true,
+      },
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
