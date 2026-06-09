@@ -21,6 +21,7 @@ local langs = {
   "css",
   "xml",
   "dockerfile",
+  "nu",
 }
 
 require("nvim-treesitter").install(langs)
