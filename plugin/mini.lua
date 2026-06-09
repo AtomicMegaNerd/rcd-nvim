@@ -169,6 +169,8 @@ local mini_plugins = {
         local v = vim.version()
         return "Neovim v" .. v.major .. "." .. v.minor .. "." .. v.patch
       end,
+
+      silent = true,
     })
   end,
 
