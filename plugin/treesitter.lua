@@ -18,6 +18,8 @@ local langs = {
   "fish",
   "html",
   "rust",
+  "javascript",
+  "typescript",
   "css",
   "xml",
   "dockerfile",
