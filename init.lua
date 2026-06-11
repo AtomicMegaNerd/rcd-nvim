@@ -12,3 +12,9 @@ require("pack")
 require("autocmds")
 require("keymap")
 require("lsp")
+
+-- Prepend mise shims to PATH on systems that use it
+-- Make sure AMN_MISE is set to 1 in your shell
+if vim.env.AMN_MISE == "1" then
+  vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+end
