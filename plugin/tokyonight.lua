@@ -1,5 +1,5 @@
 require("tokyonight").setup({
-  style = "moon",
+  style = "storm",
   styles = {
     comments = { italic = false },
     keywords = { italic = false },
