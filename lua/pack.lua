@@ -1,5 +1,4 @@
 vim.pack.add({
-  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter" },
   { src = "https://github.com/esmuellert/codediff.nvim", name = "codediff" },
   { src = "https://github.com/nvim-mini/mini.nvim", name = "mini" },
@@ -11,4 +10,5 @@ vim.pack.add({
   { src = "https://github.com/saghen/blink.lib" },
   { src = "https://github.com/saghen/blink.cmp" },
   { src = "https://github.com/zbirenbaum/copilot.lua" },
+  { src = "https://github.com/folke/tokyonight.nvim" },
 })
