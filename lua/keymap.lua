@@ -30,10 +30,6 @@ vim.keymap.set("n", "<leader>r", "<C-r>", { desc = "Redo" })
 ----------------------------------------------------------------
 vim.keymap.set("n", "x", '"_x')
 
--- Diagnostics
-----------------------------------------------------------------
-vim.keymap.set("n", "td", vim.diagnostic.open_float, { desc = "[T]oggle [D]iagnostic" })
-
 -- Vim Pack
 ----------------------------------------------------------------
 vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Vim [P]ack [U]pdate" })
@@ -75,7 +71,7 @@ vim.keymap.set("n", "<leader>dr", function()
 end, { desc = "[D]irectory change to [R]oot" })
 vim.keymap.set("n", "<leader>dl", "<cmd>lcd -<cr>", { desc = "[D]irectory change to [L]ast" })
 
--- Disable creating and jumpint to marks
+-- Disable creating and jumping to marks
 ----------------------------------------------------------------
 vim.keymap.set({ "n", "v" }, "m", "<Nop>")
 vim.keymap.set({ "n", "v" }, "'", "<Nop>")
