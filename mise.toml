@@ -4,6 +4,7 @@ stylua = "latest"
 markdownlint-cli2 = "latest"
 pre-commit = "latest"
 biome = "latest"
+oxfmt = "latest"
 
 [tools.rust]
 version = "stable"
@@ -20,6 +21,14 @@ repos:
         name: markdownlint-cli2
         language: system
         entry: markdownlint-cli2
+        types: [markdown]
+
+      - id: oxfmt
+        name: oxfmt
+        language: system
+        entry: oxfmt
+        args: ["--write"]
+        pass_filenames: false
         types: [markdown]
 
       - id: biome
