@@ -11,4 +11,5 @@ vim.pack.add({
   { src = "https://github.com/saghen/blink.cmp" },
   { src = "https://github.com/zbirenbaum/copilot.lua" },
   { src = "https://github.com/folke/tokyonight.nvim" },
+  { src = "https://github.com/neovim/nvim-lspconfig" },
 })

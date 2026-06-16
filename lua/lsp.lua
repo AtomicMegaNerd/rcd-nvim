@@ -1,17 +1,18 @@
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
-  once = true,
-  callback = function()
-    vim.lsp.config("*", { root_markers = { ".git" } })
-
-    local servers = vim
-      .iter(vim.api.nvim_get_runtime_file("lsp/*.lua", true))
-      :map(function(file)
-        return vim.fn.fnamemodify(file, ":t:r")
-      end)
-      :totable()
-
-    vim.lsp.enable(servers)
-  end,
+-- Enable the following LSP's
+vim.lsp.enable({
+  "bashls",
+  "biome",
+  "docker_language_server",
+  "emmet_ls",
+  "gopls",
+  "lemminx",
+  "lua_ls",
+  "nil_ls",
+  "nushell",
+  "pyright",
+  "ruff",
+  "tsgo",
+  "yammls",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -56,11 +57,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       fzf.lsp_typedefs,
       { buffer = buf, desc = "[G]oto [T]ype Definition" }
     )
-
-    -- Disable completion for HTML since Emmet provides it
-    if client.name == "html" then
-      client.server_capabilities.completionProvider = nil
-    end
 
     -- Enable document color if supported by the server
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then

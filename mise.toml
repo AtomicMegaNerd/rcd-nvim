@@ -1,10 +1,9 @@
 [tools]
-node = "latest"
 lua-language-server = "latest"
 stylua = "latest"
-oxfmt = "latest"
 markdownlint-cli2 = "latest"
 pre-commit = "latest"
+biome = "latest"
 
 [tools.rust]
 version = "stable"
@@ -17,18 +16,20 @@ cat > .pre-commit-config.yaml << 'EOF'
 repos:
   - repo: local
     hooks:
-      - id: oxfmt
-        name: oxfmt
-        language: system
-        entry: oxfmt
-        args: ["."]
-        pass_filenames: false
 
       - id: markdownlint-cli2
         name: markdownlint-cli2
         language: system
         entry: markdownlint-cli2
         types: [markdown]
+
+      - id: biome
+        name: biome
+        language: system
+        entry: biome
+        args: ["check", "--write"]
+        pass_filenames: false
+        types: [json]
 
       - id: stylua
         name: stylua
