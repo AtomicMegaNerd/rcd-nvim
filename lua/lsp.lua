@@ -1,4 +1,78 @@
--- Enable the following LSP's
+local fzf = require("fzf-lua")
+
+-- Config Overrides
+vim.lsp.config("gopls", {
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      completeUnimported = true,
+      usePlaceholders = true,
+      deepCompletion = true,
+      matcher = "fuzzy",
+      semanticTokens = true,
+      staticcheck = false,
+      codelenses = {
+        generate = true,
+        gc_details = true,
+      },
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
+    },
+  },
+})
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      codeLens = { enable = true },
+      hint = { enable = true, semicolon = "Disable" },
+      runtime = {
+        version = "LuaJIT",
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+          "${3rd}/luv/library",
+        },
+      },
+    },
+  },
+})
+
+vim.lsp.config("yamlls", {
+  settings = {
+    yaml = {
+      keyOrdering = false,
+      validate = false,
+    },
+  },
+})
+
+vim.lsp.config("pyright", {
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        ignore = { "*" },
+      },
+    },
+  },
+})
+
+-- LSP's to enable
 vim.lsp.enable({
   "bashls",
   "biome",
@@ -12,55 +86,33 @@ vim.lsp.enable({
   "pyright",
   "ruff",
   "tsgo",
-  "yammls",
+  "yamlls",
 })
 
+-- Keybindings to attach
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if not client then
       return
     end
-    local buf = args.buf
 
     -- General LSP keymaps
-    vim.keymap.set(
-      "n",
-      "<leader>cr",
-      vim.lsp.buf.rename,
-      { buffer = buf, desc = "[C]ode [R]ename" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>ca",
-      vim.lsp.buf.code_action,
-      { buffer = buf, desc = "[C]ode [A]ction" }
-    )
-    vim.keymap.set("n", "<leader>cti", function()
+    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+    vim.keymap.set("n", "<leader>ch", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-    end, { buffer = buf, desc = "[C]ode [T]oggle [I]nlay Hint" })
+    end, { desc = "[C]ode Toggle Inlay [H]int" })
 
-    -- Picker-backed LSP navigation (overrides gr* defaults)
-    local fzf = require("fzf-lua")
-    vim.keymap.set("n", "gd", fzf.lsp_definitions, { buffer = buf, desc = "[G]oto [D]efinition" })
-    vim.keymap.set("n", "gl", fzf.lsp_declarations, { buffer = buf, desc = "[G]oto Dec[l]aration" })
-    vim.keymap.set("n", "grr", fzf.lsp_references, { buffer = buf, desc = "[G]oto [R]eferences" })
-    vim.keymap.set(
-      "n",
-      "gri",
-      fzf.lsp_implementations,
-      { buffer = buf, desc = "[G]oto [I]mplementation" }
-    )
-    vim.keymap.set(
-      "n",
-      "grt",
-      fzf.lsp_typedefs,
-      { buffer = buf, desc = "[G]oto [T]ype Definition" }
-    )
+    vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "[G]oto [D]ef" })
+    vim.keymap.set("n", "gl", fzf.lsp_declarations, { desc = "[G]oto Dec[l]" })
+    vim.keymap.set("n", "gr", fzf.lsp_references, { desc = "[G]oto [R]efs" })
+    vim.keymap.set("n", "gi", fzf.lsp_implementations, { desc = "[G]oto [I]mpl" })
+    vim.keymap.set("n", "gt", fzf.lsp_typedefs, { desc = "[G]oto [T]ype Def" })
 
     -- Enable document color if supported by the server
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
-      vim.lsp.document_color.enable(true, { bufnr = buf })
+      vim.lsp.document_color.enable(true)
     end
   end,
 })
