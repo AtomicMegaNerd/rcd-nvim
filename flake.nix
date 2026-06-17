@@ -86,6 +86,7 @@
               pkgs.nil
               pkgs.oxfmt
               pkgs.libiconv
+              pkgs.biome
               # Added Rust to build blink.cmp native fuzzy library
               toolchain
               rust-analyzer
