@@ -1,20 +1,20 @@
 {
-	"$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-	"runtime": {
-		"version": "LuaJIT"
-	},
-	"workspace": {
-		"checkThirdParty": false,
-		"library": [
-			// Runtime and builtin libraries.
-			"$VIMRUNTIME/lua",
-			"${3rd}/luv/library",
-			// Include some plugins for API completion.
-			"$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
-			"$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
-			"$XDG_DATA_HOME/nvim/site/pack/core/opt/mini/lua",
-			"$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
-			"$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua"
-		]
-	}
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "checkThirdParty": false,
+    "library": [
+      // Runtime and builtin libraries.
+      "$VIMRUNTIME/lua",
+      "${3rd}/luv/library",
+      // Include some plugins for API completion.
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/mini/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua"
+    ]
+  }
 }
