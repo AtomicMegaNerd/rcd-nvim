@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "2c36633f51d23a33cf9336ba1a91dc877bad5b23",
+      "rev": "bda905a4bf1b3edfa708b0be193b8c63d8620c96",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "mini": {
-      "rev": "fe1aa97c8c7408f3def6336f7082237e8cf67833",
+      "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
