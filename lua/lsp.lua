@@ -5,17 +5,20 @@ vim.lsp.config("gopls", {
   settings = {
     gopls = {
       analyses = {
-        unusedparams = true,
+        appendclipped = true,
         shadow = true,
+        slicesdelete = true,
       },
       semanticTokens = true,
       staticcheck = false,
+      renameMovesSubpackages = true,
       hints = {
         assignVariableTypes = true,
         compositeLiteralFields = true,
         compositeLiteralTypes = true,
         constantValues = true,
         functionTypeParameters = true,
+        ignoredError = true,
         parameterNames = true,
         rangeVariableTypes = true,
       },
