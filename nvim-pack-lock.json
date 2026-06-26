@@ -24,6 +24,10 @@
       "rev": "b9919229c84bd64d8539367e67e32811cf39a836",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
+    "grug-far.nvim": {
+      "rev": "c69859c1d5427ab5fc7ed12380ab521b4e336691",
+      "src": "https://github.com/MagicDuck/grug-far.nvim"
+    },
     "lint": {
       "rev": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
       "src": "https://github.com/mfussenegger/nvim-lint"
@@ -43,6 +47,10 @@
     "oil": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "quicker.nvim": {
+      "rev": "4a6883cb13fe097a20a046eb55f6dffd239276e3",
+      "src": "https://github.com/stevearc/quicker.nvim"
     },
     "todo-comments": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",

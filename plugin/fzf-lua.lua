@@ -27,7 +27,7 @@ map("n", "<leader>fd", fzf.diagnostics_document, { desc = "[F]ind Document [d]ia
 map("n", "<leader>fD", fzf.diagnostics_workspace, { desc = "[F]ind Workspace [D]iagnostics" })
 
 -- Lists / other
-map("n", "<leader>fq", fzf.quickfix, { desc = "[F]ind [Q]uickfix" })
+
 map("n", "<leader>fm", function()
   local lines = vim.split(vim.fn.execute("messages"), "\n", { plain = true })
   lines = vim.tbl_filter(function(l)
