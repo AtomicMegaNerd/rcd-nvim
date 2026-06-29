@@ -21,7 +21,7 @@
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "fzf-lua": {
-      "rev": "dbe7895a07079b2320abfb3c555b90d3d40a8c9e",
+      "rev": "39da6060d53659acf3ec118200bc48721b29b8fd",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "grug-far.nvim": {
