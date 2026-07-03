@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "67c9c3f9e3121df32d0eee406a76087a9f0a62eb",
+      "rev": "9dcb1f3a9164f10c8950a790aace576f2e89dc78",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "fzf-lua": {
-      "rev": "09880d502bc76f1e025fdbdcaeff44650f7ea78a",
+      "rev": "d2084cf776049b4bce6764eb58cda567dec781c4",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "grug-far.nvim": {
