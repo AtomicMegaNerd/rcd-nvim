@@ -44,7 +44,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
   group = amn_grp,
-  pattern = { "*" },
 })
 
 -- For setting colorcolumn, Python is unique and has 88 cols standard, but we want to set
@@ -54,7 +53,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.colorcolumn = args.match == "python" and "88" or "100"
   end,
   group = amn_grp,
-  pattern = { "*" },
 })
 
 -- Treat these files as shell scripts

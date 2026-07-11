@@ -63,10 +63,12 @@ local mini_plugins = {
         m.gen_clues.z(),
         -- Leader group descriptions
         { mode = "n", keys = "<Leader>c", desc = "LSP Code" },
+        { mode = "n", keys = "<Leader>d", desc = "Directory" },
         { mode = "n", keys = "<Leader>f", desc = "Pickers" },
         { mode = "n", keys = "<Leader>fg", desc = "Git Pickers" },
         { mode = "n", keys = "<Leader>k", desc = "Health Checks" },
         { mode = "n", keys = "<Leader>p", desc = "Pack" },
+        { mode = "n", keys = "<Leader>x", desc = "Quickfix" },
       },
       window = {
         config = { width = "auto" },

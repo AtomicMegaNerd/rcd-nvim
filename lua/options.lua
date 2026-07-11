@@ -23,7 +23,7 @@ vim.o.guicursor = "a:blinkon100-blinkoff100-blinkwait700"
 -- Pretty windows
 vim.o.winborder = "rounded"
 vim.o.pumborder = "rounded"
-vim.o.pumheight = 4
+vim.o.pumheight = 10
 vim.o.pummaxwidth = 100
 
 -- Indentation
@@ -63,7 +63,7 @@ vim.o.showtabline = 0
 vim.opt.fillchars = { eob = " " }
 
 -- Clipboard
-vim.o.clipboard = "unnamed,unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
 -- Limit shada for startup
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h"

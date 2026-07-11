@@ -84,6 +84,14 @@ vim.lsp.enable({
   "yamlls",
 })
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+})
+
 -- Keybindings to attach
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -93,17 +101,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- General LSP keymaps
-    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "[C]ode [R]ename" })
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[C]ode [A]ction" })
+    vim.keymap.set(
+      "n",
+      "<leader>cr",
+      vim.lsp.buf.rename,
+      { buffer = args.buf, desc = "[C]ode [R]ename" }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>ca",
+      vim.lsp.buf.code_action,
+      { buffer = args.buf, desc = "[C]ode [A]ction" }
+    )
     vim.keymap.set("n", "<leader>ch", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-    end, { desc = "[C]ode Toggle Inlay [H]int" })
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }))
+    end, { buffer = args.buf, desc = "[C]ode Toggle Inlay [H]int" })
 
-    vim.keymap.set("n", "gd", fzf.lsp_definitions, { desc = "[G]oto [D]ef" })
-    vim.keymap.set("n", "gl", fzf.lsp_declarations, { desc = "[G]oto Dec[l]" })
-    vim.keymap.set("n", "gr", fzf.lsp_references, { desc = "[G]oto [R]efs" })
-    vim.keymap.set("n", "gi", fzf.lsp_implementations, { desc = "[G]oto [I]mpl" })
-    vim.keymap.set("n", "gt", fzf.lsp_typedefs, { desc = "[G]oto [T]ype Def" })
+    vim.keymap.set("n", "gd", fzf.lsp_definitions, { buffer = args.buf, desc = "[G]oto [D]ef" })
+    vim.keymap.set("n", "gl", fzf.lsp_declarations, { buffer = args.buf, desc = "[G]oto Dec[l]" })
+    vim.keymap.set("n", "gr", fzf.lsp_references, { buffer = args.buf, desc = "[G]oto [R]efs" })
+    vim.keymap.set(
+      "n",
+      "gi",
+      fzf.lsp_implementations,
+      { buffer = args.buf, desc = "[G]oto [I]mpl" }
+    )
+    vim.keymap.set("n", "gt", fzf.lsp_typedefs, { buffer = args.buf, desc = "[G]oto [T]ype Def" })
 
     -- Enable document color if supported by the server
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
