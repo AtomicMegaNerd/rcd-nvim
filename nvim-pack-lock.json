@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "71dc7545c1f399c7f76eeef80efa1d8bda0ff471",
+      "rev": "cfe100ccac24b0a622d7b9f04aa8c9f3e7624a16",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "grug-far.nvim": {
-      "rev": "beb2ce490b72048c587e8a3d919cba1b4608bb04",
+      "rev": "1cc080f55706b38aabfa97d40acb6adf59ac4a5a",
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "lint": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "mini": {
-      "rev": "4171fba613b64ade9a28e198bd5b4fea5ba45e22",
+      "rev": "db41c4076105a63caec12612d11228348f55a109",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
