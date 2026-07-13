@@ -117,11 +117,6 @@ local mini_plugins = {
     m.setup()
   end,
 
-  -- move lines and selections with Alt+hjkl
-  ["mini.move"] = function(m)
-    m.setup()
-  end,
-
   -- fancy notifier
   ["mini.notify"] = function(m)
     m.setup({
