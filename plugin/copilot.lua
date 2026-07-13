@@ -16,8 +16,6 @@ copilot.setup({
       toggle_auto_trigger = false,
     },
   },
-  workspace_folders = {},
-  disable_limit_reached_message = false,
 })
 
 local function notify(msg)
