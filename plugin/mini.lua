@@ -69,6 +69,7 @@ local mini_plugins = {
         { mode = "n", keys = "<Leader>k", desc = "Health Checks" },
         { mode = "n", keys = "<Leader>p", desc = "Pack" },
         { mode = "n", keys = "<Leader>x", desc = "Quickfix" },
+        { mode = "n", keys = "<Leader>v", desc = "Overseer" },
       },
       window = {
         config = { width = "auto" },

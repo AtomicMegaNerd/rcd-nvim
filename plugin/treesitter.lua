@@ -32,6 +32,9 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = langs,
   callback = function()
     vim.treesitter.start()
+    vim.wo.foldmethod = "expr"
+    vim.wo.foldexpr = "v:ts"
+    vim.wo.foldlevel = 99
   end,
 })
 

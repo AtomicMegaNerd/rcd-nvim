@@ -6,8 +6,13 @@ vim.lsp.config("gopls", {
     gopls = {
       analyses = {
         appendclipped = true,
+        nilness = true,
         shadow = true,
+        simplifyslicing = true,
         slicesdelete = true,
+        useany = true,
+        unusedvariable = true,
+        unusedwrite = true,
       },
       semanticTokens = true,
       staticcheck = false,
