@@ -1,6 +1,6 @@
 require("catppuccin").setup({
   flavour = "macchiato",
-  no_italic = false,
+  no_italic = true,
 
   integrations = {
     grug_far = true,
