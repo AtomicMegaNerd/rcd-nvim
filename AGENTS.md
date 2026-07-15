@@ -23,8 +23,6 @@ which are out of date.
   ├── lsp # LSP server configs, auto-loaded lazily when clients start
   ├── AGENTS.md # Instructions for LLM's
   ├── README.md # Instructions for humans
-  ├── stylua.toml # Lua formatter config
-  ├── .markdownlint.json # Markdown lint config
   ├── flake.nix
   ├── .envrc # Enables direnv with this flake
   └── nvim-pack-lock.json # Lock file for nvim pack
@@ -38,14 +36,11 @@ which are out of date.
 
 ## Notes for LLM
 
-- The flake in this repo is just for setting up `pre-commit`.
 - The LLM is not allowed to edit this `AGENTS.md` file.
 - Never use vimscript if we can use lua.
 - We use modern Neovim API's and features as much as possible.
 - We use the built-in `vim.pack` package manager.
 - Catppuccin is our theme, we may change the flavour from time to time.
-- Use github and context7 MCP servers when doing queries where it makes sense.
-- Run `pre-commit run` to run the linters against the repo after making changes.
 - Running `direnv allow` allows the flake to auto-load when entering the directory.
 - We put all plug-in registrations in `lua/pack.lua` to ensure that the plug-ins are added in the
   right order and so we never need duplicates.

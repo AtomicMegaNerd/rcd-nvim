@@ -1,7 +1,6 @@
 local fzf = require("fzf-lua")
 
 fzf.setup({
-  -- Use mini.icons (already shimmed as nvim-web-devicons, but explicit is better)
   defaults = {
     icon_provider = "mini",
   },
