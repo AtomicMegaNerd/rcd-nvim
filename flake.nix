@@ -31,7 +31,6 @@
             rust-analyzer = fenix.packages.${system}.stable.rust-analyzer;
           in
           pkgs.mkShell {
-            inherit (self.checks.${system}.pre-commit-check) shellHook;
             packages = [
               pkgs.stylua
               pkgs.libiconv
