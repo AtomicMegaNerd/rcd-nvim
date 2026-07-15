@@ -26,8 +26,10 @@
         default =
           let
             pkgs = nixpkgs.legacyPackages.${system};
-            toolchain = fenix.packages.${system}.stable.toolchain;
-            rust-analyzer = fenix.packages.${system}.stable.rust-analyzer;
+            toolchain = fenix.packages.${system}.stable.withComponents [
+              "cargo"
+              "rustc"
+            ];
           in
           pkgs.mkShell {
             packages = [
@@ -35,9 +37,7 @@
               pkgs.libiconv
               # Added Rust to build blink.cmp native fuzzy library
               toolchain
-              rust-analyzer
             ];
-            RUST_SRC_PATH = "${toolchain}/lib/rustlib/src/rust/library";
           };
       });
     };
