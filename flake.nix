@@ -34,7 +34,6 @@
           pkgs.mkShell {
             packages = [
               pkgs.stylua
-              pkgs.libiconv
               # Added Rust to build blink.cmp native fuzzy library
               toolchain
             ];
