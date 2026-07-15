@@ -9,7 +9,7 @@ copilot.setup({
     auto_trigger = false,
     hide_during_completion = true,
     debounce = 75,
-    trigger_on_accept = false,
+    trigger_on_accept = true,
     keymap = {
       accept_word = false,
       accept_line = false,
