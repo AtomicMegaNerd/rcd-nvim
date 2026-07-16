@@ -59,19 +59,6 @@ vim.lsp.config("yamlls", {
   },
 })
 
-vim.lsp.config("pyright", {
-  settings = {
-    pyright = {
-      disableOrganizeImports = true,
-    },
-    python = {
-      analysis = {
-        ignore = { "*" },
-      },
-    },
-  },
-})
-
 -- LSP's to enable
 vim.lsp.enable({
   "bashls",
@@ -83,10 +70,9 @@ vim.lsp.enable({
   "lua_ls",
   "nil_ls",
   "nushell",
-  "pyright",
-  "ruff",
   "tsgo",
   "yamlls",
+  "rust-analyzer",
 })
 
 vim.diagnostic.config({
