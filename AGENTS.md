@@ -5,7 +5,7 @@ my nix managed machines at home.
 
 ## Current Neovim Version
 
-**We are running Neovim 0.12**. Please consult online sources and neovim help pages for up-to-date
+**We are running Neovim 0.12.4**. Please consult online sources and neovim help pages for up-to-date
 information on this version. Do not rely on training data which will likely refer to older releases
 which are out of date.
 
