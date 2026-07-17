@@ -7,16 +7,17 @@ vim.g.mapleader = "\\"
 -- Make line numbers default, then make them relative, also set column
 vim.o.relativenumber = true
 vim.o.number = true
-vim.o.signcolumn = "yes"
 
 -- Scroll offset means the cursor will be x lines away from the top/bottom of the screen
 -- after scrolling
-vim.o.scrolloff = 10
+vim.o.scrolloff = 20
 
 -- Disable mouse support
 vim.o.mouse = ""
 
 -- Blinking block cursor!
+-- NOTE: The terminal is setting the shape this is just setting the blink interval for each
+-- mode. 700ms initial and then 100ms on/off, for all modes.
 vim.o.guicursor = "a:blinkon100-blinkoff100-blinkwait700"
 
 -- Pretty windows
@@ -32,6 +33,11 @@ vim.o.autoindent = true
 vim.o.expandtab = true -- Use spaces instead of tabs
 vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftwidth = 4 -- Number of spaces to (auto)indent
+
+-- Wrapping
+vim.o.wrap = true -- Enable visual wrapping
+vim.o.linebreak = true -- Wrap at words, not character boundaries
+vim.o.breakindent = true -- Wrapped lines align with original indent
 
 -- Show helpful text indicators
 vim.o.list = true
