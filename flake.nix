@@ -34,6 +34,7 @@
           pkgs.mkShell {
             packages = [
               pkgs.stylua
+              pkgs.lua-language-server
               # Added Rust to build blink.cmp native fuzzy library
               toolchain
             ];

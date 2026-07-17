@@ -67,6 +67,7 @@ vim.lsp.enable({
   "emmet_ls",
   "gopls",
   "lemminx",
+  "marksman",
   "lua_ls",
   "nil_ls",
   "nushell",

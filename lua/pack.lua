@@ -14,6 +14,7 @@ vim.pack.add({
   { src = "https://github.com/stevearc/quicker.nvim" },
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/MagicDuck/grug-far.nvim" },
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 
   -- Themes
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
