@@ -40,6 +40,10 @@
       "rev": "9459d7f41ae77d909579dab0aea2bdd3210fac9f",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "no-neck-pain.nvim": {
+      "rev": "0df6659e25401c3f3c40e82f1ddd48714b1a659c",
+      "src": "https://github.com/shortcuts/no-neck-pain.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "b386c50cd7816f8c8a2b13b298a218af1f5a75c6",
       "src": "https://github.com/neovim/nvim-lspconfig"

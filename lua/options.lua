@@ -8,10 +8,9 @@ vim.g.mapleader = "\\"
 vim.o.relativenumber = true
 vim.o.number = true
 vim.o.signcolumn = "yes"
-vim.o.colorcolumn = "100"
 
--- Scroll offset means the cursor will be x lines away from the top/bottom of the screen after
--- scrolling
+-- Scroll offset means the cursor will be x lines away from the top/bottom of the screen
+-- after scrolling
 vim.o.scrolloff = 10
 
 -- Disable mouse support

@@ -46,17 +46,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = amn_grp,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  callback = function(args)
-    local colorcol_mapping = {
-      python = "88",
-      markdown = "",
-    }
-    vim.opt_local.colorcolumn = colorcol_mapping[args.match] or "100"
-  end,
-  group = amn_grp,
-})
-
 -- Treat these files as shell scripts
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "setf sh",
