@@ -6,7 +6,7 @@ This repo is my [Neovim](https://neovim.io) configuration.
 
 ## Deployment on Nix Systems
 
-> [!IMPORTANT]My Nix Flake
+> [!IMPORTANT] My Nix Flake
 > See my [dotfiles](https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix) repo.
 
 My **home-manager** configuration for that repo will automatically clone this repo in `~/.config`. The instructions
