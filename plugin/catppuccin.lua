@@ -1,11 +1,12 @@
 local catppuccin = require("catppuccin")
-require("catppuccin").setup({
+catppuccin.setup({
   flavour = "frappe",
   no_italic = true,
   integrations = {
     grug_far = true,
     overseer = true,
     which_key = true,
+    render_markdown = true,
   },
   -- Make comments stand out a lot more
   highlight_overrides = {

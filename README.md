@@ -6,8 +6,7 @@ This repo is my [Neovim](https://neovim.io) configuration.
 
 ## Deployment on Nix Systems
 
-> [!IMPORTANT] My Nix Flake
-> See my [dotfiles](https://github.com/AtomicMegaNerd/dotfiles/blob/main/nix/neovim.nix).
+See my flake: [dotfiles](https://github.com/AtomicMegaNerd/dotfiles/).
 
 My **home-manager** configuration for that repo will automatically clone this repo in `~/.config`. The instructions for setting that up are in the repo.
 
@@ -33,10 +32,9 @@ The last command will setup pre-commit on the non-nix system.
 
 ## Plugin Management
 
-> [!IMPORTANT] Note
-> See this [blog post](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html) by echasnovski.
-
 Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in `lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
+
+See [echasnovski blog post](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
 
 ### Updating plugins
 
@@ -46,7 +44,7 @@ After opening Neovim run this in **Command** mode:
 :lua vim.pack.update()
 ```
 
-This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close it to cancel.
+This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close it to cancel. I actually mapped `<leader>pu` to this function to update plug-ins.
 
 ### Removing a plugin
 
@@ -63,4 +61,4 @@ Do not delete plugin directories manually — this leaves the lockfile out of sy
 
 ## More Information
 
-See [AGENTS.md](AGENTS.md) for more information on the structure of this repo and how to work with it.
+See [AGENTS.md](AGENTS.md).

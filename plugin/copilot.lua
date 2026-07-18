@@ -1,6 +1,7 @@
 local copilot = require("copilot")
-local suggestion = require("copilot.suggestion")
+local suggest = require("copilot.suggestion")
 local blink = require("blink.cmp")
+local map = vim.keymap.set
 
 copilot.setup({
   panel = { enabled = false },
@@ -22,26 +23,26 @@ local function notify(msg)
   vim.notify(msg, vim.log.levels.INFO, { title = "Copilot", timeout = 1000 })
 end
 
-vim.keymap.set("i", "<M-Enter>", function()
+map("i", "<M-Enter>", function()
   notify("Copilot Accepted")
-  suggestion.accept()
+  suggest.accept()
 end)
 
-vim.keymap.set("i", "<M-Tab>", function()
+map("i", "<M-Tab>", function()
   blink.hide()
   notify("Copilot Next Suggestion")
-  suggestion.next()
+  suggest.next()
 end)
 
-vim.keymap.set("i", "<M-S-Tab>", function()
+map("i", "<M-S-Tab>", function()
   blink.hide()
   notify("Copilot Prev Suggestion")
-  suggestion.prev()
+  suggest.prev()
 end)
 
-vim.keymap.set("i", "<M-Esc>", function()
+map("i", "<M-Esc>", function()
   notify("Copilot Dismissed")
-  suggestion.dismiss()
+  suggest.dismiss()
 end)
 
 vim.api.nvim_create_autocmd("User", {

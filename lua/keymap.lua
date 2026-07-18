@@ -1,54 +1,38 @@
--- Arrow keys
-----------------------------------------------------------------
+local map = vim.keymap.set
+
 -- Disable arrow keys for editing
-vim.keymap.set("n", "<up>", "<nop>")
-vim.keymap.set("n", "<down>", "<nop>")
-vim.keymap.set("i", "<up>", "<nop>")
-vim.keymap.set("i", "<down>", "<nop>")
-vim.keymap.set("i", "<left>", "<nop>")
-vim.keymap.set("i", "<right>", "<nop>")
+map("n", "<up>", "<nop>")
+map("n", "<down>", "<nop>")
+map("i", "<up>", "<nop>")
+map("i", "<down>", "<nop>")
+map("i", "<left>", "<nop>")
+map("i", "<right>", "<nop>")
 
 -- Remap ; to : for normal mode
-----------------------------------------------------------------
-vim.keymap.set("n", ";", ":")
+map("n", ";", ":")
 
 -- Left and right can switch buffers
-----------------------------------------------------------------
-vim.keymap.set("n", "<left>", "<cmd>bp<cr>")
-vim.keymap.set("n", "<right>", "<cmd>bn<cr>")
+map("n", "<left>", "<cmd>bp<cr>")
+map("n", "<right>", "<cmd>bn<cr>")
 
 -- Undo/Redo re-mappings (always use the leader key)
-----------------------------------------------------------------
-vim.keymap.set("n", "u", "<nop>")
-vim.keymap.set("n", "U", "<nop>")
-vim.keymap.set("n", "<C-r>", "<nop>")
-vim.keymap.set("n", "<leader>u", "u", { desc = "Undo" })
-vim.keymap.set("n", "<leader>U", "U", { desc = "Undo Line" })
-vim.keymap.set("n", "<leader>r", "<C-r>", { desc = "Redo" })
+map("n", "u", "<nop>")
+map("n", "U", "<nop>")
+map("n", "<C-r>", "<nop>")
+map("n", "<leader>u", "u", { desc = "Undo" })
+map("n", "<leader>U", "U", { desc = "Undo Line" })
+map("n", "<leader>r", "<C-r>", { desc = "Redo" })
 
 -- Delete without overwriting the clipboard
-----------------------------------------------------------------
-vim.keymap.set("n", "x", '"_x')
+map("n", "x", '"_x')
 
 -- Vim Pack
-----------------------------------------------------------------
-vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Vim [P]ack [U]pdate" })
+map("n", "<leader>pu", vim.pack.update, { desc = "Vim [P]ack [U]pdate" })
 
 -- Health Checks
-----------------------------------------------------------------
-vim.keymap.set(
-  "n",
-  "<leader>kl",
-  "<cmd>:checkhealth vim.lsp<cr>",
-  { desc = "Chec[K] Health [L]sp" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>kp",
-  "<cmd>:checkhealth vim.pack<cr>",
-  { desc = "Chec[K] Health [P]ack" }
-)
-vim.keymap.set(
+map("n", "<leader>kl", "<cmd>:checkhealth vim.lsp<cr>", { desc = "Chec[K] Health [L]sp" })
+map("n", "<leader>kp", "<cmd>:checkhealth vim.pack<cr>", { desc = "Chec[K] Health [P]ack" })
+map(
   "n",
   "<leader>kt",
   "<cmd>:checkhealth nvim-treesitter<cr>",
@@ -56,23 +40,21 @@ vim.keymap.set(
 )
 
 -- Directory Management key mappings
-----------------------------------------------------------------
-vim.keymap.set(
+map(
   "n",
   "<leader>dc",
   "<cmd>:lcd %:p:h<cr>",
   { desc = "[D]irectory change to [C]urrent file directory" }
 )
-vim.keymap.set("n", "<leader>dr", function()
+map("n", "<leader>dr", function()
   local root = vim.fs.root(0, { ".git" })
   if root then
     vim.cmd.lcd(root)
   end
 end, { desc = "[D]irectory change to [R]oot" })
-vim.keymap.set("n", "<leader>dl", "<cmd>lcd -<cr>", { desc = "[D]irectory change to [L]ast" })
+map("n", "<leader>dl", "<cmd>lcd -<cr>", { desc = "[D]irectory change to [L]ast" })
 
 -- Disable creating and jumping to marks
-----------------------------------------------------------------
-vim.keymap.set({ "n", "v" }, "m", "<Nop>")
-vim.keymap.set({ "n", "v" }, "'", "<Nop>")
-vim.keymap.set({ "n", "v" }, "`", "<Nop>")
+map({ "n", "v" }, "m", "<Nop>")
+map({ "n", "v" }, "'", "<Nop>")
+map({ "n", "v" }, "`", "<Nop>")

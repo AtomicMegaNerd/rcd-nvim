@@ -1,4 +1,5 @@
 local fzf = require("fzf-lua")
+local map = vim.keymap.set
 
 -- Config Overrides
 vim.lsp.config("gopls", {
@@ -93,32 +94,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     -- General LSP keymaps
-    vim.keymap.set(
-      "n",
-      "<leader>cr",
-      vim.lsp.buf.rename,
-      { buffer = args.buf, desc = "[C]ode [R]ename" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>ca",
-      vim.lsp.buf.code_action,
-      { buffer = args.buf, desc = "[C]ode [A]ction" }
-    )
-    vim.keymap.set("n", "<leader>ch", function()
+    map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = args.buf, desc = "[C]ode [R]ename" })
+    map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf, desc = "[C]ode [A]ction" })
+    map("n", "<leader>ch", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }))
     end, { buffer = args.buf, desc = "[C]ode Toggle Inlay [H]int" })
 
-    vim.keymap.set("n", "gd", fzf.lsp_definitions, { buffer = args.buf, desc = "[G]oto [D]ef" })
-    vim.keymap.set("n", "gl", fzf.lsp_declarations, { buffer = args.buf, desc = "[G]oto Dec[l]" })
-    vim.keymap.set("n", "gr", fzf.lsp_references, { buffer = args.buf, desc = "[G]oto [R]efs" })
-    vim.keymap.set(
-      "n",
-      "gi",
-      fzf.lsp_implementations,
-      { buffer = args.buf, desc = "[G]oto [I]mpl" }
-    )
-    vim.keymap.set("n", "gt", fzf.lsp_typedefs, { buffer = args.buf, desc = "[G]oto [T]ype Def" })
+    map("n", "gd", fzf.lsp_definitions, { buffer = args.buf, desc = "[G]oto [D]ef" })
+    map("n", "gl", fzf.lsp_declarations, { buffer = args.buf, desc = "[G]oto Dec[l]" })
+    map("n", "gr", fzf.lsp_references, { buffer = args.buf, desc = "[G]oto [R]efs" })
+    map("n", "gi", fzf.lsp_implementations, { buffer = args.buf, desc = "[G]oto [I]mpl" })
+    map("n", "gt", fzf.lsp_typedefs, { buffer = args.buf, desc = "[G]oto [T]ype Def" })
 
     -- Enable document color if supported by the server
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
