@@ -7,6 +7,9 @@ catppuccin.setup({
     overseer = true,
     which_key = true,
     render_markdown = true,
+    mini = true,
+    blink_cmp = true,
+    fzf = true,
   },
   -- Make comments stand out a lot more
   highlight_overrides = {
