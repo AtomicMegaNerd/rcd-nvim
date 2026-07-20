@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
   "runtime": {
-    "version": "LuaJIT",
+    "version": "LuaJIT"
   },
   "workspace": {
     "checkThirdParty": false,
@@ -14,7 +14,7 @@
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/mini/lua",
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
-      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
-    ],
-  },
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua"
+    ]
+  }
 }
