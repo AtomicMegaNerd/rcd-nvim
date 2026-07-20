@@ -21,7 +21,7 @@ vim.o.scrolloff = 20
 -- Disable mouse support
 vim.o.mouse = ""
 
--- Blinking block cursor!
+-- Blinking cursor!
 -- NOTE: The terminal is setting the shape this is just setting the blink interval for each
 -- mode. 700ms initial and then 100ms on/off, for all modes.
 vim.o.guicursor = "a:blinkon100-blinkoff100-blinkwait700"
@@ -33,7 +33,6 @@ vim.o.pumheight = 10
 vim.o.pummaxwidth = 100
 
 -- Indentation
-vim.o.breakindent = true
 vim.o.smartindent = true
 vim.o.autoindent = true
 vim.o.expandtab = true -- Use spaces instead of tabs
