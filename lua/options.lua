@@ -3,6 +3,7 @@ vim.o.hlsearch = false
 
 -- Leader
 vim.g.mapleader = "\\"
+vim.o.signcolumn = "yes:4"
 
 -- Make line numbers default, then make them relative, also set column
 vim.o.relativenumber = true
