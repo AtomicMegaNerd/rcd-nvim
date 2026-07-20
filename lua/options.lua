@@ -3,11 +3,16 @@ vim.o.hlsearch = false
 
 -- Leader
 vim.g.mapleader = "\\"
-vim.o.signcolumn = "yes:4"
 
 -- Make line numbers default, then make them relative, also set column
+-- make sure that the numberwidth is always 4
 vim.o.relativenumber = true
 vim.o.number = true
+
+-- Columns and page widths
+vim.o.numberwidth = 4
+vim.o.signcolumn = "yes:2"
+vim.o.colorcolumn = "100"
 
 -- Scroll offset means the cursor will be x lines away from the top/bottom of the screen
 -- after scrolling
