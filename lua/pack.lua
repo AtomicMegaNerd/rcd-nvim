@@ -1,6 +1,5 @@
 vim.pack.add({
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
-  { src = "https://github.com/esmuellert/codediff.nvim" },
   { src = "https://github.com/ibhagwan/fzf-lua" },
   { src = "https://github.com/MagicDuck/grug-far.nvim" },
   { src = "https://github.com/mfussenegger/nvim-lint" },
