@@ -9,7 +9,7 @@
       "src": "https://github.com/saghen/blink.lib"
     },
     "catppuccin": {
-      "rev": "058e83dc009e4dd62f30807054de9cc849699e27",
+      "rev": "c7c692a0ad3080710893abbae100171819a3e4be",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "233999ebe458284c79959222222f9e2dd29e509b",
+      "rev": "eced685813841391087fd65f896fc6ce6339a809",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "grug-far.nvim": {
