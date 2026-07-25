@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "0f54bd78892f587db4dcf100a23eaddfc2a9df7d",
+      "rev": "1e4a8fb9708bbaa35addaa198638feed622d56ae",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -9,7 +9,7 @@
       "src": "https://github.com/saghen/blink.lib"
     },
     "catppuccin": {
-      "rev": "c7c692a0ad3080710893abbae100171819a3e4be",
+      "rev": "79e2049a0fdf7ec840f8463fe1d962c94493196b",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -41,7 +41,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "0153df68b44fa97a3e11696ca55cbdd7a6d42398",
+      "rev": "8b3a191c015dd66a92d51a112ed96af0aac13b63",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
