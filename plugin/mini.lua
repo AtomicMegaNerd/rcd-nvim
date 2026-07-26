@@ -2,6 +2,35 @@
 local mini_plugins = {
   -- Please keep these plugins in alphabetic order
 
+  -- base16 colorscheme when stylix is active
+  ["mini.base16"] = function(m)
+    if vim.env.COLOR_THEME ~= "stylix" then
+      return
+    end
+
+    local palette = {}
+    local missing = {}
+    for i = 0, 15 do
+      local suffix = string.format("%02X", i)
+      local color_val = vim.env["BASE16_COLOR_" .. suffix]
+      if color_val == nil then
+        table.insert(missing, suffix)
+      else
+        palette["base" .. suffix] = color_val
+      end
+    end
+
+    if #missing > 0 then
+      error(
+        "mini.base16: COLOR_THEME=stylix but missing env vars: BASE16_COLOR_"
+          .. table.concat(missing, ", BASE16_COLOR_")
+      )
+    end
+
+    m.setup({ palette = palette })
+    vim.g.colors_name = "mini-base16"
+  end,
+
   -- extended text objects: af/if (function), ac/ic (class) via treesitter
   ["mini.ai"] = function(m)
     m.setup({
