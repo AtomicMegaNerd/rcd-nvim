@@ -15,8 +15,15 @@ vim.lsp.config("gopls", {
         unusedvariable = true,
         unusedwrite = true,
       },
-      semanticTokens = true,
       staticcheck = false,
+      codelenses = {
+        generate = true,
+        test = true,
+        tidy = true,
+        vendor = true,
+        upgrade_dependency = true,
+        gc_details = true,
+      },
       renameMovesSubpackages = true,
       hints = {
         assignVariableTypes = true,
@@ -78,7 +85,7 @@ vim.lsp.enable({
 })
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_lines = true,
   signs = true,
   underline = true,
   update_in_insert = false,
@@ -96,19 +103,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- General LSP keymaps
     map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = args.buf, desc = "[C]ode [R]ename" })
     map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf, desc = "[C]ode [A]ction" })
+    map("n", "<leader>cl", vim.lsp.codelens.run, { buffer = args.buf, desc = "[C]ode [L]ens" })
     map("n", "<leader>ch", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }))
     end, { buffer = args.buf, desc = "[C]ode Toggle Inlay [H]int" })
-
     map("n", "gd", fzf.lsp_definitions, { buffer = args.buf, desc = "[G]oto [D]ef" })
     map("n", "gl", fzf.lsp_declarations, { buffer = args.buf, desc = "[G]oto Dec[l]" })
     map("n", "gr", fzf.lsp_references, { buffer = args.buf, desc = "[G]oto [R]efs" })
     map("n", "gi", fzf.lsp_implementations, { buffer = args.buf, desc = "[G]oto [I]mpl" })
     map("n", "gt", fzf.lsp_typedefs, { buffer = args.buf, desc = "[G]oto [T]ype Def" })
 
-    -- Enable document color if supported by the server
+    -- Enable advanced features for LSP servers that support them
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
-      vim.lsp.document_color.enable(true)
+      vim.lsp.document_color.enable(true, { bufnr = args.buf })
+    end
+
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
+      vim.lsp.codelens.enable(true, { bufnr = args.buf })
+    end
+
+    if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
     end
   end,
 })

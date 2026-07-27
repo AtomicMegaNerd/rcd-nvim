@@ -33,10 +33,9 @@ map("n", "<leader>fm", function()
   end, lines)
   fzf.fzf_exec(lines, { prompt = "Messages> " })
 end, { desc = "[F]ind [M]essages" })
-map("n", "<leader>fk", fzf.keymaps, { desc = "[F]ind [K]eymaps" })
 
--- Todo comments
-map("n", "<leader>ft", "<cmd>TodoFzfLua<cr>", { desc = "[F]ind [T]odos" })
+-- Key maps
+map("n", "<leader>fk", fzf.keymaps, { desc = "[F]ind [K]eymaps" })
 
 -- Git
 map("n", "<leader>fgf", fzf.git_files, { desc = "[F]ind [G]it [F]iles" })

@@ -12,5 +12,4 @@ vim.pack.add({
   { src = "https://github.com/stevearc/conform.nvim" },
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/stevearc/overseer.nvim" },
-  { src = "https://github.com/stevearc/quicker.nvim" },
 })
