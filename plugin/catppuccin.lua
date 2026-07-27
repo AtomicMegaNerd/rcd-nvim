@@ -6,8 +6,6 @@ if vim.env.COLOR_THEME == "catppuccin" then
     integrations = {
       grug_far = true,
       overseer = true,
-      which_key = true,
-      render_markdown = true,
       mini = true,
       blink_cmp = true,
       fzf = true,

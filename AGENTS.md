@@ -18,9 +18,8 @@ which are out of date.
   │   ├── pack.lua # plugin registration via vim.pack
   │   ├── autocmds.lua # autocommands
   │   ├── keymap.lua # keymaps
-  │   └── lsp.lua # global LSP setup and capabilities
+  │   └── lsp.lua # global LSP setup and configuration.
   ├── plugin # Plugin configurations, will auto-load after init
-  ├── lsp # LSP server configs, auto-loaded lazily when clients start
   ├── AGENTS.md # Instructions for LLM's
   ├── README.md # Instructions for humans
   ├── flake.nix

@@ -5,7 +5,7 @@ fzf.setup({
     icon_provider = "mini",
   },
   winopts = {
-    backdrop = 100,
+    backdrop = 60,
   },
 })
 

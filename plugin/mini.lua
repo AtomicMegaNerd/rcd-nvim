@@ -21,9 +21,10 @@ local mini_plugins = {
     end
 
     if #missing > 0 then
-      error(
+      vim.notify(
         "mini.base16: COLOR_THEME=stylix but missing env vars: BASE16_COLOR_"
-          .. table.concat(missing, ", BASE16_COLOR_")
+          .. table.concat(missing, ", BASE16_COLOR_"),
+        vim.log.levels.ERROR
       )
     end
 
@@ -97,7 +98,6 @@ local mini_plugins = {
         { mode = "n", keys = "<Leader>fg", desc = "Git Pickers" },
         { mode = "n", keys = "<Leader>k", desc = "Health Checks" },
         { mode = "n", keys = "<Leader>p", desc = "Pack" },
-        { mode = "n", keys = "<Leader>x", desc = "Quickfix" },
         { mode = "n", keys = "<Leader>v", desc = "Overseer" },
       },
       window = {
