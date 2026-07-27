@@ -105,7 +105,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf, desc = "[C]ode [A]ction" })
     map("n", "<leader>cl", vim.lsp.codelens.run, { buffer = args.buf, desc = "[C]ode [L]ens" })
     map("n", "<leader>ch", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }))
+      local enabled = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+      vim.lsp.inlay_hint.enable(enabled, { bufnr = 0 })
+      if enabled then
+        vim.notify("LSP Inlay hints enabled", vim.log.levels.INFO)
+      else
+        vim.notify("LSP Inlay hints disabled", vim.log.levels.INFO)
+      end
     end, { buffer = args.buf, desc = "[C]ode Toggle Inlay [H]int" })
     map("n", "gd", fzf.lsp_definitions, { buffer = args.buf, desc = "[G]oto [D]ef" })
     map("n", "gl", fzf.lsp_declarations, { buffer = args.buf, desc = "[G]oto Dec[l]" })
