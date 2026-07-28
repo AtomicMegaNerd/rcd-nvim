@@ -1,6 +1,26 @@
 local fzf = require("fzf-lua")
 local map = vim.keymap.set
 
+-- LSP's to enable
+vim.lsp.enable({
+  "bashls",
+  "biome",
+  "emmet_ls",
+  "docker_language_server",
+  "gopls",
+  "lemminx",
+  "marksman",
+  "lua_ls",
+  "nil_ls",
+  "nushell",
+  "tsgo",
+  "tombi",
+  "yamlls",
+  "rust-analyzer",
+  "ty",
+  "ruff",
+})
+
 -- Config Overrides
 vim.lsp.config("gopls", {
   settings = {
@@ -39,6 +59,20 @@ vim.lsp.config("gopls", {
   },
 })
 
+vim.lsp.config("nil_ls", {
+  settings = {
+    ["nil"] = {
+      formatter = {
+        command = "nixfmt",
+      },
+      flake = {
+        autoArchive = true,
+        autoEvalInputs = true,
+      },
+    },
+  },
+})
+
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -65,23 +99,6 @@ vim.lsp.config("yamlls", {
       validate = false,
     },
   },
-})
-
--- LSP's to enable
-vim.lsp.enable({
-  "bashls",
-  "biome",
-  "docker_language_server",
-  "emmet_ls",
-  "gopls",
-  "lemminx",
-  "marksman",
-  "lua_ls",
-  "nil_ls",
-  "nushell",
-  "tsgo",
-  "yamlls",
-  "rust-analyzer",
 })
 
 vim.diagnostic.config({

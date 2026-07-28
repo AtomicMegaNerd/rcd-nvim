@@ -1,18 +1,20 @@
 # AtomicMegaNerd Neovim Configuration
 
-![AtomicMegaNerd](https://github.com/AtomicMegaNerd/AtomicMegaNerd/blob/main/img/RCD-AtomicMegaNerd-Beard-400.png)
+![AtomicMegaNerd](./static/images/RCD-AtomicMegaNerd-Beard-400.png)
 
 This repo is my [Neovim](https://neovim.io) configuration.
 
 ## Deployment on Nix Systems
 
-See my flake: [dotfiles](https://github.com/AtomicMegaNerd/dotfiles/).
+See my [dotfiles](https://github.com/AtomicMegaNerd/dotfiles/) repo which contains my Nix flake.
 
-My **home-manager** configuration for that repo will automatically clone this repo in `~/.config`. The instructions for setting that up are in the repo.
+> [!NOTE]
+> The flake will automatically clone this repo and install the configuration to `~/.config/nvim`.
 
-## Deployment on Non-nix Systems
+## Deployment on Non-Nix Systems
 
-For non-nix system we use [mise-en-place](https://mise.jdx.dev/). Please install it before cloning this repo.
+For non-Nix system we use [mise-en-place](https://mise.jdx.dev/). Please install it before cloning
+this repo.
 
 Clone directly to `~/.config/nvim`:
 
@@ -32,7 +34,8 @@ The last command will setup pre-commit on the non-nix system.
 
 ## Plugin Management
 
-Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in `lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
+Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in
+`lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
 
 See [echasnovski blog post](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
 
@@ -44,7 +47,11 @@ After opening Neovim run this in **Command** mode:
 :lua vim.pack.update()
 ```
 
-This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close it to cancel. I actually mapped `<leader>pu` to this function to update plug-ins.
+This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close it
+to cancel.
+
+> [!NOTE]
+> You can also use the `<leader>pu` mapping to run the pack update command above.
 
 ### Removing a plugin
 
@@ -57,7 +64,8 @@ Again run the following in **Command** mode:
 :lua vim.pack.del({ 'plugin-name' })
 ```
 
-Do not delete plugin directories manually — this leaves the lockfile out of sync and causes reinstallation on next startup.
+> [!IMPORTANT]
+> Do not delete plugin directories manually — this leaves the lockfile out of sync.
 
 ## More Information
 
