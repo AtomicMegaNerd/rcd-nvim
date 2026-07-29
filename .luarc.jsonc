@@ -1,5 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "codeLens": {
+    "enable": true
+  },
+  "hint": {
+    "enable": true,
+    "semicolon": "Disable"
+  },
   "runtime": {
     "version": "LuaJIT"
   },
@@ -9,12 +16,19 @@
       // Runtime and builtin libraries.
       "$VIMRUNTIME/lua",
       "${3rd}/luv/library",
-      // Include some plugins for API completion.
+      // Include plugins for API completion.
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.lib/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/catppuccin/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/conform.nvim/lua",
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
-      "$XDG_DATA_HOME/nvim/site/pack/core/opt/mini/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/grug-far.nvim/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/mini.nvim/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lint/lua/",
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
-      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua"
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/oil.nvim/lua",
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/overseer.nvim/lua"
     ]
   }
 }

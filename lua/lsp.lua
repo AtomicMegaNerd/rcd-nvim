@@ -73,25 +73,6 @@ vim.lsp.config("nil_ls", {
   },
 })
 
-vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      codeLens = { enable = true },
-      hint = { enable = true, semicolon = "Disable" },
-      runtime = {
-        version = "LuaJIT",
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-          "${3rd}/luv/library",
-        },
-      },
-    },
-  },
-})
-
 vim.lsp.config("yamlls", {
   settings = {
     yaml = {
