@@ -18,48 +18,54 @@
     let
       systems = [
         "x86_64-linux"
-        "aarch64-linux"
         "aarch64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      checks = forAllSystems (system: {
-        pre-commit-check = git-hooks.lib.${system}.run {
-          src = ./.;
-          hooks = {
-            nixfmt.enable = true;
-            yaml-lint = {
-              enable = true;
-              name = "yaml lint";
-              entry = "yamllint --strict";
-              language = "system";
-              types = [ "yaml" ];
-            };
-            md-lint = {
-              enable = true;
-              name = "markdown lint";
-              entry = "markdownlint-cli2";
-              language = "system";
-              types = [ "markdown" ];
-            };
-            md-format = {
-              enable = true;
-              name = "markdown format";
-              entry = "oxfmt";
-              language = "system";
-              types = [ "markdown" ];
-            };
-            lua-format = {
-              enable = true;
-              name = "lua format";
-              entry = "stylua";
-              language = "system";
-              types = [ "lua" ];
+      checks = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
+          pre-commit-check = git-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixfmt.enable = true;
+              yaml-lint = {
+                enable = true;
+                name = "yaml lint";
+                entry = "${pkgs.yamllint}/bin/yamllint --strict";
+                language = "system";
+                types = [ "yaml" ];
+              };
+              md-lint = {
+                enable = true;
+                name = "markdown lint";
+                entry = "${pkgs.markdownlint-cli2}/bin/markdownlint-cli2";
+                language = "system";
+                types = [ "markdown" ];
+              };
+              md-format = {
+                enable = true;
+                name = "markdown format";
+                entry = "${pkgs.oxfmt}/bin/oxfmt";
+                language = "system";
+                types = [ "markdown" ];
+              };
+              lua-format = {
+                enable = true;
+                name = "lua format";
+                entry = "${pkgs.stylua}/bin/stylua";
+                language = "system";
+                types = [ "lua" ];
+              };
             };
           };
-        };
-      });
+        }
+      );
+
       devShells = forAllSystems (system: {
         default =
           let

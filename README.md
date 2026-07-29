@@ -8,6 +8,7 @@ This repo is my [Neovim](https://neovim.io) configuration.
 
 See my [dotfiles](https://github.com/AtomicMegaNerd/dotfiles/) repo which contains my Nix flake.
 
+<!-- prettier-ignore -->
 > [!NOTE]
 > The flake will automatically clone this repo and install the configuration to `~/.config/nvim`.
 
@@ -34,8 +35,8 @@ The last command will setup pre-commit on the non-nix system.
 
 ## Plugin Management
 
-Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in
-`lua/pack.lua` and are _configured_ in the `plugin` directory (1 file per plugin).
+Plugins are managed with Neovim's built-in `vim.pack` . All plugins are _imported_ in `lua/pack.lua`
+and are _configured_ in the `plugin` directory (1 file per plugin).
 
 See [echasnovski blog post](https://echasnovski.com/blog/2026-03-13-a-guide-to-vim-pack.html).
 
@@ -50,6 +51,7 @@ After opening Neovim run this in **Command** mode:
 This opens a confirmation buffer showing what will change. Write the buffer to confirm, or close it
 to cancel.
 
+<!-- prettier-ignore -->
 > [!NOTE]
 > You can also use the `<leader>pu` mapping to run the pack update command above.
 
@@ -64,6 +66,7 @@ Again run the following in **Command** mode:
 :lua vim.pack.del({ 'plugin-name' })
 ```
 
+<!-- prettier-ignore -->
 > [!IMPORTANT]
 > Do not delete plugin directories manually — this leaves the lockfile out of sync.
 
