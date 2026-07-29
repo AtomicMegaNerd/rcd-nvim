@@ -1,7 +1,10 @@
 if vim.env.COLOR_THEME == "catppuccin" then
   local catppuccin = require("catppuccin")
+  local flavor = vim.env.CATPUCCIN_FLAVOR or "frappe"
+  local accent = vim.env.CATPUCCIN_ACCENT or "sapphire"
   catppuccin.setup({
-    flavour = "frappe",
+    flavour = flavor,
+    accent = accent,
     no_italic = true,
     integrations = {
       grug_far = true,
