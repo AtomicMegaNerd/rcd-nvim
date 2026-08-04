@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "005f8c859997f40f65bfbec5f4b400c45fecc06a",
+      "rev": "cba53eff1948109ec0f47cbead4f07494d1e25c9",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mini.nvim": {
-      "rev": "bcb4b2688b38f5c48ada025abe130d41840e11d5",
+      "rev": "8cef23520832134c05e4524e49f0468623501053",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
