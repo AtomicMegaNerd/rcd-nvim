@@ -5,7 +5,7 @@ local map = vim.keymap.set
 vim.lsp.enable({
   "bashls",
   "biome",
-  "emmet_ls",
+  "emmet_language_server",
   "docker_language_server",
   "gopls",
   "lemminx",
@@ -13,7 +13,7 @@ vim.lsp.enable({
   "lua_ls",
   "nil_ls",
   "nushell",
-  "tsgo",
+  "tsc",
   "tombi",
   "yamlls",
   "rust-analyzer",
