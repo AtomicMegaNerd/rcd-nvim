@@ -82,6 +82,7 @@ vim.lsp.config("yamlls", {
   },
 })
 
+-- This configures the appearance of diagnostics in the buffer
 vim.diagnostic.config({
   virtual_lines = true,
   signs = true,
@@ -90,7 +91,21 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
--- Keybindings to attach
+-- This function toggles inlay hints. They are disabled by default, but this will toggle them
+-- on or off as needed.
+local toggle_hints = function(client)
+  if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+    local enabled = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+    vim.lsp.inlay_hint.enable(enabled, { bufnr = 0 })
+    if enabled then
+      vim.notify("LSP Inlay hints enabled", vim.log.levels.INFO)
+    else
+      vim.notify("LSP Inlay hints disabled", vim.log.levels.INFO)
+    end
+  end
+end
+
+-- Configure keybindings and features when LSP server is attached to a buffer
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -103,13 +118,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = args.buf, desc = "[C]ode [A]ction" })
     map("n", "<leader>cl", vim.lsp.codelens.run, { buffer = args.buf, desc = "[C]ode [L]ens" })
     map("n", "<leader>ch", function()
-      local enabled = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
-      vim.lsp.inlay_hint.enable(enabled, { bufnr = 0 })
-      if enabled then
-        vim.notify("LSP Inlay hints enabled", vim.log.levels.INFO)
-      else
-        vim.notify("LSP Inlay hints disabled", vim.log.levels.INFO)
-      end
+      toggle_hints(client)
     end, { buffer = args.buf, desc = "[C]ode Toggle Inlay [H]int" })
     map("n", "gd", fzf.lsp_definitions, { buffer = args.buf, desc = "[G]oto [D]ef" })
     map("n", "gl", fzf.lsp_declarations, { buffer = args.buf, desc = "[G]oto Dec[l]" })
@@ -120,14 +129,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Enable advanced features for LSP servers that support them
     if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor) then
       vim.lsp.document_color.enable(true, { bufnr = args.buf })
-    end
-
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_codeLens) then
-      vim.lsp.codelens.enable(true, { bufnr = args.buf })
-    end
-
-    if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
     end
   end,
 })
