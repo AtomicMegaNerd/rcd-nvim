@@ -196,6 +196,10 @@ local mini_plugins = {
     })
   end,
 
+  ["mini.statuscolumn"] = function(m)
+    m.setup()
+  end,
+
   -- minimal status line
   ["mini.statusline"] = function(m)
     m.setup()
