@@ -27,8 +27,7 @@
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lint/lua/",
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
       "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
-      "$XDG_DATA_HOME/nvim/site/pack/core/opt/oil.nvim/lua",
-      "$XDG_DATA_HOME/nvim/site/pack/core/opt/overseer.nvim/lua"
+      "$XDG_DATA_HOME/nvim/site/pack/core/opt/oil.nvim/lua"
     ]
   }
 }

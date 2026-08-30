@@ -6,7 +6,6 @@ if vim.env.COLOR_THEME == "catppuccin" then
     no_italic = true,
     integrations = {
       grug_far = true,
-      overseer = true,
       mini = true,
       blink_cmp = true,
       fzf = true,

@@ -98,7 +98,6 @@ local mini_plugins = {
         { mode = "n", keys = "<Leader>fg", desc = "Git Pickers" },
         { mode = "n", keys = "<Leader>k", desc = "Health Checks" },
         { mode = "n", keys = "<Leader>p", desc = "Pack" },
-        { mode = "n", keys = "<Leader>v", desc = "Overseer" },
       },
       window = {
         config = { width = "auto" },
