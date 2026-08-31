@@ -3,8 +3,8 @@ lua-language-server = "latest"
 stylua = "latest"
 markdownlint-cli2 = "latest"
 pre-commit = "latest"
-biome = "latest"
 oxfmt = "latest"
+oxlint = "latest"
 
 [tools.rust]
 version = "stable"

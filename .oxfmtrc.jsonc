@@ -1,5 +1,9 @@
 {
   // https://oxc.rs/docs/guide/usage/formatter/config.html
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "lf",
   "overrides": [
     {
       // oxfmt already defaults to 100, but let's be explicit for markdown
@@ -7,6 +11,12 @@
       "options": {
         "printWidth": 100,
         "proseWrap": "always"
+      }
+    },
+    {
+      "files": ["*.json", "*.jsonc"],
+      "options": {
+        "trailingComma": "none"
       }
     }
   ]

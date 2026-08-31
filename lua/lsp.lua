@@ -4,7 +4,6 @@ local map = vim.keymap.set
 -- LSP's to enable
 vim.lsp.enable({
   "bashls",
-  "biome",
   "emmet_language_server",
   "docker_language_server",
   "gopls",
@@ -13,6 +12,8 @@ vim.lsp.enable({
   "lua_ls",
   "nil_ls",
   "nushell",
+  "oxfmt",
+  "oxlint",
   "tsc",
   "tombi",
   "yamlls",
