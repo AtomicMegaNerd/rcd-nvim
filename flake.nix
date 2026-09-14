@@ -2,7 +2,7 @@
   description = "Neovim config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
     fenix.url = "github:nix-community/fenix";
     git-hooks.url = "github:cachix/git-hooks.nix";
   };
