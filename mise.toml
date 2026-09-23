@@ -5,6 +5,8 @@ markdownlint-cli2 = "latest"
 pre-commit = "latest"
 oxfmt = "latest"
 oxlint = "latest"
+tombi = "latest"
+marksman = "latest"
 
 [tools.rust]
 version = "stable"
