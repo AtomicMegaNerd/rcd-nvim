@@ -29,7 +29,7 @@
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
-      "rev": "38b8a0b04676beeb923e61e4a27b07df366f54d2",
+      "rev": "dd9ce1331878717176503065c36a28fdf4165618",
       "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
     "nvim-lint": {
