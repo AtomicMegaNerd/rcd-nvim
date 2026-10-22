@@ -25,11 +25,11 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mini.nvim": {
-      "rev": "4d84086ab334a88201b803d11d1086406fe7e43d",
+      "rev": "a6e23131010b800ecbab85fa6adc0ff38eae2c2d",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
-      "rev": "55f69b7ff536303dcd37460d7cbced9691b3f0a2",
+      "rev": "ed63925a065cddc73afd51c5d486f7956385a21f",
       "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
     "nvim-lint": {
