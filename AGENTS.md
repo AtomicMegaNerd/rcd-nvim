@@ -1,13 +1,10 @@
 # Neovim config
 
-This is a neovim config that can both be cloned onto a non-nix machine (work) and used as a flake on
-my nix managed machines at home.
+This is a neovim config that can both be cloned onto a non-nix machine (work) and used as a flake on my nix managed machines at home.
 
 ## Current Neovim Version
 
-**We are running Neovim 0.12.4**. Please consult online sources and neovim help pages for up-to-date
-information on this version. Do not rely on training data which will likely refer to older releases
-which are out of date.
+**We are running Neovim 0.12.4**. Please consult online sources and neovim help pages for up-to-date information on this version. Do not rely on training data which will likely refer to older releases which are out of date.
 
 ## Structure
 

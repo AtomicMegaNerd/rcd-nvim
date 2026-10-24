@@ -46,6 +46,15 @@ vim.api.nvim_create_autocmd("FileType", {
   group = amn_grp,
 })
 
+-- Markdown is soft-wrapped, not hard-wrapped, so the column guide is just noise
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.wo.colorcolumn = ""
+  end,
+  group = amn_grp,
+})
+
 -- Treat these files as shell scripts
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   command = "setf sh",
