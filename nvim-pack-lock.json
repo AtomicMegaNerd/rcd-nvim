@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "b72ed05dd452690181837d484984144a64709f17",
+      "rev": "f50d952de478b554d89bcca058691a69cb5681dd",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -17,7 +17,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "5dca84ef44f37b960a128a43d044ee348ff86fb4",
+      "rev": "507dfc85551ff2d9293ec215f10f19395252aada",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "grug-far.nvim": {
