@@ -1,35 +1,47 @@
 require("nvim-treesitter").setup({})
 
+-- Map Neovim filetypes to parser names where they differ.
 local langs = {
-  "bash",
-  "go",
-  "gomod",
-  "json",
-  "lua",
-  "markdown",
-  "python",
-  "sql",
-  "vim",
-  "yaml",
-  "toml",
-  "nix",
-  "diff",
-  "fish",
-  "html",
-  "rust",
-  "javascript",
-  "typescript",
-  "css",
-  "xml",
-  "dockerfile",
-  "nu",
+  bash = "bash",
+  sh = "bash",
+  go = "go",
+  gomod = "gomod",
+  json = "json",
+  lua = "lua",
+  markdown = "markdown",
+  python = "python",
+  sql = "sql",
+  vim = "vim",
+  yaml = "yaml",
+  toml = "toml",
+  nix = "nix",
+  diff = "diff",
+  fish = "fish",
+  html = "html",
+  rust = "rust",
+  javascript = "javascript",
+  javascriptreact = "javascript",
+  typescript = "typescript",
+  typescriptreact = "tsx",
+  css = "css",
+  xml = "xml",
+  dockerfile = "dockerfile",
+  nu = "nu",
 }
 
-require("nvim-treesitter").install(langs)
+local parsers = {}
+for ft, lang in pairs(langs) do
+  parsers[lang] = true
+  if ft ~= lang then
+    vim.treesitter.language.register(lang, ft)
+  end
+end
+
+require("nvim-treesitter").install(vim.tbl_keys(parsers))
 local trs_grp = vim.api.nvim_create_augroup("Treesitter", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
   group = trs_grp,
-  pattern = langs,
+  pattern = vim.tbl_keys(langs),
   callback = function()
     vim.treesitter.start()
     vim.wo.foldmethod = "expr"
