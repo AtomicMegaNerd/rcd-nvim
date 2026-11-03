@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "f91645b69f0e856a391ba4bb17fab029cfe1f6a7",
+      "rev": "06097529cf6d3618546436f9a6bd5beaed979aef",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -29,7 +29,7 @@
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
-      "rev": "ed63925a065cddc73afd51c5d486f7956385a21f",
+      "rev": "83ed5249cfdfc5790ab2c05f96038eeca7dd9451",
       "src": "https://github.com/shortcuts/no-neck-pain.nvim"
     },
     "nvim-lint": {
