@@ -17,7 +17,7 @@ vim.lsp.enable({
   "tsc",
   "tombi",
   "yamlls",
-  "rust-analyzer",
+  "rust_analyzer",
   "ty",
   "ruff",
 })
