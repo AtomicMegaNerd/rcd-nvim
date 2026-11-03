@@ -4,5 +4,5 @@ require("conform").setup({
     go = { "goimports", "golines" },
     bash = { "shfmt" },
   },
-  format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+  format_on_save = { timeout_ms = 2000, lsp_format = "fallback" },
 })
