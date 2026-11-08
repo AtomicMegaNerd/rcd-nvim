@@ -17,7 +17,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "6ab6a29d56888dcf66edfeb082ad4a46e7f075bb",
+      "rev": "bea6a134d2228a7766debd61dedb301c69b57e16",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "grug-far.nvim": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/MagicDuck/grug-far.nvim"
     },
     "mini.nvim": {
-      "rev": "9b132c10d34675315327a7d58cc6684cb4e8faf2",
+      "rev": "f9550dd81d0514927b7ad1794fd8eb8606ca28cd",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "no-neck-pain.nvim": {
