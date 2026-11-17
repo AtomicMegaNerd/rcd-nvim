@@ -10,13 +10,16 @@ cmp.setup({
         columns = { { "label" }, { "kind_icon", "kind" }, { "source_name" } },
       },
     },
-    ghost_text = { enabled = true },
+    ghost_text = { enabled = false },
   },
 
   sources = {
     default = { "lsp", "path", "buffer" },
     per_filetype = {
+      html = { "lsp", "path" },
+      javascriptreact = { "lsp", "path" },
       markdown = { "lsp", "path" },
+      typescriptreact = { "lsp", "path" },
     },
   },
 

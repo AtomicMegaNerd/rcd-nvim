@@ -1,5 +1,6 @@
 local catppuccin = require("catppuccin")
-local flavor = vim.env.CATPPUCCIN_FLAVOR ~= "" and vim.env.CATPPUCCIN_FLAVOR or "frappe"
+local env_flavor = vim.env.CATPPUCCIN_FLAVOR
+local flavor = env_flavor and env_flavor ~= "" and env_flavor or "frappe"
 catppuccin.setup({
   flavour = flavor,
   no_italic = true,
