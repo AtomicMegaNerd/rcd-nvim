@@ -7,6 +7,7 @@ cmp.setup({
     list = { selection = { preselect = true, auto_insert = true } },
     menu = {
       draw = {
+        padding = 1,
         columns = { { "label" }, { "kind_icon", "kind" }, { "source_name" } },
       },
     },

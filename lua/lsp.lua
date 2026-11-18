@@ -5,6 +5,7 @@ local map = vim.keymap.set
 vim.lsp.enable({
   "bashls",
   "docker_language_server",
+  "fish_lsp",
   "gopls",
   "lemminx",
   "marksman",
