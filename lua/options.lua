@@ -44,8 +44,8 @@ vim.o.wrap = true -- Enable visual wrapping
 vim.o.linebreak = true -- Wrap at words, not character boundaries
 vim.o.breakindent = true -- Wrapped lines align with original indent
 
--- Show helpful text indicators
-vim.o.list = true
+-- Hide whitespace indicators
+vim.o.list = false
 
 -- Status line always visible and global
 vim.o.laststatus = 3
